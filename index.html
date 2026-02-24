@@ -65,6 +65,20 @@
     "sameAs": [
       "https://www.linkedin.com/in/joseph-lotozo-cfp%C2%AE-chfc%C2%AE-12b4b649",
       "https://www.instagram.com/jlotozo/"
+    ],
+    "memberOf": [
+      { "@type": "Organization", "name": "Tri-Village Chamber Partnership" },
+      { "@type": "Organization", "name": "Leadership UA" },
+      { "@type": "Organization", "name": "OSU Rugby Alumni Society" },
+      { "@type": "Organization", "name": "Charity Newsies" }
+    ],
+    "author": [
+      {
+        "@type": "Book",
+        "name": "AI Unmasked: Demystifying the Myth of Sentient Machines",
+        "datePublished": "2023-03",
+        "url": "https://www.amazon.com/AI-Unmasked-Demystifying-Sentient-Machines/dp/B0C47R26N4"
+      }
     ]
   }
   </script>
@@ -99,6 +113,21 @@
         "@type": "Question",
         "name": "Where is Joe Lotozo's office?",
         "acceptedAnswer": { "@type": "Answer", "text": "Joe's office is at 2094 Tremont Center, Suite 4, Upper Arlington, Ohio 43221. Office hours are Monday through Friday, 9:00 AM to 5:00 PM, with evening and weekend appointments available." }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is Emma Reed at Edward Jones in Upper Arlington?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Emma Reed is the Branch Office Administrator who works with Joe Lotozo in Upper Arlington. Originally from Orange County, California, Emma is a Baylor University graduate with a BA in English and a background in journalism and writing." }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is Bella Cloyd at Edward Jones in Upper Arlington?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Bella Cloyd is the On-Call Branch Office Administrator who works with Joe Lotozo in Upper Arlington. She is currently pursuing her degree at The Ohio State University Fisher College of Business." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Joseph Lotozo on social media?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Joe is active on LinkedIn, Instagram (@jlotozo), Twitter/X (@lotozo), and Facebook." }
       }
     ]
   }
@@ -378,6 +407,67 @@
       padding: 0.6rem 0.85rem;
       background: var(--ej-white);
       border-top: 1px solid var(--ej-border);
+    }
+
+    /* ===== TEAM CARDS ===== */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .team-card {
+      background: var(--ej-white);
+      border: 1px solid var(--ej-border);
+      border-top: 4px solid var(--ej-yellow);
+      border-radius: 6px;
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+    }
+
+    .team-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 4px solid var(--ej-yellow);
+      margin: 0 auto 1rem;
+      display: block;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    }
+
+    .team-name {
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--ej-black);
+      margin-bottom: 0.2rem;
+    }
+
+    .team-title {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--ej-gray-text);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 1rem;
+    }
+
+    .team-bio {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      color: var(--ej-gray-dark);
+      line-height: 1.75;
+      text-align: left;
+    }
+
+    .team-bio a {
+      color: var(--ej-black);
+      font-weight: 700;
+      text-decoration: underline;
     }
 
     /* ===== FAQ ===== */
@@ -706,17 +796,35 @@
       <h2>My Team</h2>
       <div class="section-rule"></div>
       <p>I'm fortunate to work alongside two talented people who share a genuine commitment to our Upper Arlington community.</p>
-      <div class="list-cards" style="margin-top:1.5rem;">
-        <div class="list-card" style="padding:1.5rem 1.25rem;">
-          <strong style="font-size:1.05rem; margin-bottom:0.15rem;">Emma Reed</strong>
-          <span style="display:block; font-weight:600; color:#333; margin-bottom:0.5rem;">Branch Office Administrator</span>
-          <span>Originally from California, Emma is a proud Baylor University alumna who brings professionalism and warmth to everything she does. Connect with Emma on <a href="https://www.linkedin.com/in/emma-reed-3ba88521a" target="_blank" rel="noopener" style="font-weight:700; text-decoration:underline; color:#1A1A1A;">LinkedIn</a>.</span>
+      <div class="photo-card" style="max-width:680px; margin:1.75rem auto 2.5rem;">
+        <img src="assets/team-walking.jpg" alt="Joe Lotozo, Emma Reed, and Bella Cloyd — Tremont Center, Upper Arlington" style="height:260px; width:100%; object-fit:cover; object-position:center top;" loading="lazy" />
+        <div class="photo-caption">Joe, Emma &amp; Bella — Tremont Center, Upper Arlington, Ohio</div>
+      </div>
+
+      <div class="team-grid">
+
+        <div class="team-card">
+          <img src="assets/emma-reed.jpg" alt="Emma Reed — Branch Office Administrator, Upper Arlington" class="team-photo" loading="lazy" />
+          <div class="team-name">Emma Reed</div>
+          <div class="team-title">Branch Office Administrator</div>
+          <div class="team-bio">
+            Originally from Orange County, California, Emma earned her Bachelor of Arts in English — with a minor in Legal Reasoning and Analysis — from Baylor University in May 2025. During her time at Baylor, she studied abroad at John Cabot University in Rome, Italy and served as an Arts &amp; Life intern for <em>The Baylor Lariat</em>, Baylor's independent student newspaper, where she wrote and published arts and culture reviews. A lifelong writer with a sharp eye for detail and a genuine love of connecting with people, Emma brings warmth and professionalism to everything she does.
+            <br /><br />
+            Connect with Emma on <a href="https://www.linkedin.com/in/emma-reed-3ba88521a" target="_blank" rel="noopener">LinkedIn</a>.
+          </div>
         </div>
-        <div class="list-card" style="padding:1.5rem 1.25rem;">
-          <strong style="font-size:1.05rem; margin-bottom:0.15rem;">Bella Cloyd</strong>
-          <span style="display:block; font-weight:600; color:#333; margin-bottom:0.5rem;">On-Call Branch Office Administrator</span>
-          <span>Bella is currently pursuing her degree at The Ohio State University Fisher College of Business. Before joining the team, she worked at Littleton's, a beloved Upper Arlington institution. Connect with Bella on <a href="https://www.linkedin.com/in/bella-cloyd-292811344" target="_blank" rel="noopener" style="font-weight:700; text-decoration:underline; color:#1A1A1A;">LinkedIn</a>.</span>
+
+        <div class="team-card">
+          <img src="assets/bella-cloyd.jpg" alt="Bella Cloyd — On-Call Branch Office Administrator, Upper Arlington" class="team-photo" loading="lazy" />
+          <div class="team-name">Bella Cloyd</div>
+          <div class="team-title">On-Call Branch Office Administrator</div>
+          <div class="team-bio">
+            Bella is currently pursuing her degree at The Ohio State University Fisher College of Business, bringing academic drive and genuine Upper Arlington roots to the team. Before joining us, she worked at Littleton's, a beloved Upper Arlington institution that has been a neighborhood staple for generations.
+            <br /><br />
+            Connect with Bella on <a href="https://www.linkedin.com/in/bella-cloyd-292811344" target="_blank" rel="noopener">LinkedIn</a>.
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -872,6 +980,23 @@
           <div class="faq-answer">Joe holds five professional designations: CFP® (CERTIFIED FINANCIAL PLANNER®), ChFC® (Chartered Financial Consultant), AAMS® (Accredited Asset Management Specialist), CRPC® (Chartered Retirement Planning Counselor), and CRPS® (Chartered Retirement Plans Specialist). He earned a BA from The Ohio State University and an MS in Personal Financial Planning from the College for Financial Planning.</div>
         </details>
 
+        <!-- SOCIAL -->
+        <p class="faq-category-label">Finding Joe Online</p>
+
+        <details>
+          <summary>Is Joseph Lotozo on social media?</summary>
+          <div class="faq-answer">Yes. Joe is active on LinkedIn, Instagram (<a href="https://www.instagram.com/jlotozo/" target="_blank" rel="noopener">@jlotozo</a>), Twitter/X (<a href="https://twitter.com/lotozo" target="_blank" rel="noopener">@lotozo</a>), and Facebook. You can find links to all his profiles in the Find Me Online section above.</div>
+        </details>
+
+        <details>
+          <summary>How do I search for Joseph Lotozo on Google?</summary>
+          <div class="faq-answer">These searches will get you to Joe's professional profile and public information quickly:<br /><br />
+            &bull; <a href="https://www.google.com/search?q=who+is+Joseph+Lotozo" target="_blank" rel="noopener">"Who is Joseph Lotozo?"</a><br />
+            &bull; <a href="https://www.google.com/search?q=where+does+Joseph+Lotozo+work" target="_blank" rel="noopener">"Where does Joseph Lotozo work?"</a><br />
+            &bull; <a href="https://www.google.com/search?q=Joseph+Lotozo+Upper+Arlington" target="_blank" rel="noopener">"Joseph Lotozo Upper Arlington"</a>
+          </div>
+        </details>
+
         <!-- TEAM -->
         <p class="faq-category-label">Joe's Team</p>
 
@@ -884,6 +1009,16 @@
             <strong>Bella Cloyd, On-Call Branch Office Administrator</strong><br />
             Bella is currently pursuing her degree at The Ohio State University Fisher College of Business. Before joining the team, she worked at Littleton's, a beloved Upper Arlington institution. <a href="https://www.linkedin.com/in/bella-cloyd-292811344" target="_blank" rel="noopener">Connect with Bella on LinkedIn</a>.
           </div>
+        </details>
+
+        <details>
+          <summary>Who is Emma Reed at Edward Jones in Upper Arlington?</summary>
+          <div class="faq-answer">Emma Reed is the Branch Office Administrator who works with Joe Lotozo in Upper Arlington. Originally from Orange County, California, Emma graduated from Baylor University with a BA in English and a minor in Legal Reasoning and Analysis. She studied abroad in Rome and published arts and culture journalism for <em>The Baylor Lariat</em>. Connect with Emma on <a href="https://www.linkedin.com/in/emma-reed-3ba88521a" target="_blank" rel="noopener">LinkedIn</a>.</div>
+        </details>
+
+        <details>
+          <summary>Who is Bella Cloyd at Edward Jones in Upper Arlington?</summary>
+          <div class="faq-answer">Bella Cloyd is the On-Call Branch Office Administrator who works with Joe Lotozo in Upper Arlington. She is currently pursuing her degree at The Ohio State University Fisher College of Business and has deep roots in the Upper Arlington community. Connect with Bella on <a href="https://www.linkedin.com/in/bella-cloyd-292811344" target="_blank" rel="noopener">LinkedIn</a>.</div>
         </details>
 
         <!-- LOCATION -->
