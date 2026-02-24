@@ -36,7 +36,7 @@
     pointer-events: none;
     transition: opacity 0.6s ease, transform 0.6s ease;
     transform: translateX(60px);
-    padding: 60px 80px;
+    padding: 36px 60px;
     text-align: center;
     overflow: hidden;
   }
@@ -180,15 +180,15 @@
   .photo-grid {
     display: grid;
     gap: 10px;
-    margin-top: 30px;
+    margin-top: 20px;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1200px;
   }
   .photo-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
   .photo-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
   .photo-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
   .photo-frame {
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/10;
     border-radius: 14px;
     overflow: hidden;
     background: rgba(255,255,255,0.08);
@@ -505,10 +505,10 @@
     margin-bottom: 12px;
   }
   .tvcp-logo {
-    width: clamp(80px, 10vw, 130px);
+    width: clamp(140px, 18vw, 220px);
     margin-bottom: 16px;
-    opacity: 0.9;
-    filter: brightness(0) invert(1);
+    opacity: 0.95;
+    border-radius: 12px;
   }
 
   /* ─── THANK YOU ──────────────────────────────────────────── */
@@ -703,7 +703,7 @@
       <!-- Populated by JS -->
     </div>
     <!-- Real ribbon cutting photos -->
-    <div class="animate-5" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px;max-width:1100px;width:100%;height:180px;">
+    <div class="animate-5" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px;max-width:1200px;width:100%;height:240px;">
       <div style="border-radius:10px;overflow:hidden;position:relative;">
         <img src="photos/ribbon-cuttings/ribbon-cutting-roots-natural-kitchen-grandview-storefront-balloons.jpg" style="width:100%;height:100%;object-fit:cover;">
         <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.75));padding:12px 8px 6px;font-size:10px;font-weight:700;letter-spacing:0.04em;">Roots Natural Kitchen</div>
@@ -870,7 +870,7 @@
     </p>
     <!-- Host credit -->
     <div class="animate-5" style="margin-top:28px;display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:14px 22px;">
-      <div id="brett-avatar" style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex-shrink:0;background:linear-gradient(135deg,#2f8ea6,#f6881f);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;font-family:'Oswald',sans-serif;">BJ</div>
+      <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(246,136,31,0.4);"><img src="photos/general/brett-johnson-official.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;" onerror="this.parentElement.style.background='linear-gradient(135deg,#2f8ea6,#f6881f)';this.parentElement.innerHTML='BJ'"></div>
       <div style="text-align:left;">
         <div style="font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.05em;">Brett Johnson</div>
         <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#f6881f;font-weight:700;margin-top:3px;">Host · Circle270Media Podcast Consultants</div>
@@ -954,7 +954,7 @@
       </div>
       <!-- Rhiannon Mehring -->
       <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:18px 22px;text-align:left;display:flex;gap:16px;align-items:flex-start;">
-        <div id="rhiannon-avatar" style="width:60px;height:60px;border-radius:50%;overflow:hidden;flex-shrink:0;background:linear-gradient(135deg,#1a6b80,#2f8ea6);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:white;font-family:'Oswald',sans-serif;">RM</div>
+        <div style="width:60px;height:60px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(47,142,166,0.4);"><img src="photos/general/rhiannon-mehring-official.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a6b80,#2f8ea6)';this.parentElement.innerHTML='<span style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:22px;font-weight:900;color:white;font-family:Oswald,sans-serif\'>RM</span>'"></div>
         <div>
           <div style="font-family:'Oswald',sans-serif;font-size:19px;font-weight:700;letter-spacing:0.05em;">Rhiannon Mehring</div>
           <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#f6881f;font-weight:700;margin-top:3px;">Operations Manager</div>
@@ -963,7 +963,7 @@
       </div>
       <!-- Andrea Lukuch -->
       <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:18px 22px;text-align:left;display:flex;gap:16px;align-items:flex-start;">
-        <div id="andrea-avatar" style="width:60px;height:60px;border-radius:50%;overflow:hidden;flex-shrink:0;background:linear-gradient(135deg,#f6881f,#c24100);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:white;font-family:'Oswald',sans-serif;">AL</div>
+        <div style="width:60px;height:60px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(246,136,31,0.4);"><img src="photos/general/andrea-lukuch-official.png" style="width:100%;height:100%;object-fit:cover;object-position:top;" onerror="this.parentElement.style.background='linear-gradient(135deg,#f6881f,#c24100)';this.parentElement.innerHTML='<span style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:22px;font-weight:900;color:white;font-family:Oswald,sans-serif\'>AL</span>'"></div>
         <div>
           <div style="font-family:'Oswald',sans-serif;font-size:19px;font-weight:700;letter-spacing:0.05em;">Andrea Lukuch</div>
           <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#f6881f;font-weight:700;margin-top:3px;">Past Chair</div>
@@ -972,7 +972,7 @@
       </div>
       <!-- Rob Grahovac -->
       <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:18px 22px;text-align:left;display:flex;gap:16px;align-items:flex-start;">
-        <div id="rob-avatar" style="width:60px;height:60px;border-radius:50%;overflow:hidden;flex-shrink:0;background:linear-gradient(135deg,#2f8ea6,#1a4a5e);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:white;font-family:'Oswald',sans-serif;">RG</div>
+        <div style="width:60px;height:60px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(47,142,166,0.4);"><img src="photos/general/rob-grahovac-official.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;" onerror="this.parentElement.style.background='linear-gradient(135deg,#2f8ea6,#1a4a5e)';this.parentElement.innerHTML='<span style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:22px;font-weight:900;color:white;font-family:Oswald,sans-serif\'>RG</span>'"></div>
         <div>
           <div style="font-family:'Oswald',sans-serif;font-size:19px;font-weight:700;letter-spacing:0.05em;">Rob Grahovac</div>
           <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#f6881f;font-weight:700;margin-top:3px;">Board Member, Outgoing 2025</div>
@@ -1220,9 +1220,6 @@ const RIBBON_CUTTINGS = [
   "Boulevard Presbyterian Church",
   "Pinkham Medical",
   "Grandview Heights City Hall, Police & Fire",
-  "New Business Opening",
-  "New Business Opening",
-  "New Business Opening",
 ];
 
 // WEBSITE SPOTLIGHTS (from chamberpartnership.org — 2025 posts)
@@ -1314,8 +1311,8 @@ function populateSlides() {
   const ribbonEl = document.getElementById('ribbon-list');
   if (ribbonEl) {
     const ribbonEvents = EVENTS.filter(e => e.category === 'Ribbon Cutting/Grand Opening');
-    ribbonEl.innerHTML = ribbonEvents.map((e, i) =>
-      `<div class="ribbon-pill"><span class="scissors">✂️</span>${RIBBON_CUTTINGS[i] !== 'New Business Opening' ? RIBBON_CUTTINGS[i] : e.title.replace('Ribbon Cutting #'+(i+1), 'Business #'+(i+1))}</div>`
+    ribbonEl.innerHTML = RIBBON_CUTTINGS.map(name =>
+      `<div class="ribbon-pill"><span class="scissors">✂️</span>${name}</div>`
     ).join('');
   }
 
