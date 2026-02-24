@@ -791,29 +791,41 @@
   <!-- ════════════════════════════════════════════════
        SLIDE 11 — SPEAKERS & PRESENTERS (renumbered)
   ════════════════════════════════════════════════ -->
-  <div class="slide bg-teal" id="slide-9">
+  <div class="slide bg-teal" id="slide-9" style="flex-direction:row;padding:0;">
     <div class="deco-circle" style="width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);top:-80px;left:-80px;"></div>
-    <!-- Left photo strip -->
-    <div class="animate-1" style="position:absolute;left:0;top:0;bottom:0;width:clamp(100px,10vw,150px);display:flex;flex-direction:column;gap:4px;overflow:hidden;opacity:0.55;">
-      <img src="photos/luncheons/luncheon-speaker-presenting-to-audience.jpg" style="width:100%;flex:1;object-fit:cover;">
-      <img src="photos/morning-perks/morning-perk-speaker-presentation.jpg" style="width:100%;flex:1;object-fit:cover;">
-      <img src="photos/workshops/workshop-key4women-presenter-keybank-01.jpg" style="width:100%;flex:1;object-fit:cover;">
+    <!-- LEFT: 2×3 photo grid filling left half of screen -->
+    <div class="animate-1" style="width:50%;height:100%;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr);gap:4px;overflow:hidden;flex-shrink:0;">
+      <div style="overflow:hidden;">
+        <img src="photos/luncheons/luncheon-speaker-presenting-to-audience.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;">
+      </div>
+      <div style="overflow:hidden;">
+        <img src="photos/bybs-conference/bybs-conference-panel-discussion-three-speakers.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;">
+      </div>
+      <div style="overflow:hidden;">
+        <img src="photos/workshops/workshop-strengths-presenter-orange-wall.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;">
+      </div>
+      <div style="overflow:hidden;">
+        <img src="photos/luncheons/membership-appreciation-luncheon-presenter-at-podium-screens.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;">
+      </div>
+      <div style="overflow:hidden;">
+        <img src="photos/bybs-conference/bybs-keynote-woman-red-dress-full-room.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;">
+      </div>
+      <div style="overflow:hidden;">
+        <img src="photos/workshops/workshop-key4women-presenter-keybank-01.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;">
+      </div>
     </div>
-    <!-- Right photo strip -->
-    <div class="animate-1" style="position:absolute;right:0;top:0;bottom:0;width:clamp(100px,10vw,150px);display:flex;flex-direction:column;gap:4px;overflow:hidden;opacity:0.55;">
-      <img src="photos/luncheons/membership-appreciation-luncheon-presenter-at-podium-screens.jpg" style="width:100%;flex:1;object-fit:cover;">
-      <img src="photos/morning-perks/morning-perk-carmenton-district-amanda-hoffsis-01.jpg" style="width:100%;flex:1;object-fit:cover;">
-      <img src="photos/bybs-conference/bybs-conference-panel-discussion-three-speakers.jpg" style="width:100%;flex:1;object-fit:cover;">
-    </div>
-    <p class="eyebrow animate-1">Knowledge shared</p>
-    <div class="big-number count-anim" style="font-size:clamp(80px,14vw,170px);">40</div>
-    <p class="big-label animate-2">Speakers &amp; Presenters</p>
-    <p class="subline animate-3" style="font-size:clamp(13px,1.5vw,18px);margin-top:12px;">
-      Development Downloads · Morning Perks · Luncheons<br>
-      Experts across business, health, finance &amp; community
-    </p>
-    <div class="animate-4" style="margin-top:28px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;max-width:700px;" id="speaker-tags">
-      <!-- Category tags inserted by JS -->
+    <!-- RIGHT: text content -->
+    <div style="width:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:36px 40px;text-align:center;">
+      <p class="eyebrow animate-1">Knowledge shared</p>
+      <div class="big-number count-anim" style="font-size:clamp(70px,12vw,150px);">40</div>
+      <p class="big-label animate-2">Speakers &amp;<br>Presenters</p>
+      <p class="subline animate-3" style="font-size:clamp(13px,1.4vw,18px);margin-top:14px;">
+        Development Downloads<br>Morning Perks · Luncheons<br>
+        <span style="opacity:0.7;">Experts across business, health,<br>finance &amp; community</span>
+      </p>
+      <div class="animate-4" style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:440px;" id="speaker-tags">
+        <!-- Category tags inserted by JS -->
+      </div>
     </div>
   </div>
 
@@ -832,7 +844,7 @@
         <img src="photos/workshops/dev-download-slide-placemaking-tremont-center-01.jpg" style="width:100%;height:100%;object-fit:cover;">
       </div>
       <div style="border-radius:14px;overflow:hidden;">
-        <img src="photos/workshops/dev-download-slide-life-science-investments-01.jpg" style="width:100%;height:100%;object-fit:cover;">
+        <img src="photos/workshops/dev-download-slide-anduril-investment-01-cropped.jpg" style="width:100%;height:100%;object-fit:cover;">
       </div>
     </div>
     <div class="animate-4" style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
@@ -871,31 +883,35 @@
   ════════════════════════════════════════════════ -->
   <div class="slide bg-midnight" id="slide-10">
     <div class="deco-circle" style="width:600px;height:600px;background:radial-gradient(circle,rgba(245,200,66,0.1) 0%,transparent 70%);bottom:-150px;right:-150px;"></div>
-    <!-- Brett Johnson — left panel -->
-    <div class="animate-3" style="position:absolute;left:clamp(12px,3vw,48px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(246,136,31,0.25);border-radius:20px;padding:20px 16px;width:clamp(110px,13vw,170px);">
-      <div style="width:clamp(70px,8vw,100px);height:clamp(70px,8vw,100px);border-radius:50%;overflow:hidden;border:3px solid rgba(246,136,31,0.5);">
-        <img src="photos/general/brett-johnson-official.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;">
-      </div>
-      <div style="text-align:center;">
-        <div style="font-family:'Oswald',sans-serif;font-size:clamp(14px,1.5vw,18px);font-weight:700;letter-spacing:0.04em;">Brett Johnson</div>
-        <div style="font-size:clamp(10px,1vw,13px);color:#f6881f;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-top:4px;">Host</div>
-        <div style="font-size:clamp(9px,0.9vw,12px);opacity:0.55;margin-top:4px;line-height:1.4;">Circle270Media Podcast Consultants</div>
-      </div>
-    </div>
-    <!-- Katie Ellis — right panel -->
-    <div class="animate-3" style="position:absolute;right:clamp(12px,3vw,48px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(47,142,166,0.25);border-radius:20px;padding:20px 16px;width:clamp(110px,13vw,170px);">
-      <div style="width:clamp(70px,8vw,100px);height:clamp(70px,8vw,100px);border-radius:50%;overflow:hidden;border:3px solid rgba(47,142,166,0.5);">
-        <img src="photos/general/katie-ellis-official2.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;">
-      </div>
-      <div style="text-align:center;">
-        <div style="font-family:'Oswald',sans-serif;font-size:clamp(14px,1.5vw,18px);font-weight:700;letter-spacing:0.04em;">Katie Ellis</div>
-        <div style="font-size:clamp(10px,1vw,13px);color:#2f8ea6;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-top:4px;">Co-Host</div>
-        <div style="font-size:clamp(9px,0.9vw,12px);opacity:0.55;margin-top:4px;line-height:1.4;">TVCP President &amp; CEO</div>
-      </div>
-    </div>
     <p class="eyebrow animate-1">December 2025 milestone</p>
     <div class="mic-icon animate-2">🎙️</div>
-    <div class="big-number gold count-anim" style="font-size:clamp(80px,15vw,180px);">100</div>
+    <!-- Brett + 100 + Katie — centered row -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:clamp(20px,4vw,48px);margin:10px 0 6px;">
+      <!-- Brett -->
+      <div class="animate-3" style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+        <div style="width:clamp(100px,12vw,150px);height:clamp(100px,12vw,150px);border-radius:50%;overflow:hidden;border:4px solid rgba(246,136,31,0.6);box-shadow:0 0 30px rgba(246,136,31,0.25);">
+          <img src="photos/general/brett-johnson-official.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:'Oswald',sans-serif;font-size:clamp(16px,1.8vw,22px);font-weight:700;letter-spacing:0.04em;">Brett Johnson</div>
+          <div style="font-size:clamp(11px,1.1vw,14px);color:#f6881f;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-top:3px;">Host</div>
+          <div style="font-size:clamp(10px,1vw,13px);opacity:0.55;margin-top:3px;line-height:1.3;">Circle270Media<br>Podcast Consultants</div>
+        </div>
+      </div>
+      <!-- 100 -->
+      <div class="big-number gold count-anim" style="font-size:clamp(80px,15vw,180px);margin:0;">100</div>
+      <!-- Katie -->
+      <div class="animate-3" style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+        <div style="width:clamp(100px,12vw,150px);height:clamp(100px,12vw,150px);border-radius:50%;overflow:hidden;border:4px solid rgba(47,142,166,0.6);box-shadow:0 0 30px rgba(47,142,166,0.25);">
+          <img src="photos/general/katie-ellis-official2.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:'Oswald',sans-serif;font-size:clamp(16px,1.8vw,22px);font-weight:700;letter-spacing:0.04em;">Katie Ellis</div>
+          <div style="font-size:clamp(11px,1.1vw,14px);color:#2f8ea6;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-top:3px;">Co-Host</div>
+          <div style="font-size:clamp(10px,1vw,13px);opacity:0.55;margin-top:3px;line-height:1.3;">TVCP President<br>&amp; CEO</div>
+        </div>
+      </div>
+    </div>
     <p class="big-label animate-3">Podcast Episodes</p>
     <p class="subline animate-4" style="font-size:clamp(14px,1.8vw,22px);margin-top:12px;">
       <em>Business Inspires</em> hit 100 episodes in December 2025.<br>
@@ -913,8 +929,8 @@
       Thanksgiving Open House
       <span class="accent" style="font-size:0.65em;display:block;margin-top:6px;">Joe Lotozo, Financial Advisor</span>
     </h2>
-    <!-- 2×3 photo grid using our real photos -->
-    <div class="animate-3" style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:8px;margin-top:24px;max-width:1100px;width:100%;height:340px;" id="oh-grid-main">
+    <!-- 2×4 photo grid using our real photos — enlarged -->
+    <div class="animate-3" style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:8px;margin-top:20px;max-width:1300px;width:100%;height:clamp(340px,52vh,480px);" id="oh-grid-main">
     </div>
   </div>
 
@@ -924,7 +940,11 @@
   <div class="slide bg-slate" id="slide-openhouse2">
     <p class="eyebrow animate-1">The people make the party</p>
     <h2 class="headline animate-2" style="font-size:clamp(26px,4vw,50px);">Open House<br><span class="accent">Moments</span></h2>
-    <div class="animate-3" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:20px;max-width:1100px;width:100%;" id="oh-grid-moments">
+    <div class="animate-3" style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:8px;margin-top:16px;max-width:1300px;width:100%;height:clamp(300px,46vh,420px);" id="oh-grid-moments">
+    </div>
+    <!-- Call to action -->
+    <div class="animate-4" style="margin-top:20px;padding:14px 36px;background:linear-gradient(135deg,rgba(246,136,31,0.15),rgba(47,142,166,0.15));border:2px solid rgba(246,136,31,0.45);border-radius:100px;font-size:clamp(16px,2vw,24px);font-weight:700;letter-spacing:0.04em;text-align:center;">
+      What event can the Chamber promote or help you market in 2026?
     </div>
   </div>
 
@@ -1185,7 +1205,7 @@ const OPEN_HOUSE_PHOTOS = [
   { file: OH+'ej-open-house_01_branded-wall-happy-fall.jpg',            caption: 'Edward Jones Open House' },
   { file: OH+'ej-open-house_06_charcuterie-board-strawberries.jpg',     caption: 'Charcuterie Board' },
   { file: OH+'ej-open-house_10_stock-ticker-cookies.jpg',               caption: 'Stock Ticker Cookies!' },
-  { file: OH+'ej-open-house_21_exterior-building.jpg',                  caption: 'Edward Jones — Grandview' },
+  { file: OH+'ej-open-house_21_exterior-building.jpg',                  caption: 'Edward Jones — Tremont Center' },
   { file: OH+'ej-open-house_08_edward-jones-door-sign-fall-leaves.jpg', caption: 'Open House' },
 ];
 
@@ -1270,7 +1290,7 @@ const SPOTLIGHTS = [
     date: "2025-06-04",
     url: "https://chamberpartnership.org/business-spotlight-rebel-marketing/",
     imageUrl: "https://chamberpartnership.org/wp-content/uploads/2025/06/rebel-marketing-800x800-1.png",
-    photoPosition: "center top",
+    photoPosition: "center 35%",
     desc: "Latina-owned full-service marketing agency in Columbus — bold, results-driven, and unapologetically different."
   },
   {
