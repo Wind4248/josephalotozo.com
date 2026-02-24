@@ -380,18 +380,22 @@
 
     .list-card .card-link {
       display: inline-block;
-      margin-top: 0.6rem;
+      margin-top: 0.75rem;
       font-family: 'Arial', sans-serif;
-      font-size: 0.78rem;
+      font-size: 0.85rem;
       font-weight: 700;
-      color: var(--ej-yellow);
+      color: #1a1a1a;
+      background: var(--ej-yellow);
       text-decoration: none;
-      letter-spacing: 0.03em;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
+      letter-spacing: 0.04em;
+      padding: 0.4rem 0.9rem;
+      border-radius: 3px;
+      border: none;
+      transition: background 0.2s, transform 0.15s;
     }
     .list-card .card-link:hover {
-      border-bottom-color: var(--ej-yellow);
+      background: var(--ej-yellow-dark);
+      transform: translateY(-1px);
     }
 
     /* ===== PHOTO GALLERY ===== */
