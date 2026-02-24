@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TVCP 2025 — Year in Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* ─── RESET & BASE ─────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background: #0a0a0f;
+    font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+    color: #fff;
+    user-select: none;
+  }
+
+  /* ─── SLIDE DECK ────────────────────────────────────────── */
+  #deck {
+    width: 100vw; height: 100vh;
+    position: relative;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateX(60px);
+    padding: 60px 80px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .slide.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(0);
+  }
+  .slide.exit-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  /* ─── BACKGROUNDS — TVCP Brand Palette ──────────────────── */
+  /* Primary: #2f8ea6 (teal) · Accent: #f6881f (orange) */
+  .bg-navy    { background: linear-gradient(135deg, #071828 0%, #0d2d4a 50%, #133a5e 100%); }
+  .bg-gold    { background: linear-gradient(135deg, #6b3100 0%, #c05e00 50%, #f6881f 100%); }
+  .bg-teal    { background: linear-gradient(135deg, #052030 0%, #0b3d52 60%, #2f8ea6 100%); }
+  .bg-purple  { background: linear-gradient(135deg, #1a0533 0%, #4a1278 60%, #7b2fbe 100%); }
+  .bg-crimson { background: linear-gradient(135deg, #2d0014 0%, #7a0033 60%, #c0003c 100%); }
+  .bg-forest  { background: linear-gradient(135deg, #081c10 0%, #103520 60%, #1a5c30 100%); }
+  .bg-slate   { background: linear-gradient(135deg, #071828 0%, #0d2d4a 50%, #163650 100%); }
+  .bg-ember   { background: linear-gradient(135deg, #1a0a00 0%, #7c3200 50%, #d4620e 100%); }
+  .bg-midnight { background: linear-gradient(160deg, #060c14 0%, #081a2e 50%, #0d2d45 100%); }
+
+  /* ─── NOISE OVERLAY ─────────────────────────────────────── */
+  .slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .slide > * { position: relative; z-index: 1; }
+
+  /* ─── TYPOGRAPHY ─────────────────────────────────────────── */
+  .eyebrow {
+    font-size: clamp(11px, 1.2vw, 14px);
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    margin-bottom: 18px;
+  }
+  .headline {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(42px, 7vw, 96px);
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+  .headline .accent {
+    display: block;
+    background: linear-gradient(90deg, #f6881f, #ffb86b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .subline {
+    font-size: clamp(16px, 2.2vw, 26px);
+    font-weight: 400;
+    opacity: 0.8;
+    max-width: 700px;
+    line-height: 1.5;
+    margin-top: 20px;
+  }
+
+  /* ─── BIG NUMBER ─────────────────────────────────────────── */
+  .big-number {
+    font-size: clamp(100px, 20vw, 220px);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    background: linear-gradient(180deg, #ffffff 20%, rgba(255,255,255,0.5) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 10px 0 6px;
+  }
+  .big-number.gold {
+    background: linear-gradient(180deg, #f6881f 0%, #ff5500 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  .big-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(18px, 2.8vw, 36px);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+  .big-sublabel {
+    font-size: clamp(13px, 1.5vw, 18px);
+    opacity: 0.6;
+    margin-top: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ─── STAT GRID ──────────────────────────────────────────── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 40px;
+    max-width: 960px;
+    width: 100%;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 28px 20px;
+    backdrop-filter: blur(10px);
+  }
+  .stat-card .num {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 700;
+    background: linear-gradient(180deg, #f6881f 0%, #ff6b00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+  .stat-card .lbl {
+    font-size: clamp(11px, 1.1vw, 14px);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-top: 8px;
+  }
+
+  /* ─── PHOTO GRID ──────────────────────────────────────────── */
+  .photo-grid {
+    display: grid;
+    gap: 10px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 1100px;
+  }
+  .photo-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .photo-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .photo-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .photo-frame {
+    aspect-ratio: 4/3;
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+  }
+  .photo-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .photo-frame .caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 20px 10px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-align: center;
+  }
+  .photo-frame.tall { aspect-ratio: 3/4; }
+  .photo-frame.wide { aspect-ratio: 16/9; }
+  .photo-frame.placeholder::after {
+    content: attr(data-label);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px;
+    text-align: center;
+  }
+
+  /* ─── SINGLE HERO PHOTO ──────────────────────────────────── */
+  .hero-photo {
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16/9;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 30px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    position: relative;
+  }
+  .hero-photo img { width:100%; height:100%; object-fit:cover; }
+  .hero-photo.placeholder::after {
+    content: attr(data-label);
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight:600; color:rgba(255,255,255,0.3);
+    letter-spacing:0.1em; text-transform:uppercase;
+  }
+
+  /* ─── RIBBON CUTTING LIST ────────────────────────────────── */
+  .ribbon-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 30px;
+    max-width: 900px;
+  }
+  .ribbon-pill {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px;
+    padding: 10px 22px;
+    font-size: clamp(12px, 1.2vw, 15px);
+    font-weight: 600;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ribbon-pill .scissors { font-size: 16px; }
+
+  /* ─── EVENT TIMELINE ─────────────────────────────────────── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 30px;
+    max-width: 800px;
+    width: 100%;
+    text-align: left;
+  }
+  .tl-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 14px 20px;
+  }
+  .tl-date {
+    min-width: 80px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #2f8ea6;
+    text-transform: uppercase;
+  }
+  .tl-name {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .tl-cat {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-top: 3px;
+  }
+
+  /* ─── MONTH PILLS ────────────────────────────────────────── */
+  .month-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+    max-width: 900px;
+  }
+  .month-pill {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px;
+    padding: 14px 18px;
+    min-width: 88px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .month-pill .m-name {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.65;
+  }
+  .month-pill .m-count {
+    font-size: 28px;
+    font-weight: 900;
+    color: #f6881f;
+    line-height: 1.1;
+    margin-top: 4px;
+  }
+
+  /* ─── PODCAST SLIDE ──────────────────────────────────────── */
+  .mic-icon {
+    font-size: clamp(60px, 10vw, 120px);
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 30px rgba(245,200,66,0.5));
+  }
+
+  /* ─── PROGRESS BAR ───────────────────────────────────────── */
+  #progress {
+    position: fixed;
+    bottom: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2f8ea6, #f6881f);
+    transition: width 0.4s ease;
+    z-index: 100;
+  }
+
+  /* ─── SLIDE COUNTER ──────────────────────────────────────── */
+  #counter {
+    position: fixed;
+    bottom: 18px;
+    right: 24px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.3);
+    z-index: 100;
+  }
+
+  /* ─── NAV HINTS ──────────────────────────────────────────── */
+  #nav-hint {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    z-index: 100;
+    transition: opacity 0.5s;
+  }
+
+  /* ─── DECORATIVE CIRCLES ─────────────────────────────────── */
+  .deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── ENTRY ANIMATIONS ───────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+  }
+  @keyframes countUp {
+    from { opacity: 0; transform: translateY(20px) scale(0.8); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position:  200% center; }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.6; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33%       { transform: translateY(-18px) rotate(1deg); }
+    66%       { transform: translateY(-8px) rotate(-1deg); }
+  }
+  @keyframes floatReverse {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33%       { transform: translateY(14px) rotate(-1deg); }
+    66%       { transform: translateY(6px) rotate(1deg); }
+  }
+  @keyframes glowPulse {
+    0%, 100% { filter: drop-shadow(0 0 20px rgba(246,136,31,0.4)); }
+    50%       { filter: drop-shadow(0 0 50px rgba(246,136,31,0.8)) drop-shadow(0 0 80px rgba(47,142,166,0.4)); }
+  }
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes zoomIn {
+    from { transform: scale(1.08); opacity: 0; }
+    to   { transform: scale(1);    opacity: 1; }
+  }
+  @keyframes slideInLeft {
+    from { transform: translateX(-40px); opacity: 0; }
+    to   { transform: translateX(0);      opacity: 1; }
+  }
+  @keyframes slideInRight {
+    from { transform: translateX(40px); opacity: 0; }
+    to   { transform: translateX(0);     opacity: 1; }
+  }
+  @keyframes popIn {
+    0%   { transform: scale(0.6); opacity: 0; }
+    70%  { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+  }
+
+  .slide.active .animate-1 { animation: fadeUp 0.6s ease 0.1s both; }
+  .slide.active .animate-2 { animation: fadeUp 0.6s ease 0.25s both; }
+  .slide.active .animate-3 { animation: fadeUp 0.6s ease 0.4s both; }
+  .slide.active .animate-4 { animation: fadeUp 0.6s ease 0.55s both; }
+  .slide.active .animate-5 { animation: fadeUp 0.6s ease 0.7s both; }
+  .slide.active .count-anim { animation: countUp 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.3s both; }
+  .slide.active .zoom-in    { animation: zoomIn 0.8s ease 0.2s both; }
+  .slide.active .pop-in     { animation: popIn 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.4s both; }
+  .slide.active .slide-left  { animation: slideInLeft 0.7s ease 0.3s both; }
+  .slide.active .slide-right { animation: slideInRight 0.7s ease 0.3s both; }
+
+  /* Photo grids stagger their children on entry */
+  .slide.active .photo-grid .photo-frame:nth-child(1) { animation: zoomIn 0.5s ease 0.4s both; }
+  .slide.active .photo-grid .photo-frame:nth-child(2) { animation: zoomIn 0.5s ease 0.5s both; }
+  .slide.active .photo-grid .photo-frame:nth-child(3) { animation: zoomIn 0.5s ease 0.6s both; }
+  .slide.active .photo-grid .photo-frame:nth-child(4) { animation: zoomIn 0.5s ease 0.7s both; }
+  .slide.active .photo-grid .photo-frame:nth-child(5) { animation: zoomIn 0.5s ease 0.8s both; }
+  .slide.active .photo-grid .photo-frame:nth-child(6) { animation: zoomIn 0.5s ease 0.9s both; }
+
+  /* Floating decorative orbs */
+  .float-orb-1 { animation: float 8s ease-in-out infinite; }
+  .float-orb-2 { animation: floatReverse 10s ease-in-out infinite; }
+  .float-orb-3 { animation: float 12s ease-in-out 2s infinite; }
+
+  /* Mic glow */
+  .slide.active .mic-icon { animation: fadeUp 0.6s ease 0.2s both, glowPulse 2.5s ease-in-out 1s infinite; }
+
+  .shimmer-text {
+    background: linear-gradient(90deg, #fff 0%, #f6881f 25%, #2f8ea6 50%, #f6881f 75%, #fff 100%);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+  }
+
+  /* ─── LOGO / ORG NAME ────────────────────────────────────── */
+  .org-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(13px, 1.5vw, 17px);
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 12px;
+  }
+  .tvcp-logo {
+    width: clamp(80px, 10vw, 130px);
+    margin-bottom: 16px;
+    opacity: 0.9;
+    filter: brightness(0) invert(1);
+  }
+
+  /* ─── THANK YOU ──────────────────────────────────────────── */
+  .thankyou-row {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 36px;
+  }
+  .thankyou-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 180px;
+  }
+  .thankyou-card .ty-icon { font-size: 32px; margin-bottom: 8px; }
+  .thankyou-card .ty-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    background: linear-gradient(180deg, #f6881f, #ff5500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+  .thankyou-card .ty-lbl {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    text-align: center;
+  }
+
+  /* ─── MOBILE NAV BUTTONS ─────────────────────────────────── */
+  .nav-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    width: 44px; height: 44px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-btn:hover { background: rgba(255,255,255,0.18); color: #fff; }
+  #btn-prev { left: 12px; }
+  #btn-next { right: 12px; }
+</style>
+</head>
+<body>
+
+<div id="deck">
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE 1 — TITLE
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-midnight active" id="slide-0">
+    <!-- Decorative orbs -->
+    <div class="deco-circle float-orb-1" style="width:600px;height:600px;background:radial-gradient(circle,rgba(246,136,31,0.14) 0%,transparent 70%);top:-150px;left:-150px;"></div>
+    <div class="deco-circle float-orb-2" style="width:400px;height:400px;background:radial-gradient(circle,rgba(47,142,166,0.12) 0%,transparent 70%);bottom:-100px;right:-80px;"></div>
+    <div class="deco-circle float-orb-3" style="width:250px;height:250px;background:radial-gradient(circle,rgba(246,136,31,0.08) 0%,transparent 70%);top:40%;right:5%;"></div>
+
+    <img src="https://chamberpartnership.org/wp-content/uploads/2023/03/2023-trivillage-words-1013x1024.png" class="tvcp-logo animate-1" alt="Tri-Village Chamber Partnership" onerror="this.style.display='none'">
+    <p class="org-name animate-1">Tri-Village Chamber Partnership</p>
+    <h1 class="headline animate-2">
+      2025
+      <span class="accent shimmer-text">Year in Review</span>
+    </h1>
+    <p class="subline animate-3" style="opacity:0.6;font-size:clamp(14px,1.6vw,20px);margin-top:24px;letter-spacing:0.05em;">
+      A year of growth, connection &amp; community
+    </p>
+    <div class="animate-4" style="margin-top:40px;display:flex;gap:16px;align-items:center;">
+      <div style="height:1px;width:80px;background:rgba(255,255,255,0.2);"></div>
+      <span style="font-size:13px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.45;">February 26, 2026</span>
+      <div style="height:1px;width:80px;background:rgba(255,255,255,0.2);"></div>
+    </div>
+    <div class="animate-5" style="margin-top:28px;font-size:clamp(14px,1.8vw,22px);font-weight:800;color:#f6881f;letter-spacing:0.08em;text-transform:uppercase;">
+      Develop. Grow. Succeed.
+    </div>
+    <!-- TVCP's own 2025 Wrapped reel cover — from their Instagram -->
+    <div class="animate-5" style="position:absolute;bottom:32px;right:40px;width:clamp(60px,7vw,100px);border-radius:16px;overflow:hidden;opacity:0.5;border:2px solid rgba(255,255,255,0.2);">
+      <img src="photos/social/instagram-post1-reel-dec2025.jpg" alt="TVCP 2025 Wrapped" style="width:100%;display:block;">
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE 2 — BY THE NUMBERS (overview)
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-navy" id="slide-1">
+    <div class="deco-circle" style="width:500px;height:500px;background:radial-gradient(circle,rgba(245,200,66,0.08) 0%,transparent 70%);top:-100px;right:-100px;"></div>
+    <p class="eyebrow animate-1">2025 at a glance</p>
+    <h2 class="headline animate-2" style="font-size:clamp(32px,5vw,60px);">The numbers<br><span class="accent">speak for themselves.</span></h2>
+    <div class="stat-grid animate-3">
+      <div class="stat-card">
+        <div class="num">437</div>
+        <div class="lbl">Total Members</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">74</div>
+        <div class="lbl">New Members</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">48</div>
+        <div class="lbl">Events Hosted</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">12</div>
+        <div class="lbl">Ribbon Cuttings</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">40</div>
+        <div class="lbl">Speakers &amp; Presenters</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">48</div>
+        <div class="lbl">Committee Meetings</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE 3 — MEMBERS
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-forest" id="slide-2">
+    <div class="deco-circle" style="width:700px;height:700px;background:radial-gradient(circle,rgba(255,255,255,0.05) 0%,transparent 70%);bottom:-200px;left:-200px;"></div>
+    <p class="eyebrow animate-1">Our community</p>
+    <div class="big-number gold count-anim">437</div>
+    <p class="big-label animate-2">Member Businesses</p>
+    <p class="big-sublabel animate-3">making Tri-Village stronger every day</p>
+    <div class="animate-4" style="margin-top:40px;display:flex;align-items:center;gap:20px;background:rgba(255,255,255,0.08);border-radius:100px;padding:16px 32px;border:1px solid rgba(255,255,255,0.15);">
+      <span style="font-size:36px;font-weight:900;font-family:'Oswald',sans-serif;color:#f6881f;">+74</span>
+      <div style="text-align:left;">
+        <div style="font-size:16px;font-weight:700;">New Members Welcomed</div>
+        <div style="font-size:12px;opacity:0.55;letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;">in 2025 alone</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE 4 — EVENTS COUNT
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-teal" id="slide-3">
+    <p class="eyebrow animate-1">Busy year</p>
+    <div class="big-number count-anim">48</div>
+    <p class="big-label animate-2">Events in 2025</p>
+    <p class="subline animate-3" style="font-size:clamp(14px,1.8vw,22px);margin-top:16px;">
+      Monthly Luncheons · Happy Hours · Morning Perks<br>Workshops · Ribbon Cuttings · &amp; more
+    </p>
+    <!-- Month-by-month event count pills — update numbers once scraped data is in -->
+    <div class="month-row animate-4" id="month-pills">
+      <!-- Populated by JS from EVENTS data below -->
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE 5 — PHOTO MOMENT: MONTHLY LUNCHEONS
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-slate" id="slide-4">
+    <p class="eyebrow animate-1">Every single month</p>
+    <h2 class="headline animate-2" style="font-size:clamp(28px,4.5vw,56px);">Monthly Luncheons</h2>
+    <p class="subline animate-3" style="font-size:clamp(13px,1.5vw,18px);margin-top:12px;">Networking, learning, and great food — 12 months in a row.</p>
+    <div class="photo-grid cols-3 animate-4" id="luncheon-photos">
+      <!-- Photos auto-inserted from EVENTS data, or use placeholders -->
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE 6 — RIBBON CUTTINGS
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-crimson" id="slide-5">
+    <div class="deco-circle" style="width:500px;height:500px;background:radial-gradient(circle,rgba(255,100,100,0.15) 0%,transparent 70%);top:-100px;right:-100px;"></div>
+    <p class="eyebrow animate-1">Celebrating new beginnings</p>
+    <div class="big-number count-anim" style="font-size:clamp(80px,15vw,180px);">12</div>
+    <p class="big-label animate-2">Ribbon Cuttings &amp; Grand Openings</p>
+    <p class="big-sublabel animate-3">New businesses calling Tri-Village home</p>
+    <div class="ribbon-list animate-4" id="ribbon-list">
+      <!-- Populated by JS -->
+    </div>
+    <!-- Real ribbon cutting photos -->
+    <div class="animate-5" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px;max-width:1100px;width:100%;height:180px;">
+      <div style="border-radius:10px;overflow:hidden;position:relative;">
+        <img src="photos/ribbon-cuttings/ribbon-cutting-roots-natural-kitchen-grandview-storefront-balloons.jpg" style="width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.75));padding:12px 8px 6px;font-size:10px;font-weight:700;letter-spacing:0.04em;">Roots Natural Kitchen</div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;position:relative;">
+        <img src="photos/ribbon-cuttings/ribbon-cutting-modern-physio-group-red-ribbon.jpg" style="width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.75));padding:12px 8px 6px;font-size:10px;font-weight:700;letter-spacing:0.04em;">Modern Physio</div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;position:relative;">
+        <img src="photos/ribbon-cuttings/ribbon-cutting-mutual-federal-bank.jpg" style="width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.75));padding:12px 8px 6px;font-size:10px;font-weight:700;letter-spacing:0.04em;">Mutual Federal Bank</div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;position:relative;">
+        <img src="photos/ribbon-cuttings/ribbon-cutting-winans-coffee-chocolate-outdoor.jpg" style="width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.75));padding:12px 8px 6px;font-size:10px;font-weight:700;letter-spacing:0.04em;">Winans Coffee &amp; Chocolate</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE 7 — BE YOUR BEST SELF CONFERENCE
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-purple" id="slide-6">
+    <div class="deco-circle" style="width:600px;height:600px;background:radial-gradient(circle,rgba(200,100,255,0.12) 0%,transparent 70%);center;"></div>
+    <p class="eyebrow animate-1">August 30, 2025 · Grand Event Center</p>
+    <h2 class="headline animate-2" style="font-size:clamp(30px,5vw,62px);">
+      Be Your Best Self
+      <span class="accent">Conference</span>
+    </h2>
+    <!-- Real photos from BYBS 2025 -->
+    <div class="animate-3" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-top:20px;max-width:1200px;width:100%;height:280px;">
+      <div style="border-radius:14px;overflow:hidden;position:relative;">
+        <img src="photos/bybs-conference/pro/dsc_7351.jpg" style="width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.75));padding:16px 10px 8px;font-size:10px;font-weight:700;letter-spacing:0.05em;">Packed Ballroom</div>
+      </div>
+      <div style="border-radius:14px;overflow:hidden;position:relative;">
+        <img src="photos/bybs-conference/pro/dsc_7360.jpg" style="width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.75));padding:16px 10px 8px;font-size:10px;font-weight:700;letter-spacing:0.05em;">Keynote Moment</div>
+      </div>
+      <div style="border-radius:14px;overflow:hidden;position:relative;">
+        <img src="photos/bybs-conference/pro/dsc_7315.jpg" style="width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.75));padding:16px 10px 8px;font-size:10px;font-weight:700;letter-spacing:0.05em;">Pure Joy</div>
+      </div>
+      <div style="border-radius:14px;overflow:hidden;position:relative;">
+        <img src="photos/bybs-conference/pro/dsc_7377.jpg" style="width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.75));padding:16px 10px 8px;font-size:10px;font-weight:700;letter-spacing:0.05em;">Be Your Best Self 2025</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE 8 — HAPPY HOURS
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-ember" id="slide-7">
+    <p class="eyebrow animate-1">After-hours connections</p>
+    <h2 class="headline animate-2" style="font-size:clamp(32px,5.5vw,72px);">Happy Hours</h2>
+    <p class="subline animate-3">Where deals get done and friendships get made.</p>
+    <div class="photo-grid cols-4 animate-4" id="happy-hour-photos">
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE 9 — NEW MEMBER BREAKFAST + KEY EVENTS
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-navy" id="slide-8">
+    <p class="eyebrow animate-1">Highlights of the year</p>
+    <h2 class="headline animate-2" style="font-size:clamp(26px,3.8vw,48px);">Moments That Mattered</h2>
+    <div class="timeline animate-3" id="key-events-timeline">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE 10 — MEMBER SPOTLIGHTS
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-forest" id="slide-spotlights">
+    <div class="deco-circle" style="width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,0.05) 0%,transparent 70%);top:-100px;right:-100px;"></div>
+    <p class="eyebrow animate-1">Member spotlight</p>
+    <h2 class="headline animate-2" style="font-size:clamp(28px,4.5vw,56px);">Businesses<br><span class="accent">Worth Knowing</span></h2>
+    <div class="animate-3" style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin-top:36px;max-width:900px;" id="spotlight-cards">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE 11 — SPEAKERS & PRESENTERS (renumbered)
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-teal" id="slide-9">
+    <div class="deco-circle" style="width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);top:-80px;left:-80px;"></div>
+    <p class="eyebrow animate-1">Knowledge shared</p>
+    <div class="big-number count-anim" style="font-size:clamp(80px,14vw,170px);">40</div>
+    <p class="big-label animate-2">Speakers &amp; Presenters</p>
+    <p class="subline animate-3" style="font-size:clamp(13px,1.5vw,18px);margin-top:12px;">
+      Development Downloads · Morning Perks · Luncheons<br>
+      Experts across business, health, finance &amp; community
+    </p>
+    <div class="animate-4" style="margin-top:28px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;max-width:700px;" id="speaker-tags">
+      <!-- Category tags inserted by JS -->
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE — DEVELOPMENT DOWNLOAD
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-navy" id="slide-devdownload">
+    <div class="deco-circle" style="width:500px;height:500px;background:radial-gradient(circle,rgba(100,180,255,0.08) 0%,transparent 70%);bottom:-100px;right:-100px;"></div>
+    <p class="eyebrow animate-1">Spring &amp; Fall 2025</p>
+    <h2 class="headline animate-2" style="font-size:clamp(26px,4vw,52px);">Development<br><span class="accent">Download</span></h2>
+    <p class="subline animate-3" style="font-size:clamp(12px,1.3vw,16px);margin-top:8px;">Columbus economic development — the data that shapes our business community</p>
+    <div class="animate-4" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px;max-width:1050px;width:100%;height:290px;">
+      <div style="border-radius:12px;overflow:hidden;">
+        <img src="photos/workshops/dev-download-slide-notable-projects-01.jpg" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div style="border-radius:12px;overflow:hidden;">
+        <img src="photos/workshops/dev-download-slide-placemaking-tremont-center-01.jpg" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div style="border-radius:12px;overflow:hidden;">
+        <img src="photos/workshops/dev-download-slide-life-science-investments-01.jpg" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+    <div class="animate-4" style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:8px 18px;font-size:13px;font-weight:700;">139 Projects Announced</div>
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:8px 18px;font-size:13px;font-weight:700;">19,000+ Jobs Created</div>
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:8px 18px;font-size:13px;font-weight:700;">$35.8B Capital Investment</div>
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:8px 18px;font-size:13px;font-weight:700;">38.9% Traffic ↑ Tremont Center</div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE — OSU DISTRICT EVENT
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-slate" id="slide-osu">
+    <div class="deco-circle" style="width:500px;height:500px;background:radial-gradient(circle,rgba(180,0,0,0.08) 0%,transparent 70%);top:-100px;left:-100px;"></div>
+    <p class="eyebrow animate-1">Member Event · 2025</p>
+    <h2 class="headline animate-2" style="font-size:clamp(26px,4vw,52px);">OSU District<br><span class="accent">Development Tour</span></h2>
+    <div class="animate-3" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-top:24px;max-width:1100px;width:100%;height:300px;">
+      <div style="border-radius:12px;overflow:hidden;">
+        <img src="photos/member-events/osu-event-landscape-columbus-skyline-01.jpg" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div style="border-radius:12px;overflow:hidden;">
+        <img src="photos/member-events/osu-event-landscape-construction-closeup-01.jpg" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div style="border-radius:12px;overflow:hidden;">
+        <img src="photos/member-events/osu-event-rendering-plaza-night-01.jpg" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div style="border-radius:12px;overflow:hidden;">
+        <img src="photos/member-events/osu-event-rendering-street-level-01.jpg" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE 11 — PODCAST MILESTONE
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-midnight" id="slide-10">
+    <div class="deco-circle" style="width:600px;height:600px;background:radial-gradient(circle,rgba(245,200,66,0.1) 0%,transparent 70%);bottom:-150px;right:-150px;"></div>
+    <p class="eyebrow animate-1">December 2025 milestone</p>
+    <div class="mic-icon animate-2">🎙️</div>
+    <div class="big-number gold count-anim" style="font-size:clamp(80px,15vw,180px);">100</div>
+    <p class="big-label animate-3">Podcast Episodes</p>
+    <p class="subline animate-4" style="font-size:clamp(14px,1.8vw,22px);margin-top:12px;">
+      <em>Business Inspires</em> hit 100 episodes in December 2025.<br>
+      Real stories from the heart of our business community.
+    </p>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE — THANKSGIVING OPEN HOUSE
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-ember" id="slide-openhouse">
+    <div class="deco-circle" style="width:600px;height:600px;background:radial-gradient(circle,rgba(255,140,0,0.12) 0%,transparent 70%);bottom:-200px;right:-150px;"></div>
+    <p class="eyebrow animate-1">November 20, 2025 · Edward Jones</p>
+    <h2 class="headline animate-2" style="font-size:clamp(28px,4.5vw,58px);">
+      Thanksgiving Open House
+      <span class="accent" style="font-size:0.65em;display:block;margin-top:6px;">Joe Lotozo, Financial Advisor</span>
+    </h2>
+    <!-- 2×3 photo grid using our real photos -->
+    <div class="animate-3" style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:8px;margin-top:24px;max-width:1100px;width:100%;height:340px;" id="oh-grid-main">
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE — OPEN HOUSE MOMENTS (more photos)
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-slate" id="slide-openhouse2">
+    <p class="eyebrow animate-1">The people make the party</p>
+    <h2 class="headline animate-2" style="font-size:clamp(26px,4vw,50px);">Open House<br><span class="accent">Moments</span></h2>
+    <div class="animate-3" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:20px;max-width:1100px;width:100%;" id="oh-grid-moments">
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE 12 — HOLIDAY WRAP
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-crimson" id="slide-11">
+    <p class="eyebrow animate-1">December 2025</p>
+    <h2 class="headline animate-2" style="font-size:clamp(30px,5vw,62px);">
+      Ending the Year
+      <span class="accent">Together</span>
+    </h2>
+    <p class="subline animate-3" style="font-size:clamp(13px,1.5vw,18px);margin-top:10px;">
+      Holiday Celebration Luncheon &nbsp;·&nbsp; Breakfast with Santa<br>
+      Thanksgiving Open House with Edward Jones
+    </p>
+    <div class="photo-grid cols-3 animate-4" id="holiday-photos">
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE 13 — FULL YEAR PHOTO WALL
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-slate" id="slide-12">
+    <p class="eyebrow animate-1">All of 2025</p>
+    <h2 class="headline animate-2" style="font-size:clamp(26px,4vw,52px);">Every Moment,<br><span class="accent">Every Connection</span></h2>
+    <div class="photo-grid cols-4 animate-3" id="photo-wall" style="margin-top:20px;">
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE — THANK YOU: LEADERSHIP
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-teal" id="slide-thankyou-leadership">
+    <div class="deco-circle float-orb-1" style="width:500px;height:500px;background:radial-gradient(circle,rgba(246,136,31,0.12) 0%,transparent 70%);top:-120px;right:-120px;"></div>
+    <p class="eyebrow animate-1">None of this happens without you</p>
+    <h2 class="headline animate-2" style="font-size:clamp(32px,5vw,64px);">
+      Thank You
+      <span class="accent">Leadership Team</span>
+    </h2>
+    <div class="animate-3" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px;max-width:920px;width:100%;">
+      <!-- Katie Ellis -->
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:24px 28px;text-align:left;display:flex;gap:20px;align-items:flex-start;">
+        <div style="width:70px;height:70px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(246,136,31,0.4);">
+          <img src="photos/general/katie-ellis-tvcp-name-badge-selfie.jpg" style="width:100%;height:100%;object-fit:cover;object-position:right center;" onerror="this.parentElement.style.background='linear-gradient(135deg,#2f8ea6,#f6881f)';this.parentElement.innerHTML='<span style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:24px;font-weight:900;color:white;font-family:Oswald,sans-serif\'>KE</span>'">
+        </div>
+        <div>
+          <div style="font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;letter-spacing:0.05em;">Katie Ellis</div>
+          <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#f6881f;font-weight:700;margin-top:4px;">President &amp; CEO</div>
+          <div style="font-size:13px;opacity:0.75;margin-top:10px;line-height:1.5;">Your vision, energy, and ability to keep all of us on track — board members, sponsors, committees — is extraordinary.</div>
+        </div>
+      </div>
+      <!-- Rhiannon Mehring -->
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:24px 28px;text-align:left;display:flex;gap:20px;align-items:flex-start;">
+        <div style="width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#1a6b80,#2f8ea6);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:white;font-family:'Oswald',sans-serif;">RM</div>
+        <div>
+          <div style="font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;letter-spacing:0.05em;">Rhiannon Mehring</div>
+          <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#f6881f;font-weight:700;margin-top:4px;">Operations Manager</div>
+          <div style="font-size:13px;opacity:0.75;margin-top:10px;line-height:1.5;">Your operational expertise keeps everything running smoothly behind the scenes. The engine that powers it all.</div>
+        </div>
+      </div>
+      <!-- Andrea Lukuch -->
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:24px 28px;text-align:left;display:flex;gap:20px;align-items:flex-start;">
+        <div style="width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#f6881f,#c24100);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:white;font-family:'Oswald',sans-serif;">AL</div>
+        <div>
+          <div style="font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;letter-spacing:0.05em;">Andrea Lukuch</div>
+          <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#f6881f;font-weight:700;margin-top:4px;">Past Chair</div>
+          <div style="font-size:13px;opacity:0.75;margin-top:10px;line-height:1.5;">You set an incredibly high bar and made my transition into this role seamless. Grateful for your mentorship and friendship.</div>
+        </div>
+      </div>
+      <!-- Board -->
+      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:24px 28px;text-align:left;">
+        <div style="font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;letter-spacing:0.05em;margin-bottom:12px;">2025 Board Members</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span style="background:rgba(47,142,166,0.25);border:1px solid rgba(47,142,166,0.4);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Brett Johnson</span>
+          <span style="background:rgba(47,142,166,0.25);border:1px solid rgba(47,142,166,0.4);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Amber Wilson</span>
+          <span style="background:rgba(47,142,166,0.25);border:1px solid rgba(47,142,166,0.4);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Sierra Thomas</span>
+          <span style="background:rgba(47,142,166,0.25);border:1px solid rgba(47,142,166,0.4);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Deanna Barzak</span>
+          <span style="background:rgba(47,142,166,0.25);border:1px solid rgba(47,142,166,0.4);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Andrea Lukuch</span>
+          <span style="background:rgba(47,142,166,0.25);border:1px solid rgba(47,142,166,0.4);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Lindsay Cochran</span>
+          <span style="background:rgba(47,142,166,0.25);border:1px solid rgba(47,142,166,0.4);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Matthew Hoffman</span>
+          <span style="background:rgba(47,142,166,0.25);border:1px solid rgba(47,142,166,0.4);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Andriel Ugbomeh</span>
+          <span style="background:rgba(47,142,166,0.25);border:1px solid rgba(47,142,166,0.4);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Pat Meyer</span>
+          <span style="background:rgba(47,142,166,0.25);border:1px solid rgba(47,142,166,0.4);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Rob Grahovac</span>
+          <span style="background:rgba(47,142,166,0.25);border:1px solid rgba(47,142,166,0.4);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Mike Smith</span>
+          <span style="background:rgba(47,142,166,0.25);border:1px solid rgba(47,142,166,0.4);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Greg Glasser</span>
+          <span style="background:rgba(47,142,166,0.25);border:1px solid rgba(47,142,166,0.4);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Melissa Basil</span>
+          <span style="background:rgba(47,142,166,0.25);border:1px solid rgba(47,142,166,0.4);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Robbie Cameruca</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE — 2026 BOARD VOTE
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-navy" id="slide-board-vote">
+    <div class="deco-circle float-orb-2" style="width:600px;height:600px;background:radial-gradient(circle,rgba(47,142,166,0.1) 0%,transparent 70%);bottom:-150px;left:-150px;"></div>
+    <p class="eyebrow animate-1">Annual Meeting · February 26, 2026</p>
+    <h2 class="headline animate-2" style="font-size:clamp(28px,4.5vw,56px);">
+      2026 Board of Directors
+      <span class="accent">Vote</span>
+    </h2>
+    <div class="animate-3" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px;max-width:960px;width:100%;">
+      <!-- Officers -->
+      <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(246,136,31,0.3);border-radius:20px;padding:24px;">
+        <div style="font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#f6881f;font-weight:600;margin-bottom:16px;">Officers</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(246,136,31,0.1);border-radius:10px;">
+            <span style="font-weight:700;font-size:15px;">Brett Johnson</span>
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#f6881f;font-weight:700;">Chair</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,0.05);border-radius:10px;">
+            <span style="font-weight:700;font-size:15px;">Amber Wilson</span>
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700;">Vice Chair</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,0.05);border-radius:10px;">
+            <span style="font-weight:700;font-size:15px;">Sierra Thomas</span>
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700;">Treasurer</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,0.05);border-radius:10px;">
+            <span style="font-weight:700;font-size:15px;">Deanna Barzak</span>
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:700;">Secretary</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(47,142,166,0.15);border-radius:10px;border:1px solid rgba(47,142,166,0.3);">
+            <span style="font-weight:700;font-size:15px;">Joe Lotozo</span>
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#2f8ea6;font-weight:700;">Immediate Past Chair</span>
+          </div>
+        </div>
+      </div>
+      <!-- Board Members & Committee Chairs -->
+      <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(47,142,166,0.3);border-radius:20px;padding:24px;">
+        <div style="font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#2f8ea6;font-weight:600;margin-bottom:12px;">Board Members</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+          <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Andrea Lukuch</span>
+          <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Lindsay Cochran</span>
+          <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Matthew Hoffman</span>
+          <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Andriel Ugbomeh</span>
+          <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;">Pat Meyer</span>
+        </div>
+        <div style="font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#2f8ea6;font-weight:600;margin-bottom:12px;">Committee Chairs</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 12px;background:rgba(255,255,255,0.04);border-radius:8px;">
+            <span style="font-weight:700;">Melissa Basil</span><span style="opacity:0.55;">Membership</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 12px;background:rgba(255,255,255,0.04);border-radius:8px;">
+            <span style="font-weight:700;">Robbie Cameruca</span><span style="opacity:0.55;">Marketing &amp; Econ Dev</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 12px;background:rgba(255,255,255,0.04);border-radius:8px;">
+            <span style="font-weight:700;">Greg Glasser</span><span style="opacity:0.55;">Programming &amp; Events</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 12px;background:rgba(255,255,255,0.04);border-radius:8px;">
+            <span style="font-weight:700;">Mike Smith</span><span style="opacity:0.55;">Governance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Motion to approve -->
+    <div class="animate-4" style="margin-top:20px;padding:14px 32px;background:rgba(246,136,31,0.12);border:1px solid rgba(246,136,31,0.35);border-radius:100px;font-size:clamp(13px,1.3vw,16px);font-weight:700;letter-spacing:0.08em;">
+      Motion to approve the 2026 slate as presented?
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       SLIDE 14 — THANK YOU
+  ════════════════════════════════════════════════ -->
+  <div class="slide bg-midnight" id="slide-13">
+    <div class="deco-circle float-orb-1" style="width:700px;height:700px;background:radial-gradient(circle,rgba(246,136,31,0.1) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+    <div class="deco-circle float-orb-2" style="width:300px;height:300px;background:radial-gradient(circle,rgba(47,142,166,0.1) 0%,transparent 70%);top:10%;right:5%;"></div>
+    <p class="eyebrow animate-1">On behalf of your outgoing chair</p>
+    <h2 class="headline animate-2" style="font-size:clamp(36px,6vw,80px);">
+      Thank You,
+      <span class="accent">Tri-Village.</span>
+    </h2>
+    <p class="subline animate-3" style="font-size:clamp(14px,1.8vw,22px);max-width:620px;margin:16px auto 0;">
+      It has been an honor to serve this community.<br>Here's to everything we built together in 2025.
+    </p>
+    <div class="thankyou-row animate-4">
+      <div class="thankyou-card">
+        <div class="ty-icon">🤝</div>
+        <div class="ty-num">437</div>
+        <div class="ty-lbl">Members</div>
+      </div>
+      <div class="thankyou-card">
+        <div class="ty-icon">🎉</div>
+        <div class="ty-num">48</div>
+        <div class="ty-lbl">Events</div>
+      </div>
+      <div class="thankyou-card">
+        <div class="ty-icon">✂️</div>
+        <div class="ty-num">12</div>
+        <div class="ty-lbl">Ribbon Cuttings</div>
+      </div>
+      <div class="thankyou-card">
+        <div class="ty-icon">🎙️</div>
+        <div class="ty-num">100</div>
+        <div class="ty-lbl">Podcast Episodes</div>
+      </div>
+    </div>
+    <div class="animate-5" style="margin-top:32px;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;opacity:0.35;">
+      — Joe Lotozo, Chair 2025
+    </div>
+    <div class="animate-5" style="position:absolute;bottom:28px;right:36px;width:clamp(70px,8vw,110px);border-radius:18px;overflow:hidden;opacity:0.6;border:2px solid rgba(255,255,255,0.2);box-shadow:0 8px 30px rgba(0,0,0,0.4);">
+      <img src="photos/social/instagram-post1-reel-dec2025.jpg" alt="TVCP 2025 Wrapped" style="width:100%;display:block;">
+    </div>
+  </div>
+
+</div><!-- /deck -->
+
+<!-- Progress bar & counter -->
+<div id="progress"></div>
+<div id="counter">1 / 14</div>
+<div id="nav-hint">← → Arrow keys to navigate</div>
+<button class="nav-btn" id="btn-prev">‹</button>
+<button class="nav-btn" id="btn-next">›</button>
+
+<script>
+// ══════════════════════════════════════════════════════
+//  EVENT DATA
+//  These will be filled in once scraping is complete.
+//  You can also manually add/edit entries here.
+// ══════════════════════════════════════════════════════
+// Open house photo paths (local — Website Picks, resized for presentation)
+const OH = 'photos/open-house/';
+const OPEN_HOUSE_PHOTOS = [
+  { file: OH+'ej-open-house_46_full-group-photo-branded-wall.jpg',      caption: 'Full Group Photo' },
+  { file: OH+'ej-open-house_28_group-five-branded-wall.jpg',            caption: 'Chamber Members' },
+  { file: OH+'ej-open-house_17_group-three-branded-wall.jpg',           caption: 'Networking' },
+  { file: OH+'ej-open-house_33_group-three-fun-glasses-branded-wall.jpg', caption: 'Fun at the Open House' },
+  { file: OH+'ej-open-house_40_joe-and-client-natural-smiles.jpg',      caption: 'Joe & Guest' },
+  { file: OH+'ej-open-house_35_joe-and-client-thumbs-up.jpg',           caption: 'Thumbs Up!' },
+  { file: OH+'ej-open-house_44_client-laughing-genuine-moment.jpg',     caption: 'Good Times' },
+  { file: OH+'ej-open-house_01_branded-wall-happy-fall.jpg',            caption: 'Edward Jones Open House' },
+  { file: OH+'ej-open-house_06_charcuterie-board-strawberries.jpg',     caption: 'Charcuterie Board' },
+  { file: OH+'ej-open-house_10_stock-ticker-cookies.jpg',               caption: 'Stock Ticker Cookies!' },
+  { file: OH+'ej-open-house_21_exterior-building.jpg',                  caption: 'Edward Jones — Grandview' },
+  { file: OH+'ej-open-house_08_edward-jones-door-sign-fall-leaves.jpg', caption: 'Open House' },
+];
+
+const EVENTS = [
+  // ── JANUARY ──
+  { title: "Happy Hour & Networking at Dupler Office", date: "2025-01-22", category: "Happy Hour", imageUrl: "" },
+  { title: "Pioneer Peer Group", date: "2025-01-24", category: "Member Event", imageUrl: "" },
+  { title: "Ribbon Cutting & Grand Opening — Clean Eatz", date: "2025-01-31", category: "Ribbon Cutting/Grand Opening", imageUrl: "" },
+  // ── FEBRUARY ──
+  { title: "Morning Perk! — Carmenton District: A Bold New Vision", date: "2025-02-13", category: "Morning Perk", imageUrl: "" },
+  { title: "Happy Hour & Networking at Brush Crazy", date: "2025-02-20", category: "Happy Hour", imageUrl: "photos/social/linkedin-brush-crazy-reminder.jpg" },
+  { title: "2025 Annual Meeting Luncheon", date: "2025-02-27", category: "Monthly Luncheon", imageUrl: "" },
+  { title: "Pioneer Peer Group", date: "2025-02-28", category: "Member Event", imageUrl: "" },
+  // ── MARCH ──
+  { title: "New Member's Breakfast", date: "2025-03-20", category: "Morning Perk", imageUrl: "" },
+  // ── APRIL ──
+  { title: "Bob Crane Community Center Tour & Presentation", date: "2025-04-17", category: "Member Event", imageUrl: "" },
+  // ── MAY ──
+  { title: "Development Downloads — Spring", date: "2025-05-01", category: "Workshop", imageUrl: "" },
+  // ── AUGUST ──
+  { title: "Be Your Best Self Expo & Conference", date: "2025-08-30", category: "Special Event", imageUrl: "photos/social/linkedin-bybs-conference-2024.jpg" },
+  // ── SEPTEMBER ──
+  { title: "Tri-Village Taste", date: "2025-09-19", category: "Special Event", imageUrl: "photos/social/instagram-post2.jpg" },
+  { title: "Monthly Luncheon", date: "2025-09-25", category: "Monthly Luncheon", imageUrl: "" },
+  { title: "Ribbon Cutting & Grand Opening — UA Pizza", date: "2025-09-25", category: "Ribbon Cutting/Grand Opening", imageUrl: "" },
+  { title: "Pioneer Peer Group", date: "2025-09-26", category: "Member Event", imageUrl: "" },
+  // ── OCTOBER ──
+  { title: "Tour of Homes — Grandview Heights & Marble Cliff", date: "2025-10-05", category: "Member Event", imageUrl: "" },
+  { title: "Ribbon Cutting & Open House — Boulevard Presbyterian Church", date: "2025-10-05", category: "Ribbon Cutting/Grand Opening", imageUrl: "" },
+  { title: "Development Download — Fall", date: "2025-10-29", category: "Workshop", imageUrl: "" },
+  // ── NOVEMBER ──
+  { title: "Annual Membership Appreciation Luncheon", date: "2025-11-09", category: "Monthly Luncheon", imageUrl: "" },
+  { title: "Founder Farm Masterclass", date: "2025-11-17", category: "Workshop", imageUrl: "" },
+  { title: "Grandview Heights City Hall, Police & Fire Dedication & Ribbon Cutting", date: "2025-11-18", category: "Ribbon Cutting/Grand Opening", imageUrl: "" },
+  { title: "Thanksgiving Open House — Edward Jones: Joe Lotozo", date: "2025-11-20", category: "Member Event", imageUrl: OPEN_HOUSE_PHOTOS[0].file },
+  // ── DECEMBER ──
+  { title: "Holiday Celebration Luncheon", date: "2025-12-10", category: "Monthly Luncheon", imageUrl: "" },
+  { title: "Breakfast with Santa", date: "2025-12-07", category: "Holiday", imageUrl: "" },
+  // ── MONTHLY LUNCHEONS (all 12 months) ──
+  { title: "January Luncheon", date: "2025-01-15", category: "Monthly Luncheon", imageUrl: "" },
+  { title: "March Luncheon", date: "2025-03-19", category: "Monthly Luncheon", imageUrl: "" },
+  { title: "April Luncheon", date: "2025-04-16", category: "Monthly Luncheon", imageUrl: "" },
+  { title: "May Luncheon", date: "2025-05-21", category: "Monthly Luncheon", imageUrl: "" },
+  { title: "June Luncheon", date: "2025-06-18", category: "Monthly Luncheon", imageUrl: "" },
+  { title: "July Luncheon", date: "2025-07-16", category: "Monthly Luncheon", imageUrl: "" },
+  { title: "August Luncheon", date: "2025-08-20", category: "Monthly Luncheon", imageUrl: "" },
+  { title: "October Luncheon", date: "2025-10-15", category: "Monthly Luncheon", imageUrl: "" },
+  { title: "November Luncheon", date: "2025-11-19", category: "Monthly Luncheon", imageUrl: "" },
+  // ── RIBBON CUTTINGS (remaining — confirmed from photos) ──
+  { title: "Ribbon Cutting — Mutual Federal Bank", date: "2025-03-01", category: "Ribbon Cutting/Grand Opening", imageUrl: "photos/ribbon-cuttings/ribbon-cutting-mutual-federal-bank.jpg" },
+  { title: "Ribbon Cutting — Roots Natural Kitchen", date: "2025-04-01", category: "Ribbon Cutting/Grand Opening", imageUrl: "photos/ribbon-cuttings/ribbon-cutting-roots-natural-kitchen-grandview-storefront-balloons.jpg" },
+  { title: "Ribbon Cutting — Modern Physio", date: "2025-05-01", category: "Ribbon Cutting/Grand Opening", imageUrl: "photos/ribbon-cuttings/ribbon-cutting-modern-physio-group-red-ribbon.jpg" },
+  { title: "Ribbon Cutting", date: "2025-06-01", category: "Ribbon Cutting/Grand Opening", imageUrl: "" },
+  { title: "Ribbon Cutting", date: "2025-07-01", category: "Ribbon Cutting/Grand Opening", imageUrl: "" },
+  { title: "Ribbon Cutting", date: "2025-08-01", category: "Ribbon Cutting/Grand Opening", imageUrl: "" },
+  { title: "Ribbon Cutting", date: "2025-10-01", category: "Ribbon Cutting/Grand Opening", imageUrl: "" },
+  { title: "Ribbon Cutting", date: "2025-12-01", category: "Ribbon Cutting/Grand Opening", imageUrl: "" },
+  // ── ADDITIONAL HAPPY HOURS ──
+  { title: "Happy Hour at Brush Crazy", date: "2025-02-20", category: "Happy Hour", imageUrl: "photos/social/linkedin-brush-crazy-announce.jpg" },
+  { title: "Happy Hour at Midsole Marketing", date: "2025-09-11", category: "Happy Hour", imageUrl: "photos/happy-hours/happy-hour-midsole-gallery-presenter-01.jpg" },
+  { title: "Happy Hour at Midsole Marketing", date: "2025-09-11", category: "Happy Hour", imageUrl: "photos/happy-hours/happy-hour-midsole-gallery-group-photo-01.jpg" },
+  { title: "Happy Hour at Heartland Bank", date: "2025-05-22", category: "Happy Hour", imageUrl: "photos/happy-hours/happy-hour-networking-attendees-art-gallery-venue.jpg" },
+  { title: "Happy Hour", date: "2025-07-24", category: "Happy Hour", imageUrl: "photos/happy-hours/happy-hour-networking-guests-laughing.jpg" },
+  { title: "Happy Hour", date: "2025-11-13", category: "Happy Hour", imageUrl: "photos/happy-hours/happy-hour-three-women-wine.jpg" },
+];
+
+// RIBBON CUTTING NAMES — confirmed from Facebook photos + events list
+const RIBBON_CUTTINGS = [
+  "Clean Eatz",
+  "UA Pizza",
+  "Mutual Federal Bank",
+  "Roots Natural Kitchen",
+  "Modern Physio",
+  "Winans Coffee & Chocolate",
+  "Boulevard Presbyterian Church",
+  "Pinkham Medical",
+  "Grandview Heights City Hall, Police & Fire",
+  "New Business Opening",
+  "New Business Opening",
+  "New Business Opening",
+];
+
+// WEBSITE SPOTLIGHTS (from chamberpartnership.org — 2025 posts)
+const SPOTLIGHTS = [
+  {
+    title: "Rebel Marketing",
+    date: "2025-06-04",
+    url: "https://chamberpartnership.org/business-spotlight-rebel-marketing/",
+    imageUrl: "https://chamberpartnership.org/wp-content/uploads/2025/06/rebel-marketing-800x800-1.png",
+    desc: "Latina-owned full-service marketing agency in Columbus — bold, results-driven, and unapologetically different."
+  },
+  {
+    title: "LKR Strategies",
+    date: "2025-10-24",
+    url: "https://chamberpartnership.org/business-spotlight-lisa-rovner-lkr-strategies/",
+    imageUrl: "https://chamberpartnership.org/wp-content/uploads/2025/10/LKR-Strategies-in-Columbus-Ohio.png",
+    desc: "Fractional fundraising services for nonprofits, launched July 2025 by Lisa Rovner after 30 years in the sector."
+  },
+];
+
+// KEY MOMENTS for timeline slide
+const KEY_MOMENTS = [
+  { date: "Jan 31",  title: "Ribbon Cutting — Clean Eatz", cat: "Ribbon Cutting/Grand Opening" },
+  { date: "Feb 27",  title: "2025 Annual Meeting Luncheon", cat: "Monthly Luncheon" },
+  { date: "Mar 20",  title: "New Member's Breakfast", cat: "Morning Perk" },
+  { date: "Apr 17",  title: "Bob Crane Community Center Tour", cat: "Member Event" },
+  { date: "May",     title: "Development Downloads — Spring", cat: "Workshop" },
+  { date: "Aug 30",  title: "Be Your Best Self Expo & Conference", cat: "Special Event" },
+  { date: "Sep 19",  title: "Tri-Village Taste", cat: "Signature Event" },
+  { date: "Sep 25",  title: "Ribbon Cutting — UA Pizza", cat: "Ribbon Cutting/Grand Opening" },
+  { date: "Oct",     title: "Development Downloads — Fall", cat: "Workshop" },
+  { date: "Nov 18",  title: "Grandview Heights City Hall Ribbon Cutting", cat: "Ribbon Cutting/Civic" },
+  { date: "Nov 20",  title: "Thanksgiving Open House — Edward Jones", cat: "Member Event" },
+  { date: "Dec 10",  title: "Holiday Celebration Luncheon", cat: "Monthly Luncheon" },
+  { date: "Dec",     title: "Breakfast with Santa", cat: "Holiday" },
+  { date: "Dec",     title: "Podcast Hits 100 Episodes!", cat: "Milestone" },
+];
+
+// SPEAKER TOPIC TAGS
+const SPEAKER_TAGS = [
+  "Business Growth", "Leadership", "Finance", "Health & Wellness",
+  "Marketing", "Real Estate", "Community Development", "Technology",
+  "Entrepreneurship", "HR & Hiring", "Economic Development", "Networking",
+];
+
+// ══════════════════════════════════════════════════════
+//  HELPERS
+// ══════════════════════════════════════════════════════
+function makePhotoFrame(ev, extraClass = '') {
+  const hasPhoto = ev && ev.imageUrl;
+  const label = ev ? ev.title : '📸 Add Photo';
+  if (hasPhoto) {
+    return `<div class="photo-frame ${extraClass}">
+      <img src="${ev.imageUrl}" alt="${ev.title}" loading="lazy" onerror="this.parentElement.classList.add('placeholder');this.parentElement.setAttribute('data-label','📸 ${ev.title}');this.remove();">
+      <div class="caption">${ev.title}</div>
+    </div>`;
+  }
+  return `<div class="photo-frame placeholder ${extraClass}" data-label="📸 ${label}"></div>`;
+}
+
+// ══════════════════════════════════════════════════════
+//  POPULATE SLIDES
+// ══════════════════════════════════════════════════════
+function populateSlides() {
+  // Month pills (slide 4)
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const monthCounts = Array(12).fill(0);
+  EVENTS.forEach(e => {
+    const m = parseInt(e.date.split('-')[1]) - 1;
+    monthCounts[m]++;
+  });
+  const pillsEl = document.getElementById('month-pills');
+  if (pillsEl) {
+    pillsEl.innerHTML = months.map((m, i) =>
+      `<div class="month-pill"><span class="m-name">${m}</span><span class="m-count">${monthCounts[i]}</span></div>`
+    ).join('');
+  }
+
+  // Luncheon photos (slide 5) — best professional photos from Nov 14 luncheon + Facebook archive
+  const LUNCHEON_REAL = [
+    { imageUrl: 'photos/luncheons/november/nov-luncheon-44.jpg',  title: 'Membership Appreciation Luncheon' },
+    { imageUrl: 'photos/luncheons/november/nov-luncheon-24.jpg',  title: 'Pre-Luncheon Networking' },
+    { imageUrl: 'photos/luncheons/november/nov-luncheon-2.jpg',   title: 'Monthly Luncheon' },
+    { imageUrl: 'photos/luncheons/luncheon-annual-meeting-exhibitor-networking-01.jpg', title: 'Annual Meeting' },
+    { imageUrl: 'photos/luncheons/membership-appreciation-luncheon-award-presentation-orange-trophy.jpg', title: 'Member Award' },
+    { imageUrl: 'photos/luncheons/luncheon-speaker-applause-presentation-screen.jpg',  title: 'Standing Ovation' },
+  ];
+  const lunchEl = document.getElementById('luncheon-photos');
+  if (lunchEl) lunchEl.innerHTML = LUNCHEON_REAL.map(e => makePhotoFrame(e)).join('');
+
+  // Ribbon cutting list (slide 6)
+  const ribbonEl = document.getElementById('ribbon-list');
+  if (ribbonEl) {
+    const ribbonEvents = EVENTS.filter(e => e.category === 'Ribbon Cutting/Grand Opening');
+    ribbonEl.innerHTML = ribbonEvents.map((e, i) =>
+      `<div class="ribbon-pill"><span class="scissors">✂️</span>${RIBBON_CUTTINGS[i] !== 'New Business Opening' ? RIBBON_CUTTINGS[i] : e.title.replace('Ribbon Cutting #'+(i+1), 'Business #'+(i+1))}</div>`
+    ).join('');
+  }
+
+  // Happy hour photos (slide 8)
+  const hhEvents = EVENTS.filter(e => e.category === 'Happy Hour').slice(0, 4);
+  while (hhEvents.length < 4) hhEvents.push(null);
+  const hhEl = document.getElementById('happy-hour-photos');
+  if (hhEl) hhEl.innerHTML = hhEvents.map(e => makePhotoFrame(e)).join('');
+
+  // Key events timeline (slide 9)
+  const tlEl = document.getElementById('key-events-timeline');
+  if (tlEl) {
+    tlEl.innerHTML = KEY_MOMENTS.slice(0, 7).map(m =>
+      `<div class="tl-item">
+        <div class="tl-date">${m.date}</div>
+        <div>
+          <div class="tl-name">${m.title}</div>
+          <div class="tl-cat">${m.cat}</div>
+        </div>
+      </div>`
+    ).join('');
+  }
+
+  // Speaker tags (slide 10)
+  const tagEl = document.getElementById('speaker-tags');
+  if (tagEl) {
+    tagEl.innerHTML = SPEAKER_TAGS.map(t =>
+      `<div style="background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:8px 18px;font-size:13px;font-weight:600;letter-spacing:0.05em;">${t}</div>`
+    ).join('');
+  }
+
+  // Holiday photos (slide 12) — professional photos from Dec 10 Holiday Party
+  const HOLIDAY_REAL = [
+    { imageUrl: 'photos/holidays/pro/holiday-party-2.jpg',   title: 'Holiday Party' },
+    { imageUrl: 'photos/holidays/pro/holiday-party-8.jpg',   title: 'Holiday Celebration' },
+    { imageUrl: 'photos/holidays/pro/holiday-party-36.jpg',  title: 'Dec 10 · Scioto Country Club' },
+  ];
+  const holEl = document.getElementById('holiday-photos');
+  if (holEl) holEl.innerHTML = HOLIDAY_REAL.map(e => makePhotoFrame(e)).join('');
+
+  // Open House grids (real photos)
+  const ohMain = document.getElementById('oh-grid-main');
+  if (ohMain) {
+    ohMain.innerHTML = OPEN_HOUSE_PHOTOS.slice(0, 8).map(p =>
+      `<div style="border-radius:12px;overflow:hidden;position:relative;">
+        <img src="${p.file}" alt="${p.caption}" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>`
+    ).join('');
+  }
+  const ohMoments = document.getElementById('oh-grid-moments');
+  if (ohMoments) {
+    ohMoments.innerHTML = OPEN_HOUSE_PHOTOS.slice(0, 8).map((p, i) => {
+      // alternate which 4 we show for variety
+      const pick = OPEN_HOUSE_PHOTOS[(i + 4) % OPEN_HOUSE_PHOTOS.length];
+      return `<div style="border-radius:12px;overflow:hidden;aspect-ratio:4/3;position:relative;">
+        <img src="${pick.file}" alt="${pick.caption}" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));padding:16px 8px 6px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-align:center;">${pick.caption}</div>
+      </div>`;
+    }).join('');
+  }
+
+  // Member spotlights slide
+  const spotEl = document.getElementById('spotlight-cards');
+  if (spotEl) {
+    spotEl.innerHTML = SPOTLIGHTS.map(s => `
+      <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.13);border-radius:20px;overflow:hidden;max-width:320px;display:flex;flex-direction:column;">
+        <div style="height:180px;overflow:hidden;background:rgba(255,255,255,0.05);">
+          <img src="${s.imageUrl}" alt="${s.title}" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+        </div>
+        <div style="padding:20px;">
+          <div style="font-size:18px;font-weight:800;margin-bottom:6px;">${s.title}</div>
+          <div style="font-size:12px;opacity:0.5;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">${new Date(s.date).toLocaleDateString('en-US',{month:'long',year:'numeric'})}</div>
+          <div style="font-size:13px;opacity:0.75;line-height:1.5;">${s.desc}</div>
+        </div>
+      </div>`).join('');
+  }
+
+  // Photo wall (slide 13) — best real photos from across the year
+  const WALL_PHOTOS = [
+    { imageUrl: 'photos/bybs-conference/bybs-conference-keynote-speaker-full-room.jpg',            title: 'Be Your Best Self' },
+    { imageUrl: 'photos/ribbon-cuttings/ribbon-cutting-roots-natural-kitchen-grandview-storefront-balloons.jpg', title: 'Roots Natural Kitchen' },
+    { imageUrl: 'photos/happy-hours/happy-hour-midsole-gallery-group-photo-01.jpg',                title: 'Happy Hour' },
+    { imageUrl: 'photos/luncheons/november/nov-luncheon-2.jpg',                                    title: 'Nov Luncheon' },
+    { imageUrl: 'photos/ribbon-cuttings/ribbon-cutting-modern-physio-group-red-ribbon.jpg',        title: 'Modern Physio Opening' },
+    { imageUrl: 'photos/general/general-business-inspires-podcast-100-episodes-promo.jpg',         title: 'Podcast: 100 Episodes!' },
+    { imageUrl: 'photos/holidays/holiday-luncheon-group-photo-scioto-country-club.jpg',            title: 'Holiday Luncheon' },
+    { imageUrl: 'photos/member-events/library-chamber-rep-joe-family-01.jpg',                      title: 'Chamber in the Community' },
+  ];
+  const wallEl = document.getElementById('photo-wall');
+  if (wallEl) wallEl.innerHTML = WALL_PHOTOS.map(e => makePhotoFrame(e)).join('');
+}
+
+// ══════════════════════════════════════════════════════
+//  SLIDE NAVIGATION
+// ══════════════════════════════════════════════════════
+const slides = document.querySelectorAll('.slide');
+const total = slides.length;
+let current = 0;
+
+function goTo(idx) {
+  if (idx < 0 || idx >= total) return;
+  const prev = slides[current];
+  prev.classList.remove('active');
+  prev.classList.add('exit-left');
+  setTimeout(() => prev.classList.remove('exit-left'), 500);
+
+  current = idx;
+  slides[current].classList.add('active');
+
+  // Progress bar
+  document.getElementById('progress').style.width = ((current + 1) / total * 100) + '%';
+  // Counter
+  document.getElementById('counter').textContent = `${current + 1} / ${total}`;
+  // Hide nav hint after first move
+  if (current > 0) document.getElementById('nav-hint').style.opacity = '0';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                    { e.preventDefault(); goTo(current - 1); }
+  if (e.key === 'Home')  goTo(0);
+  if (e.key === 'End')   goTo(total - 1);
+});
+
+document.getElementById('btn-next').addEventListener('click', () => goTo(current + 1));
+document.getElementById('btn-prev').addEventListener('click', () => goTo(current - 1));
+
+// Touch swipe support
+let touchStartX = 0;
+document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(dx) > 50) goTo(current + (dx < 0 ? 1 : -1));
+}, { passive: true });
+
+// ══════════════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════════════
+populateSlides();
+document.getElementById('progress').style.width = (1 / total * 100) + '%';
+
+// Fade out nav hint after 4 seconds
+setTimeout(() => { document.getElementById('nav-hint').style.opacity = '0'; }, 4000);
+
+// ══════════════════════════════════════════════════════
+//  EMBED MODE  (?embed=true)
+//  Use this URL param when embedding via iframe on
+//  josephlotozo.com so the chrome is hidden and a
+//  "View Full Screen" link is shown instead.
+//
+//  iframe snippet for josephlotozo.com:
+//  <iframe
+//    src="https://josephlotozo.com/tvcp-2025/?embed=true"
+//    width="100%" style="aspect-ratio:16/9;border:none;border-radius:16px;"
+//    allowfullscreen>
+//  </iframe>
+// ══════════════════════════════════════════════════════
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('embed') === 'true' || params.get('embed') === '1') {
+    // Hide counter and nav hint immediately in embed mode
+    const counter = document.getElementById('counter');
+    const navHint = document.getElementById('nav-hint');
+    if (counter)  counter.style.display = 'none';
+    if (navHint)  navHint.style.display = 'none';
+
+    // Add a subtle "Full Screen" link in the corner
+    const fsLink = document.createElement('a');
+    fsLink.id = 'fullscreen-link';
+    fsLink.href = window.location.href.replace(/[?&]embed=[^&]*/,'').replace(/^\?$/,'') || window.location.pathname;
+    fsLink.target = '_blank';
+    fsLink.rel = 'noopener';
+    fsLink.textContent = '⛶ Full Screen';
+    fsLink.style.cssText = 'position:fixed;bottom:12px;left:50%;transform:translateX(-50%);' +
+      'background:rgba(0,0,0,0.5);color:rgba(255,255,255,0.7);font-size:11px;font-family:Montserrat,sans-serif;' +
+      'padding:5px 14px;border-radius:100px;text-decoration:none;z-index:100;' +
+      'letter-spacing:0.08em;border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(8px);';
+    document.body.appendChild(fsLink);
+  }
+
+  // Deep-link to a specific slide via ?slide=N (1-indexed)
+  const slideNum = parseInt(params.get('slide'));
+  if (slideNum >= 1 && slideNum <= total) {
+    goTo(slideNum - 1);
+  }
+})();
+</script>
+</body>
+</html>

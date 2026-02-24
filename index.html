@@ -378,6 +378,22 @@
       line-height: 1.5;
     }
 
+    .list-card .card-link {
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--ej-yellow);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .list-card .card-link:hover {
+      border-bottom-color: var(--ej-yellow);
+    }
+
     /* ===== PHOTO GALLERY ===== */
     .photo-grid {
       display: grid;
@@ -711,6 +727,7 @@
         <div class="list-card">
           <strong>Tri-Village Chamber Partnership</strong>
           <span>Board Member, Executive Committee &amp; Outgoing Chair</span>
+          <a class="card-link" href="/tvcp-2025/" target="_blank" rel="noopener">2025 Year in Review →</a>
         </div>
         <div class="list-card">
           <strong>Leadership UA</strong>
