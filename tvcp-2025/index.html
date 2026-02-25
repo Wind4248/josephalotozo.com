@@ -967,7 +967,7 @@
       Holiday Celebration Luncheon &nbsp;·&nbsp; Membership Appreciation Event<br>
       Happy Hour &amp; Wreath Making &nbsp;·&nbsp; Thanksgiving Open House
     </p>
-    <div class="photo-grid cols-3 animate-4" id="holiday-photos">
+    <div class="photo-grid cols-2 animate-4" id="holiday-photos" style="max-width:900px;margin:0 auto;">
     </div>
   </div>
 
@@ -1524,6 +1524,7 @@ function populateSlides() {
     { imageUrl: 'photos/holidays/pro/holiday-party-2.jpg',   title: 'Holiday Party' },
     { imageUrl: 'photos/holidays/pro/holiday-party-8.jpg',   title: 'Holiday Celebration' },
     { imageUrl: 'photos/holidays/pro/holiday-party-36.jpg',  title: 'Dec 10 · Scioto Country Club' },
+    { imageUrl: 'photos/happy-hours/happy-hour-brush-crazy-painting-01.jpg', title: 'Happy Hour & Wreath Making' },
   ];
   const holEl = document.getElementById('holiday-photos');
   if (holEl) holEl.innerHTML = HOLIDAY_REAL.map(e => makePhotoFrame(e)).join('');
