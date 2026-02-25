@@ -946,7 +946,7 @@
   <div class="slide bg-slate" id="slide-openhouse2">
     <p class="eyebrow animate-1">The people make the party</p>
     <h2 class="headline animate-2" style="font-size:clamp(26px,4vw,50px);">Open House<br><span class="accent">Moments</span></h2>
-    <div class="animate-3" style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:10px;margin-top:12px;max-width:1200px;width:100%;flex:1;max-height:clamp(270px,40vh,360px);" id="oh-grid-moments">
+    <div class="animate-3" style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:10px;margin-top:12px;max-width:1200px;width:100%;height:clamp(260px,38vh,350px);" id="oh-grid-moments">
     </div>
     <!-- Call to action — pinned lower -->
     <div class="animate-4" style="margin-top:auto;margin-bottom:clamp(24px,4vh,44px);padding:14px 36px;background:linear-gradient(135deg,rgba(246,136,31,0.15),rgba(47,142,166,0.15));border:2px solid rgba(246,136,31,0.45);border-radius:100px;font-size:clamp(16px,2vw,24px);font-weight:700;letter-spacing:0.04em;text-align:center;">
@@ -1342,9 +1342,10 @@ const SPEAKER_TAGS = [
 function makePhotoFrame(ev, extraClass = '') {
   const hasPhoto = ev && ev.imageUrl;
   const label = ev ? ev.title : '📸 Add Photo';
+  const pos = (ev && ev.photoPosition) ? ev.photoPosition : 'center';
   if (hasPhoto) {
     return `<div class="photo-frame ${extraClass}">
-      <img src="${ev.imageUrl}" alt="${ev.title}" loading="lazy" onerror="this.parentElement.classList.add('placeholder');this.parentElement.setAttribute('data-label','📸 ${ev.title}');this.remove();">
+      <img src="${ev.imageUrl}" alt="${ev.title}" loading="lazy" style="object-position:${pos};" onerror="this.parentElement.classList.add('placeholder');this.parentElement.setAttribute('data-label','📸 ${ev.title}');this.remove();">
       <div class="caption">${ev.title}</div>
     </div>`;
   }
@@ -1375,7 +1376,7 @@ function populateSlides() {
     { imageUrl: 'photos/luncheons/november/nov-luncheon-24.jpg',  title: 'Pre-Luncheon Networking' },
     { imageUrl: 'photos/luncheons/november/nov-luncheon-2.jpg',   title: 'Monthly Luncheon' },
     { imageUrl: 'photos/luncheons/luncheon-annual-meeting-exhibitor-networking-01.jpg', title: 'Annual Meeting' },
-    { imageUrl: 'photos/luncheons/membership-appreciation-luncheon-award-presentation-orange-trophy.jpg', title: 'Member Award' },
+    { imageUrl: 'photos/luncheons/membership-appreciation-luncheon-award-presentation-orange-trophy.jpg', title: 'Member Award', photoPosition: 'center 15%' },
     { imageUrl: 'photos/luncheons/luncheon-speaker-applause-presentation-screen.jpg',  title: 'Standing Ovation' },
   ];
   const lunchEl = document.getElementById('luncheon-photos');
