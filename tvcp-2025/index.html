@@ -1293,19 +1293,31 @@
 // ══════════════════════════════════════════════════════
 // Open house photo paths (local — Website Picks, resized for presentation)
 const OH = 'photos/open-house/';
+// Slide 1 — Thanksgiving Open House (showcase / group shots)
 const OPEN_HOUSE_PHOTOS = [
-  { file: OH+'ej-open-house_46_full-group-photo-branded-wall.jpg',      caption: 'Full Group Photo' },
-  { file: OH+'ej-open-house_28_group-five-branded-wall.jpg',            caption: 'Chamber Members' },
-  { file: OH+'ej-open-house_17_group-three-branded-wall.jpg',           caption: 'Networking' },
+  { file: OH+'ej-open-house_46_full-group-photo-branded-wall.jpg',        caption: 'Full Group Photo' },
+  { file: OH+'ej-open-house_28_group-five-branded-wall.jpg',              caption: 'Chamber Members' },
   { file: OH+'ej-open-house_33_group-three-fun-glasses-branded-wall.jpg', caption: 'Fun at the Open House' },
-  { file: OH+'ej-open-house_40_joe-and-client-natural-smiles.jpg',      caption: 'Joe & Guest' },
-  { file: OH+'ej-open-house_35_joe-and-client-thumbs-up.jpg',           caption: 'Thumbs Up!' },
-  { file: OH+'ej-open-house_44_client-laughing-genuine-moment.jpg',     caption: 'Good Times' },
-  { file: OH+'ej-open-house_01_branded-wall-happy-fall.jpg',            caption: 'Edward Jones Open House' },
-  { file: OH+'ej-open-house_06_charcuterie-board-strawberries.jpg',     caption: 'Charcuterie Board' },
-  { file: OH+'ej-open-house_10_stock-ticker-cookies.jpg',               caption: 'Stock Ticker Cookies!' },
-  { file: OH+'ej-open-house_21_exterior-building.jpg',                  caption: 'Edward Jones — Tremont Center' },
-  { file: OH+'ej-open-house_08_edward-jones-door-sign-fall-leaves.jpg', caption: 'Open House' },
+  { file: OH+'ej-open-house_04_couple-photo-booth-fun.jpg',               caption: 'Photo Booth Fun' },
+  { file: OH+'ej-open-house_32_group-four-with-baby-branded-wall.jpg',    caption: 'Family & Friends' },
+  { file: OH+'ej-open-house_40_joe-and-client-natural-smiles.jpg',        caption: 'Joe & Guest' },
+  { file: OH+'ej-open-house_42_joe-and-client-prize-smiling.jpg',         caption: 'Raffle Winner!' },
+  { file: OH+'ej-open-house_01_branded-wall-happy-fall.jpg',              caption: 'Edward Jones Open House' },
+];
+// Slide 2 — Open House Moments (candid / atmosphere — zero overlap)
+const OPEN_HOUSE_MOMENTS = [
+  { file: OH+'ej-open-house_09_joe-greeting-client-lobby.jpg',            caption: 'Welcome In' },
+  { file: OH+'ej-open-house_19_team-greeting-clients-office.jpg',         caption: 'Great Conversations' },
+  { file: OH+'ej-open-house_20_joe-hallway-thumbsup-with-clients.jpg',    caption: 'Thumbs Up!' },
+  { file: OH+'ej-open-house_26_joe-greeting-client-with-baby.jpg',        caption: 'Community & Family' },
+  { file: OH+'ej-open-house_31_joe-taking-selfie-with-clients.jpg',       caption: 'Selfie Time' },
+  { file: OH+'ej-open-house_41_joe-welcoming-clients-at-door.jpg',        caption: 'Door Greeting' },
+  { file: OH+'ej-open-house_36_joe-talking-with-client-beverages.jpg',    caption: 'Catching Up' },
+  { file: OH+'ej-open-house_43_team-member-raffling-prize.jpg',           caption: 'Raffle Drawing' },
+  { file: OH+'ej-open-house_12_joe-greeting-client-smiling.jpg',          caption: 'Good Times' },
+  { file: OH+'ej-open-house_06_charcuterie-board-strawberries.jpg',       caption: 'Charcuterie Board' },
+  { file: OH+'ej-open-house_10_stock-ticker-cookies.jpg',                 caption: 'Stock Ticker Cookies!' },
+  { file: OH+'ej-open-house_18_gift-table-buckeye-crunch.jpg',            caption: 'Buckeye Crunch & Props' },
 ];
 
 const EVENTS = [
@@ -1528,7 +1540,7 @@ function populateSlides() {
   }
   const ohMoments = document.getElementById('oh-grid-moments');
   if (ohMoments) {
-    ohMoments.innerHTML = OPEN_HOUSE_PHOTOS.map(p => {
+    ohMoments.innerHTML = OPEN_HOUSE_MOMENTS.map(p => {
       return `<div style="border-radius:10px;overflow:hidden;position:relative;">
         <img src="${p.file}" alt="${p.caption}" style="width:100%;height:100%;object-fit:cover;display:block;">
         <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));padding:14px 8px 5px;font-size:10px;font-weight:600;letter-spacing:0.05em;text-align:center;">${p.caption}</div>
