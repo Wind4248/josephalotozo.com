@@ -946,10 +946,10 @@
   <div class="slide bg-slate" id="slide-openhouse2">
     <p class="eyebrow animate-1">The people make the party</p>
     <h2 class="headline animate-2" style="font-size:clamp(26px,4vw,50px);">Open House<br><span class="accent">Moments</span></h2>
-    <div class="animate-3" style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:10px;margin-top:12px;max-width:1200px;width:100%;height:clamp(260px,38vh,350px);" id="oh-grid-moments">
+    <div class="animate-3" style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);gap:8px;margin-top:12px;max-width:1300px;width:100%;flex:1;min-height:0;" id="oh-grid-moments">
     </div>
     <!-- Call to action — pinned lower -->
-    <div class="animate-4" style="margin-top:auto;margin-bottom:clamp(24px,4vh,44px);padding:14px 36px;background:linear-gradient(135deg,rgba(246,136,31,0.15),rgba(47,142,166,0.15));border:2px solid rgba(246,136,31,0.45);border-radius:100px;font-size:clamp(16px,2vw,24px);font-weight:700;letter-spacing:0.04em;text-align:center;">
+    <div class="animate-4" style="margin-top:12px;margin-bottom:clamp(12px,2vh,24px);padding:12px 36px;background:linear-gradient(135deg,rgba(246,136,31,0.15),rgba(47,142,166,0.15));border:2px solid rgba(246,136,31,0.45);border-radius:100px;font-size:clamp(16px,2vw,24px);font-weight:700;letter-spacing:0.04em;text-align:center;">
       What event can the Chamber promote or help you market in 2026?
     </div>
   </div>
@@ -1021,8 +1021,8 @@
       </div>
       <!-- Jamie Gentry -->
       <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-        <div style="width:clamp(100px,13vw,160px);height:clamp(100px,13vw,160px);border-radius:50%;overflow:hidden;border:3px solid rgba(47,142,166,0.6);box-shadow:0 4px 20px rgba(0,0,0,0.3);background:linear-gradient(135deg,#2f8ea6,#1a5c6e);display:flex;align-items:center;justify-content:center;">
-          <span style="font-size:clamp(32px,4vw,52px);font-weight:900;font-family:'Oswald',sans-serif;color:white;">JG</span>
+        <div style="width:clamp(100px,13vw,160px);height:clamp(100px,13vw,160px);border-radius:50%;overflow:hidden;border:3px solid rgba(47,142,166,0.6);box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+          <img src="photos/general/jamie-gentry-official.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
         </div>
         <div style="text-align:center;">
           <div style="font-family:'Oswald',sans-serif;font-size:clamp(15px,1.7vw,22px);font-weight:700;letter-spacing:0.03em;">Jamie Gentry</div>
@@ -1054,8 +1054,8 @@
       </div>
       <!-- Karen Truett -->
       <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-        <div style="width:clamp(100px,13vw,160px);height:clamp(100px,13vw,160px);border-radius:50%;overflow:hidden;border:3px solid rgba(47,142,166,0.6);box-shadow:0 4px 20px rgba(0,0,0,0.3);background:linear-gradient(135deg,#2f8ea6,#1a5c6e);display:flex;align-items:center;justify-content:center;">
-          <span style="font-size:clamp(32px,4vw,52px);font-weight:900;font-family:'Oswald',sans-serif;color:white;">KT</span>
+        <div style="width:clamp(100px,13vw,160px);height:clamp(100px,13vw,160px);border-radius:50%;overflow:hidden;border:3px solid rgba(47,142,166,0.6);box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+          <img src="photos/general/karen-truett-official.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
         </div>
         <div style="text-align:center;">
           <div style="font-family:'Oswald',sans-serif;font-size:clamp(15px,1.7vw,22px);font-weight:700;letter-spacing:0.03em;">Karen Truett</div>
@@ -1528,12 +1528,10 @@ function populateSlides() {
   }
   const ohMoments = document.getElementById('oh-grid-moments');
   if (ohMoments) {
-    ohMoments.innerHTML = OPEN_HOUSE_PHOTOS.slice(0, 8).map((p, i) => {
-      // alternate which 4 we show for variety
-      const pick = OPEN_HOUSE_PHOTOS[(i + 4) % OPEN_HOUSE_PHOTOS.length];
-      return `<div style="border-radius:12px;overflow:hidden;position:relative;">
-        <img src="${pick.file}" alt="${pick.caption}" style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));padding:16px 8px 6px;font-size:11px;font-weight:600;letter-spacing:0.05em;text-align:center;">${pick.caption}</div>
+    ohMoments.innerHTML = OPEN_HOUSE_PHOTOS.map(p => {
+      return `<div style="border-radius:10px;overflow:hidden;position:relative;">
+        <img src="${p.file}" alt="${p.caption}" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));padding:14px 8px 5px;font-size:10px;font-weight:600;letter-spacing:0.05em;text-align:center;">${p.caption}</div>
       </div>`;
     }).join('');
   }
