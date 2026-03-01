@@ -63,7 +63,7 @@ Personal website for Joseph A. Lotozo — CFP® professional, Financial Advisor 
 ## About Joe
 
 - CFP® professional, Financial Advisor and Partner at Edward Jones, Tremont Center, Grandview Heights
-- **CFP Board rule:** Always reference as "CFP® professional" (not just "CFP®") when describing Joe
+- **CFP Board rule:** Always reference as "CERTIFIED FINANCIAL PLANNER™ professional" or "CFP® professional" when describing Joe
 - Lifelong Upper Arlington resident, Ohio State alum
 - Past Chair of Tri-Village Chamber Partnership (2025)
 - Currently pursuing MBA at OSU Fisher College of Business
