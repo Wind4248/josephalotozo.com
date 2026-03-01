@@ -1,6 +1,6 @@
 # josephalotozo.com
 
-Personal website for Joseph A. Lotozo — Financial Advisor at Edward Jones, Upper Arlington, Ohio.
+Personal website for Joseph A. Lotozo — CFP® professional, Financial Advisor and Partner at Edward Jones, Upper Arlington, Ohio.
 
 ## Site Structure
 
@@ -62,7 +62,8 @@ Personal website for Joseph A. Lotozo — Financial Advisor at Edward Jones, Upp
 
 ## About Joe
 
-- Financial Advisor at Edward Jones, Tremont Center, Grandview Heights
+- CFP® professional, Financial Advisor and Partner at Edward Jones, Tremont Center, Grandview Heights
+- **CFP Board rule:** Always reference as "CFP® professional" (not just "CFP®") when describing Joe
 - Lifelong Upper Arlington resident, Ohio State alum
 - Past Chair of Tri-Village Chamber Partnership (2025)
 - Currently pursuing MBA at OSU Fisher College of Business
