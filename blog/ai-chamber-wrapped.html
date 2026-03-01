@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Have a Genie and His Name is Claude | Joseph A. Lotozo</title>
+  <meta name="description" content="How Joe Lotozo used Claude Code and AI to build an interactive Chamber Wrapped presentation with zero coding experience — and why the speech itself had to be his own." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="canonical" href="https://www.josephalotozo.com/blog/ai-chamber-wrapped.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="I Have a Genie and His Name is Claude" />
+  <meta property="og:description" content="How I used AI to build an interactive year-in-review presentation for my Chamber speech — with zero coding experience." />
+  <meta property="og:url" content="https://www.josephalotozo.com/blog/ai-chamber-wrapped.html" />
+
+  <style>
+    :root {
+      --ej-yellow:      #FAD141;
+      --ej-yellow-dark: #e0b800;
+      --ej-black:       #1A1A1A;
+      --ej-white:       #FFFFFF;
+      --ej-gray-light:  #F7F7F7;
+      --ej-gray-mid:    #E8E8E8;
+      --ej-gray-text:   #555555;
+      --ej-gray-dark:   #333333;
+      --ej-border:      #DEDEDE;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: var(--ej-black);
+      background: var(--ej-white);
+      line-height: 1.75;
+    }
+
+    a { color: inherit; }
+
+    nav {
+      background: var(--ej-white);
+      border-bottom: 3px solid var(--ej-yellow);
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    }
+
+    .nav-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-name {
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--ej-black);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-sub {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.72rem;
+      color: var(--ej-gray-text);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-anchor {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ej-gray-dark);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .nav-anchor:hover { border-color: var(--ej-yellow); }
+
+    .article {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--ej-black);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .post-meta {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: var(--ej-gray-text);
+      margin-bottom: 2rem;
+    }
+
+    .section-rule {
+      width: 52px;
+      height: 4px;
+      background: var(--ej-yellow);
+      margin-bottom: 2rem;
+      border-radius: 2px;
+    }
+
+    .article p {
+      color: var(--ej-gray-dark);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    .article h2 {
+      font-size: 1.35rem;
+      color: var(--ej-black);
+      margin: 2.5rem 0 0.75rem;
+    }
+
+    .article a {
+      color: var(--ej-black);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .article blockquote {
+      border-left: 4px solid var(--ej-yellow);
+      margin: 1.5rem 0;
+      padding: 1rem 1.25rem;
+      background: var(--ej-gray-light);
+      border-radius: 0 4px 4px 0;
+      font-style: italic;
+      color: var(--ej-gray-dark);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--ej-yellow);
+      color: var(--ej-black);
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 3px;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      transition: background 0.2s;
+    }
+    .cta-button:hover { background: var(--ej-yellow-dark); }
+
+    .speech-section {
+      background: var(--ej-gray-light);
+      border: 1px solid var(--ej-border);
+      border-radius: 6px;
+      padding: 2rem 2rem;
+      margin: 2rem 0;
+    }
+
+    .speech-section h3 {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ej-gray-text);
+      margin-bottom: 1rem;
+    }
+
+    .speech-section p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+    }
+
+    .back-link {
+      display: inline-block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ej-gray-dark);
+      text-decoration: none;
+      margin-top: 3rem;
+      border-bottom: 2px solid var(--ej-yellow);
+      padding-bottom: 2px;
+    }
+
+    footer {
+      background: var(--ej-gray-dark);
+      color: #aaa;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      line-height: 2;
+    }
+
+    footer a { color: var(--ej-yellow); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1rem; }
+      .nav-sub { display: none; }
+      .article { padding: 3rem 1.5rem 4rem; }
+      h1 { font-size: 1.6rem; }
+      .speech-section { padding: 1.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../" style="text-decoration:none;">
+      <div class="nav-left">
+        <span class="nav-name">Joseph A. Lotozo, CFP®</span>
+        <span class="nav-sub">UPPER ARLINGTON, OHIO</span>
+      </div>
+    </a>
+    <div style="display:flex; gap:1.5rem; align-items:center;">
+      <a class="nav-anchor" href="../">Home</a>
+      <a class="nav-anchor" href="./">Blog</a>
+    </div>
+  </nav>
+
+  <div class="article">
+    <h1>I Have a Genie and His Name is Claude</h1>
+    <div class="post-meta">February 28, 2026 &nbsp;·&nbsp; Joseph A. Lotozo</div>
+    <div class="section-rule"></div>
+
+    <p>
+      As the 2025 Chair of the Tri-Village Chamber Partnership, I had one job at the end of the year: give the year-in-review speech at the annual meeting. Fifteen minutes to recap everything the chamber did over the past twelve months. No pressure.
+    </p>
+
+    <p>
+      I wanted to do something different. I've always liked Spotify Wrapped — that end-of-year recap that shows you how you spent your listening time. So I thought: what if I did that for the chamber? A "Chamber Wrapped" presentation, with real data, photos from our events, and a format that felt fun instead of formal.
+    </p>
+
+    <p>
+      There was just one problem. I'm a financial advisor, not a web developer. I've never written a line of code in my life.
+    </p>
+
+    <h2>Enter Claude</h2>
+
+    <p>
+      I'd been following AI closely — I even <a href="https://www.amazon.com/AI-Unmasked-Demystifying-Sentient-Machines/dp/B0C47R26N4" target="_blank" rel="noopener">co-authored a book about it</a> with ChatGPT-4 back in 2023. But using AI as a curiosity is one thing. Using it to actually <em>build</em> something is another.
+    </p>
+
+    <p>
+      I started using <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a>, Anthropic's command-line AI tool, and the experience is hard to describe if you haven't tried it. The best way I can put it: it feels like having a genie. You just tell it what you want, and it does it.
+    </p>
+
+    <blockquote>
+      "I want a slide that shows our 48 events this year with a counter animation."<br />
+      Done.<br /><br />
+      "Add the ribbon cutting photos in a grid with captions."<br />
+      Done.<br /><br />
+      "Make it navigate with arrow keys so I can click through it like a presentation."<br />
+      Done.
+    </blockquote>
+
+    <p>
+      With zero coding experience, I built an entire interactive website — 22 slides, arrow-key navigation, branded in the chamber's teal and orange colors. Photos, stats, event recaps, thank-yous. It looked professional. It worked perfectly. I opened it in fullscreen Chrome and it looked like a real presentation, because it <em>was</em> a real presentation. It just happened to be a live website.
+    </p>
+
+    <p>
+      <a class="cta-button" href="../tvcp-2025/" target="_blank" rel="noopener">See the Chamber Wrapped Presentation &rarr;</a>
+    </p>
+
+    <h2>It Wasn't Just the Presentation</h2>
+
+    <p>
+      Once I realized what Claude Code could do, I started using it for everything. I used it to clean out my Gmail — years of clutter, organized and archived in minutes. I used it to organize files on my computer. And I used it to build <a href="../">this very website</a>, josephalotozo.com, from scratch.
+    </p>
+
+    <p>
+      For someone who has never written code, the feeling is genuinely empowering. Things that would have required hiring a developer or spending weeks learning — I could just describe what I wanted, and it appeared. It's an incredible time to be alive.
+    </p>
+
+    <h2>The Honest Part</h2>
+
+    <p>
+      But here's the thing nobody tells you about AI, and the part I think is most important.
+    </p>
+
+    <p>
+      Claude built me an amazing presentation. The slides were polished, the animations were smooth, the data was organized beautifully. When it came time to write my actual speech, I figured I'd let AI handle that too. Fifteen minutes of remarks about the chamber's year — how hard could it be?
+    </p>
+
+    <p>
+      The AI wrote a speech. It was well-structured, thorough, and hit all the right points. But when I tried to practice it, something was wrong. It was hard to memorize. Hard to read out loud. The sentences didn't flow the way I talk. It didn't sound like me. It sounded like a speech written by a very smart machine that had never actually attended a Chamber Happy Hour or gotten its car towed at a ribbon cutting.
+    </p>
+
+    <p>
+      At 11 o'clock the night before my speech, I scrapped the whole thing. I opened a blank document and just wrote. I talked about the events I remembered, the people I wanted to thank, the moments that actually meant something to me. I talked about how the chamber has made me feel more connected to the community I grew up in. I talked about getting parked in the wrong lot at the Roots ribbon cutting. I told people to subscribe to the Business Inspires podcast.
+    </p>
+
+    <p>
+      The next evening, I stood up at Upper Arlington City Hall and delivered the speech. The slides behind me were 100% AI-built. The words coming out of my mouth were 100% mine.
+    </p>
+
+    <h2>The Takeaway</h2>
+
+    <p>
+      AI is the most powerful building tool I've ever used. It can create things that would have been impossible for me a year ago. It can organize, design, animate, and code. It's genuinely like having a genie.
+    </p>
+
+    <p>
+      But your voice is still your voice. The things that make you <em>you</em> — the way you tell a story, the details you remember, the way you connect with people in a room — that's not something you can outsource. And honestly, I don't think you'd want to.
+    </p>
+
+    <p>
+      Use the tools. Build amazing things. But when it's time to stand up and speak, make sure the words are yours.
+    </p>
+
+    <div class="speech-section">
+      <h3>The Speech (As Delivered, February 26, 2026)</h3>
+      <p>
+        Hello everyone. I'm Joe Lotozo, Financial Advisor with Edward Jones. I'm located at the Tremont Center, and I'm the outgoing Chair of the 2025 Board of Directors. I'm proud to have been the chair over this last year. I think the chamber had a lot of fun events. I know I had fun.
+      </p>
+      <p>
+        I joined the chamber to get my name out there. And I've stayed because I've made friends and it's really embedded me in the community that I live in and work in.
+      </p>
+      <p>
+        They gave me 15 minutes to speak, so I pretty quickly went to AI and generated a lot of things to say. But at 11 o'clock last night I wanted to change it up and not do that. So I do have a lot of content that I came up with, and I'll try to do as little AI as possible.
+      </p>
+      <p>
+        I always liked the Spotify Wrapped at the end of each year. I listen to a lot of podcasts, I listen to a lot of music, and I liked seeing how I spent my last year. So I thought I could do that for the chamber. Let's go through some of these slides.
+      </p>
+      <p>
+        So here is a snapshot of a lot of the things that we did in the whole year. I think we had a lot of fun, a lot of good opportunities to network. The chamber is built of 437 businesses total, and we got 72 new members in 2025 — so that's great. If you're a new member, could you raise your hand, please? We just want to see if we have any new members here. Great, well, welcome. We're glad you're here. Try to say hello to the new members if you can before you leave. Introduce yourself.
+      </p>
+      <p>
+        We hosted 48 events, and there were 48 committee meetings as well, so the board works pretty hard and really tries to do a good job. We had 12 monthly luncheons this year — it's a consistent thing each month that you know is going to be there. Sometimes lunch is covered, sometimes you pay for it. It's a good time. Try to come to the monthly luncheons and say hello.
+      </p>
+      <p>
+        We had 12 ribbon cuttings and grand openings this year. Here are some companies that had ribbon cuttings — Clean Eats, UA Pizza, Roots. This one was so packed that I got parked in a different parking lot and got my car towed. We had Modern Physio, Mutual Federal Bank, Wynan's Coffee and Chocolates, and Snap Fitness. Each of these is a business owner that took a risk, maybe earlier in their career, maybe right away. So thanks for trying to come to all the ribbon cuttings you can.
+      </p>
+      <p>
+        We welcome the new Grandview Heights City Hall, Police and Fire building. Congratulations to all those. One of our biggest events of the year is the Be Your Best Self Conference. Last year was my first time attending, and I'm planning to get a table this year. I did like the bingo cards for visiting the tables and entering the raffles — it actually got me motivated to walk around, use those stamps, introduce myself, made the whole experience a little less awkward. So thanks to Katie and Randon for that idea.
+      </p>
+      <p>
+        The Happy Hours — I try to make as many as I can. They're fun. Hope to see you there. I sponsored the Daily Growler one and MidSoul Marketing, which gave me a great chance to introduce myself. If you're interested in sponsoring or doing a quick elevator pitch at the Happy Hours, reach out to Katie or Rhiannon. Thank you to everyone who has sponsored and helped make those Happy Hours happen. Do you have a great place that you want to show off? Please let us know.
+      </p>
+      <p>
+        Now here are some highlights that really stood out to me this year. There are new member breakfasts where you get to tour the Bob Crane Community Center. These events bring our community together and help new members get plugged in. We had two member spotlights this year where we take a deeper look into your business. Katie will interview you and then turn it into a featured article. Mine from years ago shows up right under my Edward Jones site on Google even today. I would bet this actually helps out the algorithms. We had 40 speakers and presenters at our events this year — thank you to all the speakers.
+      </p>
+      <p>
+        An event that always draws a lot of attention is the Development Download. It feels like a sneak peek into what's happening in UA, Grandview, Marble Cliff, and Greater Columbus. If you haven't been, I highly recommend it — it really does make you feel like an insider.
+      </p>
+      <p>
+        One event I thought was super interesting was about our neighbors to the east — the OSU campus. Amanda Hofsvis presented on what's going to be going on at Waterman Farms and in the Innovation District over the next 5, 10, 15 years. It's really exciting. I'd love to talk to anybody more about it.
+      </p>
+      <p>
+        I want to give a big congrats to Brett Johnson and Katie Ellis. The Business Inspires podcast hit 100 episodes in December. Subscribe on Spotify or wherever you listen — you can stay informed about the chamber and hear from the members.
+      </p>
+      <p>
+        I'm so grateful to the chamber for promoting my open house at the Tremont Center. I got more people to come because of the chamber connection. As chamber members, being able to get the word out to fellow members makes a big difference. And I want to give a big thanks to Rebel Marketing for taking the marketing pictures. If you like these pictures, think about asking them to photograph your events. Think about what events you have that the Chamber can help you promote. What can we help you market in 2026?
+      </p>
+      <p>
+        Ending the year was the holiday celebration luncheon, always a classy affair at Scioto Country Club. We also had a happy hour with wreath-making, which was great. Think about if you want to host a happy hour, maybe having an activity — this got a lot of attention. It was a nice way to close out 2025.
+      </p>
+      <p>
+        Now on to thank-yous. A big thank you to the ex officios — community leaders who served alongside us, like city managers, mayors, and school district partners. If you're an ex officio member and here today, please stand to be recognized. Thank you for your partnership and service to our community.
+      </p>
+      <p>
+        I'd like to thank Steve Schoeny and all the members of UA City Council for the beautiful venue today. Isn't this a great place for an annual chamber meeting?
+      </p>
+      <p>
+        Thank you to Emma Reed running the slides — she moved here from Texas to be my admin. Please introduce yourself to her and welcome her. Big shout out to Katie Ellis and Rhiannon — they're the backbone of the chamber. Round of applause.
+      </p>
+      <p>
+        Thank you to the past chair, Andrea, with Cat's Only Veterinary Clinic — she helped me step into the role and hit the ground running. Thank you to Ron Grohovac stepping off the board. He just had a baby. Congratulations, Ron.
+      </p>
+      <p>
+        Current board members, if your name is up there, please stand to be recognized.
+      </p>
+      <p>
+        Now, for the official business of this meeting — the approval of the 2026 slate of the Chamber Board of Directors. Brett Johnson will be Chair. Amber Wilson with Fabtique will be Vice Chair. Sierra Thomas with Touch&eacute; Financial Solutions will be Treasurer. Deanna Barzak will be stepping into the Executive Committee. Thank you, Deanna, for eventually stepping up to chair. I will stay on as Immediate Past Chair.
+      </p>
+      <p>
+        Do we have a motion to approve? And a second? All in favor say aye. Any opposed? Motion carries. Congratulations to our board of 2026.
+      </p>
+      <p>
+        It's really been an honor to be the chair of the chamber of the community I live and work in and grew up in. When I joined the chamber, probably at age 23 or 24, the thought of being on the chamber board felt so intimidating. But it's a great way to meet more people in the chamber and in the community. Partnership is always good — we all need to be out there shaking some trees.
+      </p>
+      <p>
+        So if you've ever thought about getting more involved, you can join a committee, you can serve on the board. It's a good time. You'll meet good people. Talk to Katie, talk to any of us. We'd love to have you. 2026 — it's going to be great.
+      </p>
+      <p>
+        Thank you all for your time. Thank you all for everything. I'm honored to introduce the incoming chair — host of your favorite podcast, and all of you need podcasts. Welcome up Brett Johnson.
+      </p>
+    </div>
+
+    <a class="back-link" href="./">&larr; Back to Blog</a>
+  </div>
+
+  <footer>
+    <p><a href="../">josephalotozo.com</a> &nbsp;·&nbsp; &copy; 2025 Joseph A. Lotozo</p>
+    <p style="font-size:0.72rem; color:#777; margin-top:0.5rem;">The postings on this site are my own and do not necessarily reflect the views of Edward Jones.</p>
+  </footer>
+
+</body>
+</html>

@@ -10,6 +10,7 @@
   <meta name="author" content="Joseph A. Lotozo" />
   <link rel="canonical" href="https://www.josephalotozo.com/" />
   <meta name="google-site-verification" content="c8Ko1zUGzHiPIggknspaCiO1aEAQMv7bQGWK5QovuDw" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- Open Graph -->
   <meta property="og:type" content="profile" />
@@ -347,6 +348,20 @@
       line-height: 1.5;
     }
 
+    .cred-badge {
+      display: inline-block;
+      background: var(--ej-yellow);
+      color: var(--ej-black);
+      font-family: 'Arial', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+    }
+
     /* ===== LIST CARDS ===== */
     .list-cards {
       display: grid;
@@ -647,7 +662,10 @@
       <span class="nav-name">Joseph A. Lotozo, CFP®</span>
       <span class="nav-sub">UPPER ARLINGTON, OHIO</span>
     </div>
-    <a class="nav-anchor" href="#connect">Find Me Online</a>
+    <div style="display:flex; gap:1.5rem; align-items:center;">
+      <a class="nav-anchor" href="blog/">Blog</a>
+      <a class="nav-anchor" href="#connect">Find Me Online</a>
+    </div>
   </nav>
 
   <!-- DISCLAIMER BANNER -->
@@ -719,6 +737,11 @@
         <div class="cred-card">
           <div class="cred-abbr">CRPS®</div>
           <div class="cred-full">Chartered Retirement Plans Specialist<sup>SM</sup></div>
+        </div>
+        <div class="cred-card">
+          <div class="cred-abbr">MBA</div>
+          <div class="cred-full">The Ohio State University — Fisher College of Business</div>
+          <div class="cred-badge">In Progress</div>
         </div>
       </div>
     </div>
@@ -799,6 +822,29 @@
     </div>
   </section>
 
+  <!-- WHAT I'M READING -->
+  <section class="section-white">
+    <div class="section-inner">
+      <h2>What I'm Reading</h2>
+      <div class="section-rule"></div>
+      <p>A few books on my nightstand right now.</p>
+      <div class="list-cards">
+        <div class="list-card">
+          <strong><em>The Seven Rules of Trust</em></strong>
+          <span>Jimmy Wales with Dan Gardner — A framework for building and maintaining trust, from the co-founder of Wikipedia.</span>
+        </div>
+        <div class="list-card">
+          <strong><em>The Philosopher in the Valley</em></strong>
+          <span>Michael Steinberger — Alex Karp, Palantir, and the Rise of the Surveillance State.</span>
+        </div>
+        <div class="list-card">
+          <strong><em>Hannah's Children</em></strong>
+          <span>Catherine Ruth Pakaluk — The Women Quietly Defying the Birth Dearth.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ZOO PHOTOS -->
   <section class="section-white">
     <div class="section-inner">
@@ -863,6 +909,10 @@
         <div class="photo-card">
           <img src="assets/team-laughing.jpg" alt="Joe Lotozo, Emma Reed, and Bella Cloyd laughing together at the office" style="width:100%; height:auto; display:block;" loading="lazy" />
           <div class="photo-caption">Work is better when you enjoy the people you're with</div>
+        </div>
+        <div class="photo-card">
+          <img src="assets/team-formal.jpg" alt="Joe Lotozo, Emma Reed, and Bella Cloyd — formal team photo at Tremont Center" style="width:100%; height:auto; display:block;" loading="lazy" />
+          <div class="photo-caption">The team — Tremont Center, Upper Arlington</div>
         </div>
       </div>
 
