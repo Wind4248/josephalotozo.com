@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building My Mom's Law Firm Website with AI | Joseph A. Lotozo</title>
+  <meta name="description" content="How Joe Lotozo used Claude Code to build a professional website for his mother's estate planning law practice — with zero coding experience and zero budget." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="canonical" href="https://www.josephalotozo.com/blog/building-moms-law-website.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Building My Mom's Law Firm Website with AI" />
+  <meta property="og:description" content="How I used Claude Code to build a professional website for my mother's estate planning law practice — with zero coding experience." />
+  <meta property="og:url" content="https://www.josephalotozo.com/blog/building-moms-law-website.html" />
+
+  <style>
+    :root {
+      --ej-yellow:      #FAD141;
+      --ej-yellow-dark: #e0b800;
+      --ej-black:       #1A1A1A;
+      --ej-white:       #FFFFFF;
+      --ej-gray-light:  #F7F7F7;
+      --ej-gray-mid:    #E8E8E8;
+      --ej-gray-text:   #555555;
+      --ej-gray-dark:   #333333;
+      --ej-border:      #DEDEDE;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: var(--ej-black);
+      background: var(--ej-white);
+      line-height: 1.75;
+    }
+
+    a { color: inherit; }
+
+    nav {
+      background: var(--ej-white);
+      border-bottom: 3px solid var(--ej-yellow);
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    }
+
+    .nav-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-name {
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--ej-black);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-sub {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.72rem;
+      color: var(--ej-gray-text);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-anchor {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ej-gray-dark);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .nav-anchor:hover { border-color: var(--ej-yellow); }
+
+    .article {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--ej-black);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .post-meta {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: var(--ej-gray-text);
+      margin-bottom: 2rem;
+    }
+
+    .section-rule {
+      width: 52px;
+      height: 4px;
+      background: var(--ej-yellow);
+      margin-bottom: 2rem;
+      border-radius: 2px;
+    }
+
+    .article p {
+      color: var(--ej-gray-dark);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    .article h2 {
+      font-size: 1.35rem;
+      color: var(--ej-black);
+      margin: 2.5rem 0 0.75rem;
+    }
+
+    .article a {
+      color: var(--ej-black);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .article blockquote {
+      border-left: 4px solid var(--ej-yellow);
+      margin: 1.5rem 0;
+      padding: 1rem 1.25rem;
+      background: var(--ej-gray-light);
+      border-radius: 0 4px 4px 0;
+      font-style: italic;
+      color: var(--ej-gray-dark);
+    }
+
+    .article ul {
+      margin: 1rem 0 1.5rem 1.5rem;
+      color: var(--ej-gray-dark);
+      font-size: 1.05rem;
+    }
+
+    .article li {
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--ej-yellow);
+      color: var(--ej-black);
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 3px;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      transition: background 0.2s;
+    }
+    .cta-button:hover { background: var(--ej-yellow-dark); }
+
+    .back-link {
+      display: inline-block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ej-gray-dark);
+      text-decoration: none;
+      margin-top: 3rem;
+      border-bottom: 2px solid var(--ej-yellow);
+      padding-bottom: 2px;
+    }
+
+    footer {
+      background: var(--ej-gray-dark);
+      color: #aaa;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      line-height: 2;
+    }
+
+    footer a { color: var(--ej-yellow); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1rem; }
+      .nav-sub { display: none; }
+      .article { padding: 3rem 1.5rem 4rem; }
+      h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../" style="text-decoration:none;">
+      <div class="nav-left">
+        <span class="nav-name">Joseph A. Lotozo, CFP®</span>
+        <span class="nav-sub">UPPER ARLINGTON, OHIO</span>
+      </div>
+    </a>
+    <div style="display:flex; gap:1.5rem; align-items:center;">
+      <a class="nav-anchor" href="../">Home</a>
+      <a class="nav-anchor" href="./">Blog</a>
+    </div>
+  </nav>
+
+  <div class="article">
+    <h1>Building My Mom's Law Firm Website with AI</h1>
+    <div class="post-meta">March 4, 2026 &nbsp;·&nbsp; Joseph A. Lotozo</div>
+    <div class="section-rule"></div>
+
+    <p>
+      My mother, Lorelei M. Lanier, is an estate planning attorney in Columbus, Ohio. She's been practicing for over 44 years. She's helped hundreds of families with wills, trusts, powers of attorney, and probate. She's one of those attorneys who still answers her own phone, makes house calls, and charges flat fees because she believes legal help shouldn't be complicated or intimidating.
+    </p>
+
+    <p>
+      She did not have a website.
+    </p>
+
+    <p>
+      For years, her practice ran on word-of-mouth referrals and her Google Business listing. That worked fine for a long time. But the world has changed. People search for attorneys online now. AI assistants like ChatGPT and Perplexity are answering questions like "Who is an estate planning attorney near me in Columbus?" And if you don't have a website, you don't exist in those answers.
+    </p>
+
+    <p>
+      So I decided to build her one. With AI.
+    </p>
+
+    <h2>The Same Genie, Different Wish</h2>
+
+    <p>
+      If you read my <a href="ai-chamber-wrapped.html">first blog post</a>, you know I've been using Claude Code to build things I never thought I could. I built an interactive presentation for the Chamber. I built this very website. So when I realized my mom needed a web presence, the answer was obvious.
+    </p>
+
+    <p>
+      I sat down with Claude Code and described what I wanted: a professional, clean, fast-loading website for an estate planning attorney in Columbus, Ohio. Multiple pages — a homepage, about page, practice areas, service areas, and a contact page with a working form. I wanted it to look like a real law firm website, not a template.
+    </p>
+
+    <p>
+      For photos, I used shots I had taken of her office years ago for her Google listing. Claude helped me organize them, resize them, and build the whole site around them.
+    </p>
+
+    <p>
+      The result: <a href="https://loreleimlanierlaw.com" target="_blank" rel="noopener">loreleimlanierlaw.com</a>
+    </p>
+
+    <p>
+      <a class="cta-button" href="https://loreleimlanierlaw.com" target="_blank" rel="noopener">Visit loreleimlanierlaw.com &rarr;</a>
+    </p>
+
+    <h2>It Didn't Stop at "Build a Website"</h2>
+
+    <p>
+      Once the site was live, I realized that just having a website isn't enough. It needs to be found. So I went deeper — and this is where things got really interesting.
+    </p>
+
+    <p>
+      Using Claude Code, I implemented a full SEO and content optimization plan across five phases:
+    </p>
+
+    <ul>
+      <li><strong>Schema markup</strong> — structured data so Google understands exactly who Lorelei is, what she does, and where she's located. FAQPage schema, LocalBusiness schema, BreadcrumbList schema, and an ItemList for all her practice areas.</li>
+      <li><strong>Expanded practice areas</strong> — from 8 services to 10, each with detailed descriptions, Ohio Revised Code citations, and "Quick Answer" paragraphs designed to be quotable by AI search engines.</li>
+      <li><strong>11 FAQ questions</strong> — covering everything from "What happens if I die without a will in Ohio?" to "How often should I update my estate plan?" Each answer is thorough enough to be cited by an AI assistant.</li>
+      <li><strong>GEO (Generative Engine Optimization)</strong> — a new concept. I created an <code>llms.txt</code> file, which is a structured summary of the practice specifically for AI crawlers. I added Ohio Revised Code citations throughout. The idea is that when someone asks Perplexity or ChatGPT about estate planning in Columbus, Lorelei's site has the kind of authoritative, fact-dense content that AI engines want to cite.</li>
+      <li><strong>Google Maps integration</strong> — an embedded map on the contact page so people can find her office on Riverside Drive.</li>
+    </ul>
+
+    <p>
+      All of this — the entire site, every page, the SEO, the schema, the legal citations, the contact form — was built by me and Claude Code. No developer. No agency. No monthly fee.
+    </p>
+
+    <h2>What This Means</h2>
+
+    <p>
+      My mom has been an attorney for 44 years. She's excellent at what she does. But she never had the tools, the time, or honestly the interest to build a website. And hiring someone to do it would have cost thousands of dollars for something that might not even reflect who she actually is.
+    </p>
+
+    <p>
+      With AI, I was able to build her a site that's fast, professional, SEO-optimized, and — most importantly — accurate. It sounds like her. It describes her practice the way she would describe it. Because I know her, and I could tell the AI exactly what to build.
+    </p>
+
+    <blockquote>
+      The best person to build a website for a small business isn't always a web developer. Sometimes it's someone who knows the business and has access to the right tools.
+    </blockquote>
+
+    <p>
+      If you have a family member, a friend, or a small business in your life that doesn't have a web presence — you might be surprised at what you can do for them. You don't need to know how to code. You just need to know what to ask for.
+    </p>
+
+    <p>
+      The genie is listening.
+    </p>
+
+    <a class="back-link" href="./">&larr; Back to Blog</a>
+  </div>
+
+  <footer>
+    <p><a href="../">josephalotozo.com</a> &nbsp;·&nbsp; &copy; 2025 Joseph A. Lotozo</p>
+    <p style="font-size:0.72rem; color:#777; margin-top:0.5rem;">The postings on this site are my own and do not necessarily reflect the views of Edward Jones.</p>
+  </footer>
+
+</body>
+</html>
