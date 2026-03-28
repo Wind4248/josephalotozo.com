@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uncle Robbie's Picks: Building a Sports App in 24 Hours | Joseph A. Lotozo</title>
+  <meta name="description" content="What happens when a non-developer, his brother-in-law, and an AI spend 24 hours trying to build a live MLB prop bet app from scratch. A story about curiosity, debugging, and deploying something real." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="canonical" href="https://www.josephalotozo.com/blog/uncle-robbies-picks.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Uncle Robbie's Picks: Building a Sports App in 24 Hours" />
+  <meta property="og:description" content="What happens when a non-developer, his brother-in-law, and an AI spend 24 hours building a live MLB prop bet app from scratch." />
+  <meta property="og:url" content="https://www.josephalotozo.com/blog/uncle-robbies-picks.html" />
+
+  <style>
+    :root {
+      --ej-yellow:      #FAD141;
+      --ej-yellow-dark: #e0b800;
+      --ej-black:       #1A1A1A;
+      --ej-white:       #FFFFFF;
+      --ej-gray-light:  #F7F7F7;
+      --ej-gray-mid:    #E8E8E8;
+      --ej-gray-text:   #555555;
+      --ej-gray-dark:   #333333;
+      --ej-border:      #DEDEDE;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: var(--ej-black);
+      background: var(--ej-white);
+      line-height: 1.75;
+    }
+
+    a { color: inherit; }
+
+    nav {
+      background: var(--ej-white);
+      border-bottom: 3px solid var(--ej-yellow);
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    }
+
+    .nav-left { display: flex; flex-direction: column; }
+
+    .nav-name {
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--ej-black);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-sub {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.72rem;
+      color: var(--ej-gray-text);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-anchor {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ej-gray-dark);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .nav-anchor:hover { border-color: var(--ej-yellow); }
+
+    .article {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--ej-black);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .post-meta {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: var(--ej-gray-text);
+      margin-bottom: 2rem;
+    }
+
+    .section-rule {
+      width: 52px;
+      height: 4px;
+      background: var(--ej-yellow);
+      margin-bottom: 2rem;
+      border-radius: 2px;
+    }
+
+    .article p {
+      color: var(--ej-gray-dark);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    .article h2 {
+      font-size: 1.35rem;
+      color: var(--ej-black);
+      margin: 2.5rem 0 0.75rem;
+    }
+
+    .article a {
+      color: var(--ej-black);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .article blockquote {
+      border-left: 4px solid var(--ej-yellow);
+      margin: 1.5rem 0;
+      padding: 1rem 1.25rem;
+      background: var(--ej-gray-light);
+      border-radius: 0 4px 4px 0;
+      font-style: italic;
+      color: var(--ej-gray-dark);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--ej-yellow);
+      color: var(--ej-black);
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 3px;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      transition: background 0.2s;
+    }
+    .cta-button:hover { background: var(--ej-yellow-dark); }
+
+    .article .photo-card {
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--ej-border);
+      margin: 2rem 0;
+    }
+
+    .article .photo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .article .photo-caption {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      color: var(--ej-gray-text);
+      padding: 0.6rem 0.85rem;
+      background: var(--ej-gray-light);
+      border-top: 1px solid var(--ej-border);
+    }
+
+    .tech-card {
+      background: var(--ej-gray-light);
+      border: 1px solid var(--ej-border);
+      border-radius: 6px;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+    }
+
+    .tech-card h3 {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ej-gray-text);
+      margin-bottom: 1rem;
+    }
+
+    .tech-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .tech-card ul li {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.92rem;
+      color: var(--ej-gray-dark);
+      padding: 0.35rem 0;
+      border-bottom: 1px solid var(--ej-border);
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .tech-card ul li:last-child { border-bottom: none; }
+
+    .tech-card ul li .label {
+      font-weight: 700;
+      color: var(--ej-black);
+      min-width: 110px;
+    }
+
+    .disclaimer-box {
+      background: #fff8e6;
+      border: 2px solid var(--ej-yellow);
+      border-radius: 6px;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+    }
+
+    .disclaimer-box h3 {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ej-black);
+      margin-bottom: 0.75rem;
+    }
+
+    .disclaimer-box p {
+      font-size: 0.88rem !important;
+      color: var(--ej-gray-dark);
+      margin-bottom: 0.5rem !important;
+    }
+
+    .disclaimer-box p:last-child { margin-bottom: 0 !important; }
+
+    .back-link {
+      display: inline-block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ej-gray-dark);
+      text-decoration: none;
+      margin-top: 3rem;
+      border-bottom: 2px solid var(--ej-yellow);
+      padding-bottom: 2px;
+    }
+
+    footer {
+      background: var(--ej-gray-dark);
+      color: #aaa;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      line-height: 2;
+    }
+
+    footer a { color: var(--ej-yellow); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1rem; }
+      .nav-sub { display: none; }
+      .article { padding: 3rem 1.5rem 4rem; }
+      h1 { font-size: 1.6rem; }
+      .tech-card { padding: 1.25rem; }
+      .tech-card ul li { flex-direction: column; gap: 0.2rem; }
+      .tech-card ul li .label { min-width: unset; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../" style="text-decoration:none;">
+      <div class="nav-left">
+        <span class="nav-name">Joseph A. Lotozo, CFP®</span>
+        <span class="nav-sub">UPPER ARLINGTON, OHIO</span>
+      </div>
+    </a>
+    <div style="display:flex; gap:1.5rem; align-items:center;">
+      <a class="nav-anchor" href="../">Home</a>
+      <a class="nav-anchor" href="./">Blog</a>
+    </div>
+  </nav>
+
+  <div class="article">
+
+    <h1>Uncle Robbie's Picks: What Happens When a Non-Developer Builds a Sports App in 24 Hours</h1>
+    <div class="post-meta">March 28, 2026 &nbsp;·&nbsp; Joseph A. Lotozo</div>
+    <div class="section-rule"></div>
+
+    <div class="disclaimer-box">
+      <h3>⚾ Before We Begin</h3>
+      <p><strong>This post is about an AI and coding experiment. Uncle Robbie's Picks is a personal hobby project built for fun — it is not financial advice, not investment guidance, and has absolutely no connection to my professional practice at Edward Jones.</strong> Gambling and sports betting carry real financial risk. Please gamble responsibly and only with money you can afford to lose. This app is for entertainment purposes only.</p>
+    </div>
+
+    <p>
+      It was a regular Saturday. The family was over. My brother-in-law Rob — "Uncle Robbie" to the kids — was watching baseball and, in the way that Uncle Robbies do, had an idea.
+    </p>
+
+    <p>
+      "You know what would be cool?" he said. "A thing that looks at the stats and tells you which prop bets are worth taking that day."
+    </p>
+
+    <p>
+      Now, I'm a financial advisor. Rob is not a software engineer. Neither of us has any business building a full-stack sports analytics application. But I've been experimenting with <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> for a while now — it's the AI tool I used to build this website, my mother's law firm website, and a <a href="./ai-chamber-wrapped.html">Chamber year-in-review presentation</a>. So I said: let's see how far we can get.
+    </p>
+
+    <p>
+      About 24 hours later, we had a live, publicly accessible web app running on a cloud server, pulling real MLB player stats, and surfacing daily prop bet picks with confidence ratings and real sportsbook odds from multiple books. It's called <a href="https://mlb-predictor-production.up.railway.app" target="_blank" rel="noopener">Uncle Robbie's Picks</a>.
+    </p>
+
+    <p>
+      Here's what that actually looked like.
+    </p>
+
+    <h2>What the App Does</h2>
+
+    <p>
+      Uncle Robbie's Picks is a mobile-friendly web app that runs every day during the MLB season. It connects to the official MLB Stats API (free, public data) and analyzes pitcher and batter matchups across every game on the schedule. It surfaces the highest-confidence prop opportunities for that day — things like a strikeout total for a pitcher known to dominate high-strikeout lineups, or a total bases pick for a slugger facing a pitcher giving up extra-base hits.
+    </p>
+
+    <p>
+      For each pick, the app shows:
+    </p>
+
+    <div class="tech-card">
+      <h3>What You See on Each Card</h3>
+      <ul>
+        <li><span class="label">The pick</span> Player name, prop type, OVER or UNDER, and the line</li>
+        <li><span class="label">Confidence</span> High / Medium / Low based on statistical edge</li>
+        <li><span class="label">Key reasons</span> 3–4 bullet points explaining the logic (pitcher ERA, team K%, park factor, etc.)</li>
+        <li><span class="label">Best odds</span> Real-time sportsbook lines pulled from DraftKings, FanDuel, BetMGM, Caesars, BetRivers, and others — with the best book starred</li>
+        <li><span class="label">Parlay builder</span> Tap picks to combine them and see the combined implied odds</li>
+      </ul>
+    </div>
+
+    <p>
+      The prop types it covers: pitcher strikeouts, batter total bases, batter hits, batter RBIs, and NRFI (No Run First Inning). It also checks the injury report and flags picks where a player is on the IL.
+    </p>
+
+    <h2>How We Built It</h2>
+
+    <p>
+      I described what we wanted to Claude Code: a Python backend with FastAPI, a mobile-friendly dark-themed frontend, MLB Stats API integration, and odds data from The Odds API. Claude wrote essentially all of the code. I directed it — describing features, reviewing what it built, catching things that didn't look right — but I didn't write the code myself.
+    </p>
+
+    <blockquote>
+      "Add a parlay builder so you can combine picks and see the combined implied odds."<br />Done.<br /><br />
+      "Pull live sportsbook odds and show which book has the best line for each pick."<br />Done.<br /><br />
+      "Flag any player on the injury report so we know to double-check before betting."<br />Done.
+    </blockquote>
+
+    <p>
+      The conversation went back and forth for hours. Some things worked immediately. Others required debugging. At one point the entire frontend was loading a games screen instead of the props screen — a duplicate JavaScript function that Claude had written in two passes without catching the conflict. We tracked it down together.
+    </p>
+
+    <div class="tech-card">
+      <h3>The Tech Stack</h3>
+      <ul>
+        <li><span class="label">Backend</span> Python 3.12 + FastAPI — serves both the API and the static frontend</li>
+        <li><span class="label">Frontend</span> Plain HTML, CSS, JavaScript — no framework, no build step</li>
+        <li><span class="label">Stats data</span> MLB Stats API (official, free, no key required)</li>
+        <li><span class="label">Odds data</span> The Odds API (aggregates DraftKings, FanDuel, BetMGM, Caesars, and more)</li>
+        <li><span class="label">Hosting</span> Railway — cloud deployment connected to GitHub</li>
+        <li><span class="label">PWA</span> Installable on Android home screen via Chrome</li>
+      </ul>
+    </div>
+
+    <h2>The Deployment Chapter (Where It Gets Interesting)</h2>
+
+    <p>
+      Building the app locally was one thing. Getting it onto a public server was another. We used Railway, a cloud hosting platform that connects to a GitHub repository and deploys automatically when you push new code. The concept is simple. The execution, it turned out, involved some trial and error.
+    </p>
+
+    <div class="photo-card">
+      <img src="../assets/uncle-robbie-railway-setup.png" alt="Railway new project setup screen" loading="lazy" />
+      <div class="photo-caption">Step one: connecting the GitHub repo to Railway and telling it how to run the app</div>
+    </div>
+
+    <p>
+      The first deployment failed because of Python version. Railway uses a tool called nixpacks to build Docker containers, and it couldn't find a precompiled binary for the specific version we'd specified (3.11.0 on Linux). Changed it to 3.12, still failed — this time because some background Python libraries (<code style="font-family:monospace; font-size:0.9em; background:#f0f0f0; padding:0.1em 0.35em; border-radius:3px;">pandas</code>, <code style="font-family:monospace; font-size:0.9em; background:#f0f0f0; padding:0.1em 0.35em; border-radius:3px;">numpy</code>) were being imported at startup even though they weren't needed at runtime. The old machine learning pipeline code — built back when this was going to be a full XGBoost model — was dragging in heavy dependencies just by being imported.
+    </p>
+
+    <div class="photo-card">
+      <img src="../assets/uncle-robbie-railway-failed.png" alt="Railway deployment failed screen" loading="lazy" />
+      <div class="photo-caption">This is what three failed deployments looks like. Each failure had a different root cause — it was genuinely a debugging session.</div>
+    </div>
+
+    <p>
+      Claude caught the issue: move the heavy imports inside the functions that actually use them, so they only load if you call those functions explicitly. The web server never calls the training functions — it only needs the live data pipeline. Once that change was pushed, the build passed.
+    </p>
+
+    <div class="photo-card">
+      <img src="../assets/uncle-robbie-railway-live.png" alt="Railway showing ACTIVE — Deployment successful" loading="lazy" />
+      <div class="photo-caption">That green ACTIVE badge was a genuine moment. The app was live at mlb-predictor-production.up.railway.app.</div>
+    </div>
+
+    <p>
+      One more thing: the Odds API key. Railway lets you set environment variables that get injected into your app at runtime — sort of like a secret vault the app can read from. We set the API key there, but the code was reading it from a local file instead of the environment. One more fix, one more push.
+    </p>
+
+    <div class="photo-card">
+      <img src="../assets/uncle-robbie-railway-variables.png" alt="Railway variables tab showing ODDS_API_KEY" loading="lazy" />
+      <div class="photo-caption">Setting the Odds API key as a Railway environment variable — so the live server can access sportsbook data without the key being exposed in the code</div>
+    </div>
+
+    <h2>What It Actually Cost</h2>
+
+    <p>
+      The MLB Stats API is free — it's the official API that baseball data sites use, and it's completely open. The Odds API has a free tier with 500 requests per month, which is plenty for personal use. Railway gives you $5 in free credits to start. All in, we spent essentially nothing to build and deploy a live web application pulling real-time data from multiple APIs.
+    </p>
+
+    <p>
+      That's the part that still surprises me. The infrastructure that would have cost thousands of dollars and weeks of developer time a decade ago is now free or nearly free, and the coding that would have required a computer science degree can now be directed by someone who can articulate what they want.
+    </p>
+
+    <h2>What This Experiment Taught Me</h2>
+
+    <p>
+      A few things stood out over the 24 hours.
+    </p>
+
+    <p>
+      <strong>Articulation matters more than syntax.</strong> My job in this project was to describe what I wanted clearly — to think through the product, the edge cases, the user experience. Claude handled the implementation. The better I got at describing the goal, the better the output. That's a skill, and it's not the skill I expected to be developing.
+    </p>
+
+    <p>
+      <strong>Debugging is still real work.</strong> AI doesn't just produce perfect code. It produces pretty good code that sometimes has subtle bugs — a duplicate function here, a wrong import there. The debugging process is collaborative. You describe the symptom, the AI traces the cause, you verify the fix makes sense. It's faster than doing it alone, but it's not zero effort.
+    </p>
+
+    <p>
+      <strong>The gap between "working locally" and "deployed publicly" is real.</strong> The app worked perfectly on my MacBook. Getting it onto a server in a Docker container introduced three separate problems we hadn't seen locally. That gap used to be where a lot of projects died. Having an AI that understands infrastructure — Python environments, Docker builds, environment variables, cloud deployment — collapses that gap dramatically.
+    </p>
+
+    <p>
+      <strong>Uncle Robbie's idea was good.</strong> He gets credit for this one.
+    </p>
+
+    <h2>Try It</h2>
+
+    <p>
+      The app is live and free to use. It resets with fresh picks every day during the MLB season. You can install it as a PWA on your phone (in Chrome, tap the three-dot menu → Add to Home Screen) for an app-like experience.
+    </p>
+
+    <p>
+      <a class="cta-button" href="https://mlb-predictor-production.up.railway.app" target="_blank" rel="noopener">Open Uncle Robbie's Picks &rarr;</a>
+    </p>
+
+    <div class="disclaimer-box" style="margin-top:2.5rem;">
+      <h3>Important Disclaimers</h3>
+      <p><strong>Entertainment only.</strong> Uncle Robbie's Picks is a personal hobby project and AI experiment. It is not a financial product, investment tool, or professional sports betting service.</p>
+      <p><strong>No connection to my professional practice.</strong> This app has no affiliation with Edward Jones, my financial advisory practice, or any professional services I provide. Nothing on this app constitutes financial advice.</p>
+      <p><strong>Gambling carries real risk.</strong> Sports betting is legal in some states and illegal in others. If you bet, please do so responsibly, understand the odds are designed to favor the house, and never wager money you cannot afford to lose. If you or someone you know has a gambling problem, call 1-800-522-4700.</p>
+      <p><strong>Model accuracy is not guaranteed.</strong> The statistical models are experimental. Past performance of any algorithm is no guarantee of future results.</p>
+    </div>
+
+    <a class="back-link" href="./">&larr; Back to Blog</a>
+  </div>
+
+  <footer>
+    <p><a href="../">josephalotozo.com</a> &nbsp;·&nbsp; &copy; 2026 Joseph A. Lotozo</p>
+    <p style="font-size:0.72rem; color:#777; margin-top:0.5rem;">The postings on this site are my own and do not necessarily reflect the views of Edward Jones.</p>
+  </footer>
+
+</body>
+</html>
