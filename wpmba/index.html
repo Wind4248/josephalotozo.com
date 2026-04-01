@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WPMBA Student Council | Fisher College of Business</title>
+  <meta name="description" content="The Working Professional MBA Student Council at The Ohio State University Fisher College of Business — events, resources, and community for WP MBA students." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="canonical" href="https://www.josephalotozo.com/wpmba/" />
+
+  <style>
+    :root {
+      --scarlet:       #BA0C2F;
+      --scarlet-dark:  #8f0924;
+      --gray-dark:     #212121;
+      --gray-mid:      #4a4a4a;
+      --gray-light:    #F4F4F4;
+      --gray-border:   #DEDEDE;
+      --white:         #FFFFFF;
+      --osu-gray:      #666666;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: var(--gray-dark);
+      background: var(--white);
+      line-height: 1.75;
+    }
+
+    a { color: inherit; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--gray-dark);
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.25);
+    }
+
+    .nav-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-name {
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-sub {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.72rem;
+      color: #aaa;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-link {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #ccc;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-link:hover { color: var(--white); border-color: var(--scarlet); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--scarlet);
+      color: var(--white);
+      padding: 5rem 2.5rem 4rem;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      font-weight: normal;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .hero-sub {
+      font-family: 'Arial', sans-serif;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.88);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--white);
+      color: var(--scarlet);
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.65rem 1.6rem;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin: 0.25rem;
+    }
+    .hero-cta:hover { background: rgba(255,255,255,0.88); }
+
+    .hero-cta-outline {
+      display: inline-block;
+      border: 2px solid rgba(255,255,255,0.6);
+      color: var(--white);
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.65rem 1.6rem;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+      margin: 0.25rem;
+    }
+    .hero-cta-outline:hover { border-color: var(--white); }
+
+    /* ── SECTION SHELLS ── */
+    .section-white { background: var(--white); }
+    .section-gray  { background: var(--gray-light); }
+
+    .section-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 4.5rem 2.5rem;
+    }
+
+    .section-inner h2 {
+      font-family: 'Arial', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--gray-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-rule {
+      width: 44px;
+      height: 4px;
+      background: var(--scarlet);
+      margin-bottom: 1.75rem;
+      border-radius: 2px;
+    }
+
+    /* ── EVENTS ── */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .event-card {
+      border: 1px solid var(--gray-border);
+      border-top: 4px solid var(--scarlet);
+      border-radius: 4px;
+      padding: 1.5rem;
+      background: var(--white);
+    }
+
+    .event-date {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--scarlet);
+      margin-bottom: 0.4rem;
+    }
+
+    .event-card h3 {
+      font-size: 1.1rem;
+      color: var(--gray-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .event-card p {
+      font-size: 0.92rem;
+      color: var(--gray-mid);
+      line-height: 1.6;
+    }
+
+    .event-card .event-location {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      color: var(--osu-gray);
+      margin-top: 0.75rem;
+    }
+
+    .event-rsvp {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--scarlet);
+      text-decoration: none;
+      border-bottom: 2px solid var(--scarlet);
+      padding-bottom: 1px;
+    }
+    .event-rsvp:hover { color: var(--scarlet-dark); border-color: var(--scarlet-dark); }
+
+    .past-tag {
+      display: inline-block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #888;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 0.15rem 0.6rem;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    /* ── OFFICERS ── */
+    .officers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .officer-card {
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 4px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .officer-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--scarlet);
+      color: var(--white);
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .officer-avatar img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .officer-info {}
+
+    .officer-name {
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--gray-dark);
+    }
+
+    .officer-role {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      color: var(--osu-gray);
+      margin-top: 0.1rem;
+    }
+
+    .officer-card.highlight {
+      border-color: var(--scarlet);
+      border-left: 4px solid var(--scarlet);
+    }
+
+    .officer-card.highlight .officer-avatar {
+      background: var(--scarlet-dark);
+    }
+
+    /* ── ABOUT PROGRAM ── */
+    .program-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 4px;
+    }
+
+    .stat-number {
+      font-family: 'Arial', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--scarlet);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-label {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      color: var(--gray-mid);
+      line-height: 1.4;
+    }
+
+    .article-p {
+      font-size: 1rem;
+      color: var(--gray-mid);
+      margin-bottom: 1.1rem;
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .contact-card {
+      border: 1px solid var(--gray-border);
+      border-radius: 4px;
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background: var(--white);
+    }
+
+    .contact-card:hover {
+      border-color: var(--scarlet);
+      box-shadow: 0 2px 8px rgba(186,12,47,0.1);
+    }
+
+    .contact-card-label {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--scarlet);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-card-value {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.92rem;
+      color: var(--gray-dark);
+      font-weight: 600;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--gray-dark);
+      color: #aaa;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      line-height: 2;
+    }
+
+    footer a { color: var(--scarlet); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      nav { padding: 0 1rem; }
+      .nav-sub { display: none; }
+      .hero { padding: 3.5rem 1.5rem 3rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .section-inner { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../" style="text-decoration:none;">
+      <div class="nav-left">
+        <span class="nav-name">WPMBA Student Council</span>
+        <span class="nav-sub">The Ohio State University · Fisher College of Business</span>
+      </div>
+    </a>
+    <div style="display:flex; gap:1.5rem; align-items:center;">
+      <a class="nav-link" href="#events">Events</a>
+      <a class="nav-link" href="#council">Council</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#connect">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">OSU Fisher College of Business · #8 Nationally Ranked</p>
+    <h1>Your <em>Working Professional MBA</em><br>Student Council</h1>
+    <p class="hero-sub">We connect, support, and advocate for WP MBA students — whether you're in your first semester or crossing the finish line.</p>
+    <a class="hero-cta" href="#events">Upcoming Events</a>
+    <a class="hero-cta-outline" href="mailto:FCOB-wpmbacouncil@osu.edu">Contact the Council</a>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="section-white" id="events">
+    <div class="section-inner">
+      <h2>Upcoming Events</h2>
+      <div class="section-rule"></div>
+      <div class="events-grid">
+
+        <div class="event-card">
+          <div class="event-date">Thursday, April 2, 2026</div>
+          <h3>Blood Drive</h3>
+          <p>Give back to the community. The council is hosting a blood drive — every donation makes a real difference. Come out and participate with your fellow WP MBA students.</p>
+          <div class="event-location">📍 Ohio Stadium, Columbus, Ohio</div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date">Wednesday, April 8, 2026</div>
+          <h3>Community Impact Awards</h3>
+          <p>Join us for an evening celebrating community service and leadership among Fisher Graduate students. Nominations recognized, connections made, memories created.</p>
+          <div class="event-location">📍 Columbus Museum of Art</div>
+          <a class="event-rsvp" href="mailto:FCOB-wpmbacouncil@osu.edu?subject=Community Impact Awards RSVP">RSVP via Email →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNCIL -->
+  <section class="section-gray" id="council">
+    <div class="section-inner">
+      <h2>2026–2027 Student Council</h2>
+      <div class="section-rule"></div>
+      <p class="article-p" style="margin-bottom:1.75rem;">Your elected representatives for the 2026–2027 academic year. Headshots coming soon.</p>
+      <div class="officers-grid">
+
+        <div class="officer-card">
+          <div class="officer-avatar">MM</div>
+          <div class="officer-info">
+            <div class="officer-name">Micah Morales</div>
+            <div class="officer-role">President</div>
+          </div>
+        </div>
+
+        <div class="officer-card">
+          <div class="officer-avatar">SR</div>
+          <div class="officer-info">
+            <div class="officer-name">Shanessa Rees</div>
+            <div class="officer-role">Secretary</div>
+          </div>
+        </div>
+
+        <div class="officer-card">
+          <div class="officer-avatar">MH</div>
+          <div class="officer-info">
+            <div class="officer-name">Mikaela Hadaway</div>
+            <div class="officer-role">VP of In-Person</div>
+          </div>
+        </div>
+
+        <div class="officer-card">
+          <div class="officer-avatar">AG</div>
+          <div class="officer-info">
+            <div class="officer-name">Andrew Garzony</div>
+            <div class="officer-role">VP of Distance Learning</div>
+          </div>
+        </div>
+
+        <div class="officer-card">
+          <div class="officer-avatar">NH</div>
+          <div class="officer-info">
+            <div class="officer-name">Nick Hachem</div>
+            <div class="officer-role">Treasurer</div>
+          </div>
+        </div>
+
+        <div class="officer-card">
+          <div class="officer-avatar">BB</div>
+          <div class="officer-info">
+            <div class="officer-name">Bryce Benjamin</div>
+            <div class="officer-role">Internal Public Relations</div>
+          </div>
+        </div>
+
+        <div class="officer-card">
+          <div class="officer-avatar">CF</div>
+          <div class="officer-info">
+            <div class="officer-name">Chantel Fucci</div>
+            <div class="officer-role">External Public Relations</div>
+          </div>
+        </div>
+
+        <div class="officer-card highlight">
+          <div class="officer-avatar">
+            <img src="../assets/headshot.jpg" alt="Joseph Lotozo" />
+          </div>
+          <div class="officer-info">
+            <div class="officer-name">Joseph Lotozo</div>
+            <div class="officer-role">Alumni &amp; Graduate Coordinator</div>
+          </div>
+        </div>
+
+        <div class="officer-card">
+          <div class="officer-avatar">HV</div>
+          <div class="officer-info">
+            <div class="officer-name">Harshit Verma</div>
+            <div class="officer-role">Student Liaison</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT THE PROGRAM -->
+  <section class="section-white" id="about">
+    <div class="section-inner">
+      <h2>About the WP MBA Program</h2>
+      <div class="section-rule"></div>
+      <div class="program-stats">
+        <div class="stat-card">
+          <div class="stat-number">#8</div>
+          <div class="stat-label">Nationally ranked part-time MBA (U.S. News 2024–25)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">#5</div>
+          <div class="stat-label">Among public universities</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Students currently enrolled</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">8 yrs</div>
+          <div class="stat-label">Average work experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">73</div>
+          <div class="stat-label">Undergraduate institutions represented</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">28</div>
+          <div class="stat-label">Industries represented</div>
+        </div>
+      </div>
+
+      <p class="article-p">The Ohio State University Fisher College of Business Working Professional MBA is the only nationally ranked part-time MBA program in central Ohio — built for professionals who want to grow without putting their careers on pause.</p>
+      <p class="article-p">Classes meet weekday evenings Monday through Thursday at 6:15 PM and are also offered online on Saturday mornings at 10:00 AM, so you can keep your job, your family, and your ambition moving forward simultaneously.</p>
+      <p class="article-p">Enrollment has grown over 60% since 2021–2022, reflecting what central Ohio professionals have always known: the Fisher WP MBA is the smartest investment you can make in your career.</p>
+
+      <p style="margin-top:1.5rem;">
+        <a href="https://fisher.osu.edu/graduate/wpmba" target="_blank" rel="noopener" style="font-family:'Arial',sans-serif; font-weight:700; color:var(--scarlet); text-decoration:underline; font-size:0.95rem;">Learn more about the program at fisher.osu.edu →</a>
+      </p>
+
+      <div style="margin-top:2.5rem; border-top:1px solid var(--gray-border); padding-top:2rem;">
+        <h3 style="font-family:'Arial',sans-serif; font-size:1.15rem; margin-bottom:0.4rem; color:var(--gray-dark);">Upcoming Cohort Start Dates</h3>
+        <p class="article-p">Applications are reviewed on a rolling basis.</p>
+        <ul style="margin:0.5rem 0 0 1.25rem; color:var(--gray-mid); font-size:0.95rem;">
+          <li style="margin-bottom:0.4rem;"><strong>Summer 2026</strong> — May 11, 2026</li>
+          <li style="margin-bottom:0.4rem;"><strong>Autumn 2026</strong> — August 25, 2026</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / CONNECT -->
+  <section class="section-gray" id="connect">
+    <div class="section-inner">
+      <h2>Stay Connected</h2>
+      <div class="section-rule"></div>
+      <p class="article-p" style="margin-bottom:1.75rem;">Reach out to the council, join the Facebook group, or follow us on Instagram for the latest news and events.</p>
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:FCOB-wpmbacouncil@osu.edu">
+          <div class="contact-card-label">Email the Council</div>
+          <div class="contact-card-value">FCOB-wpmbacouncil@osu.edu</div>
+        </a>
+        <a class="contact-card" href="https://www.facebook.com/groups/osuwpmba" target="_blank" rel="noopener">
+          <div class="contact-card-label">Facebook Group</div>
+          <div class="contact-card-value">OSU WPMBA Community</div>
+        </a>
+        <a class="contact-card" href="https://www.instagram.com/wpmba_osu" target="_blank" rel="noopener">
+          <div class="contact-card-label">Instagram</div>
+          <div class="contact-card-value">@wpmba_osu</div>
+        </a>
+        <a class="contact-card" href="https://org.osu.edu/wpmba/" target="_blank" rel="noopener">
+          <div class="contact-card-label">Official OSU Page</div>
+          <div class="contact-card-value">org.osu.edu/wpmba</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>WPMBA Student Council &nbsp;·&nbsp; Fisher College of Business &nbsp;·&nbsp; The Ohio State University</p>
+    <p>Hosted at <a href="https://www.josephalotozo.com/">josephalotozo.com</a> &nbsp;·&nbsp; Questions? <a href="mailto:FCOB-wpmbacouncil@osu.edu">FCOB-wpmbacouncil@osu.edu</a></p>
+    <p style="font-size:0.72rem; color:#666; margin-top:0.5rem;">This site is maintained by council members. It is not an official Ohio State University website.</p>
+  </footer>
+
+</body>
+</html>
