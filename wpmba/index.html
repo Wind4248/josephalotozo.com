@@ -3,10 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WPMBA Student Council | Fisher College of Business</title>
-  <meta name="description" content="The Working Professional MBA Student Council at The Ohio State University Fisher College of Business — events, resources, and community for WP MBA students." />
+  <title>WPMBA Student Council | Ohio State Fisher College of Business</title>
+  <meta name="description" content="The Working Professional MBA Student Council at The Ohio State University Fisher College of Business — connecting, supporting, and advocating for WP MBA students in Columbus, Ohio. Part-time MBA events, resources, and community." />
+  <meta name="keywords" content="WPMBA, Working Professional MBA, Ohio State Fisher, part-time MBA Columbus Ohio, Fisher College of Business, OSU MBA, WPMBA Council, WP MBA student council" />
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="canonical" href="https://www.josephalotozo.com/wpmba/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.josephalotozo.com/wpmba/" />
+  <meta property="og:title" content="WPMBA Student Council | Ohio State Fisher College of Business" />
+  <meta property="og:description" content="Your elected student council for the Ohio State Fisher Working Professional MBA program — events, community, and resources for WP MBA students in Columbus, Ohio." />
+  <meta property="og:image" content="https://www.josephalotozo.com/assets/headshot.jpg" />
+  <meta property="og:site_name" content="WPMBA Student Council" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WPMBA Student Council | Ohio State Fisher" />
+  <meta name="twitter:description" content="Your elected student council for the Ohio State Fisher Working Professional MBA — events, community, and resources." />
+  <meta name="twitter:image" content="https://www.josephalotozo.com/assets/headshot.jpg" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "StudentGroup",
+    "name": "WPMBA Student Council",
+    "description": "The elected student council representing Working Professional MBA students at The Ohio State University Fisher College of Business.",
+    "url": "https://www.josephalotozo.com/wpmba/",
+    "parentOrganization": {
+      "@type": "CollegeOrUniversity",
+      "name": "The Ohio State University Fisher College of Business",
+      "url": "https://fisher.osu.edu"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Columbus",
+      "addressRegion": "OH",
+      "addressCountry": "US"
+    },
+    "email": "FCOB-wpmbacouncil@osu.edu",
+    "sameAs": [
+      "https://www.instagram.com/wpmba_osu",
+      "https://www.facebook.com/groups/osuwpmba",
+      "https://org.osu.edu/wpmba/"
+    ]
+  }
+  </script>
 
   <style>
     :root {
@@ -248,23 +291,27 @@
     /* ── OFFICERS ── */
     .officers-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 1.25rem;
     }
 
     .officer-card {
       background: var(--white);
       border: 1px solid var(--gray-border);
       border-radius: 4px;
-      padding: 1.25rem 1.5rem;
+      padding: 1.5rem;
+    }
+
+    .officer-header {
       display: flex;
       align-items: center;
       gap: 1rem;
+      margin-bottom: 0.9rem;
     }
 
     .officer-avatar {
-      width: 48px;
-      height: 48px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       background: var(--scarlet);
       color: var(--white);
@@ -278,8 +325,8 @@
     }
 
     .officer-avatar img {
-      width: 48px;
-      height: 48px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       object-fit: cover;
     }
@@ -289,15 +336,26 @@
     .officer-name {
       font-family: 'Arial', sans-serif;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--gray-dark);
     }
 
     .officer-role {
       font-family: 'Arial', sans-serif;
-      font-size: 0.8rem;
-      color: var(--osu-gray);
-      margin-top: 0.1rem;
+      font-size: 0.82rem;
+      color: var(--scarlet);
+      font-weight: 600;
+      margin-top: 0.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .officer-bio {
+      font-size: 0.9rem;
+      color: var(--gray-mid);
+      line-height: 1.65;
+      border-top: 1px solid var(--gray-border);
+      padding-top: 0.85rem;
     }
 
     .officer-card.highlight {
@@ -514,81 +572,108 @@
     <div class="section-inner">
       <h2>2026–2027 Student Council</h2>
       <div class="section-rule"></div>
-      <p class="article-p" style="margin-bottom:1.75rem;">Your elected representatives for the 2026–2027 academic year. Headshots coming soon.</p>
+      <p class="article-p" style="margin-bottom:1.75rem;">Your elected representatives for the 2026–2027 academic year — Working Professional MBA students from across central Ohio, balancing careers, families, and full course loads.</p>
       <div class="officers-grid">
 
         <div class="officer-card">
-          <div class="officer-avatar">MM</div>
-          <div class="officer-info">
-            <div class="officer-name">Micah Morales</div>
-            <div class="officer-role">President</div>
+          <div class="officer-header">
+            <div class="officer-avatar">MM</div>
+            <div class="officer-info">
+              <div class="officer-name">Micah Morales</div>
+              <div class="officer-role">President</div>
+            </div>
           </div>
+          <p class="officer-bio">Over the last year, I have had the honor of serving as Secretary for the Council. During this time I have been able to make invaluable connections with my fellow Council members, WPMBA students, and with peers across all Fisher Graduate programs. As President, I will draw on expertise I gained while serving as President of the Multicultural Greek Council in 2018 during my undergrad years here at OSU. I plan to continue the social traditions established over the past year — Happy Hour, Tailgates — and simultaneously invest more into academic, professional, and philanthropic programming opportunities that allow for both in-person and virtual participation.</p>
         </div>
 
         <div class="officer-card">
-          <div class="officer-avatar">SR</div>
-          <div class="officer-info">
-            <div class="officer-name">Shanessa Rees</div>
-            <div class="officer-role">Secretary</div>
+          <div class="officer-header">
+            <div class="officer-avatar">SR</div>
+            <div class="officer-info">
+              <div class="officer-name">Shanessa Rees</div>
+              <div class="officer-role">Secretary</div>
+            </div>
           </div>
+          <p class="officer-bio">I'm interested in continuing to build my skillset and expand my network within the WPMBA program. I previously worked as an office assistant, where I gained experience with meeting coordination, minute taking, and complex calendar scheduling. In my current role in finance operations, I help manage transactions within the College of Public Health, including creating deposits and working directly with university financial service teams — a combination of administrative and financial experience I'm excited to bring to the Council.</p>
         </div>
 
         <div class="officer-card">
-          <div class="officer-avatar">MH</div>
-          <div class="officer-info">
-            <div class="officer-name">Mikaela Hadaway</div>
-            <div class="officer-role">VP of In-Person</div>
+          <div class="officer-header">
+            <div class="officer-avatar">MH</div>
+            <div class="officer-info">
+              <div class="officer-name">Mikaela Hadaway</div>
+              <div class="officer-role">VP of In-Person</div>
+            </div>
           </div>
+          <p class="officer-bio">As a 2024 medical school graduate, I have spent much of my training time serving in leadership roles within academic programs. I served as co-president of my graduating medical school class and was a College of Medicine Curriculum Committee Member, working closely with classmates and administration to address student concerns and improve communication. I am currently an Anesthesiology resident at The Ohio State University and am actively involved in resident recruitment, mentoring, and education — reinforcing my interest in academic leadership and program development.</p>
         </div>
 
         <div class="officer-card">
-          <div class="officer-avatar">AG</div>
-          <div class="officer-info">
-            <div class="officer-name">Andrew Garzony</div>
-            <div class="officer-role">VP of Distance Learning</div>
+          <div class="officer-header">
+            <div class="officer-avatar">AG</div>
+            <div class="officer-info">
+              <div class="officer-name">Andrew Garzony</div>
+              <div class="officer-role">VP of Distance Learning</div>
+            </div>
           </div>
+          <p class="officer-bio">The two main reasons I'm drawn to this role are networking and mentoring others. Being primarily an online student, the VP of Distance Learning position is an excellent way to meet new people and get involved at Fisher. I have 10+ years of professional experience and genuine passion for mentoring and teaching — helping students navigate the program and find career development opportunities. I hope to build relationships during my time here that continue well into my professional life.</p>
         </div>
 
         <div class="officer-card">
-          <div class="officer-avatar">NH</div>
-          <div class="officer-info">
-            <div class="officer-name">Nick Hachem</div>
-            <div class="officer-role">Treasurer</div>
+          <div class="officer-header">
+            <div class="officer-avatar">NH</div>
+            <div class="officer-info">
+              <div class="officer-name">Nick Hachem</div>
+              <div class="officer-role">Treasurer</div>
+            </div>
           </div>
+          <p class="officer-bio">I have a strong interest and background in Finance — I graduated with an undergraduate finance major from Fisher, served as fundraising chair of Ohio State's undergraduate student radio club, and have multiple years of experience in the financial services industry. My MBA elective focus is finance as well. I genuinely enjoy being a team player and think I can offer a lot to the effort of making the program experience better for all students!</p>
         </div>
 
         <div class="officer-card">
-          <div class="officer-avatar">BB</div>
-          <div class="officer-info">
-            <div class="officer-name">Bryce Benjamin</div>
-            <div class="officer-role">Internal Public Relations</div>
+          <div class="officer-header">
+            <div class="officer-avatar">BB</div>
+            <div class="officer-info">
+              <div class="officer-name">Bryce Benjamin</div>
+              <div class="officer-role">Internal Public Relations</div>
+            </div>
           </div>
+          <p class="officer-bio">I'd love the chance to serve on student council again, especially in the Internal PR role. Having spent more time in the program, I have a better understanding of our cohort — what people respond to, what they care about, and how busy everyone is. This year, I'd love to emphasize opportunities that strengthen cohort outcomes: career fairs, alumni gatherings, and recruiting sessions. Being more than halfway through the program myself, I also want to make the most of this time by building connections, supporting each other, and creating lasting memories. Here's to Buckeye Nation. O-H!</p>
         </div>
 
         <div class="officer-card">
-          <div class="officer-avatar">CF</div>
-          <div class="officer-info">
-            <div class="officer-name">Chantel Fucci</div>
-            <div class="officer-role">External Public Relations</div>
+          <div class="officer-header">
+            <div class="officer-avatar">CF</div>
+            <div class="officer-info">
+              <div class="officer-name">Chantel Fucci</div>
+              <div class="officer-role">External Public Relations</div>
+            </div>
           </div>
+          <p class="officer-bio">As a working professional and veteran, I recognize that our program's value lies in the strategic partnerships we build with local industry leaders. My primary goal is to formalize frameworks for corporate partnerships — creating institutionalized pathways for onsite visits and collaborative initiatives so every student has direct, recurring access to the regional Columbus business ecosystem. I also aim to transform seasonal career fair interactions into year-round engagements and use my experience in process innovation to coordinate high-caliber speakers that fit our professional schedules.</p>
         </div>
 
         <div class="officer-card highlight">
-          <div class="officer-avatar">
-            <img src="../assets/headshot.jpg" alt="Joseph Lotozo" />
+          <div class="officer-header">
+            <div class="officer-avatar">
+              <img src="../assets/headshot.jpg" alt="Joseph Lotozo" loading="lazy" />
+            </div>
+            <div class="officer-info">
+              <div class="officer-name">Joseph Lotozo</div>
+              <div class="officer-role">Alumni &amp; Graduate Coordinator</div>
+            </div>
           </div>
-          <div class="officer-info">
-            <div class="officer-name">Joseph Lotozo</div>
-            <div class="officer-role">Alumni &amp; Graduate Coordinator</div>
-          </div>
+          <p class="officer-bio">I'm applying for this role because it aligns with my strengths and my passion for building meaningful, lasting connections within the Fisher community. As a lifelong Upper Arlington resident and Ohio State alumnus, I'm deeply invested in strengthening ties between current WPMBA students and Fisher alumni. Professionally, my work as a financial advisor centers on building long-term relationships and creating opportunities for others — skills that translate directly to this role. I would welcome the opportunity to foster networking, collaboration, and professional development across WPMBA students, graduates, and other Fisher graduate programs.</p>
         </div>
 
         <div class="officer-card">
-          <div class="officer-avatar">HV</div>
-          <div class="officer-info">
-            <div class="officer-name">Harshit Verma</div>
-            <div class="officer-role">Student Liaison</div>
+          <div class="officer-header">
+            <div class="officer-avatar">HV</div>
+            <div class="officer-info">
+              <div class="officer-name">Harshit Verma</div>
+              <div class="officer-role">Student Liaison</div>
+            </div>
           </div>
+          <p class="officer-bio">I am currently working on the Fisher Forum Application — an official networking platform connecting alumni to the Fisher community. This initiative aims to strengthen engagement between current students and alumni through a structured, accessible, value-driven platform maintained by WPMBA students. I genuinely enjoy building meaningful connections with people from diverse backgrounds, and I actively volunteer for event logistics and coordination. This year, our goal includes planning a hiking trip to Hocking Hills to create an opportunity for networking, wellness, and community building outside the classroom.</p>
         </div>
 
       </div>
