@@ -466,21 +466,73 @@
       margin-bottom: 2rem;
     }
 
-    .instagram-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      align-items: start;
+    .ig-handle-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
 
-    .instagram-grid .instagram-media {
-      margin: 0 auto !important;
-      min-width: 0 !important;
-      width: 100% !important;
+    .ig-icon {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+    }
+
+    .ig-handle-text {
+      font-family: 'Arial', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--scarlet);
+      letter-spacing: -0.01em;
+    }
+
+    .ig-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .ig-tile {
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(135deg, var(--scarlet) 0%, #7a1015 100%);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .ig-tile:nth-child(even) {
+      background: linear-gradient(135deg, #444 0%, #222 100%);
+    }
+
+    .ig-tile:hover {
+      opacity: 0.85;
+      transform: scale(1.02);
+    }
+
+    .ig-tile svg {
+      width: 28px;
+      height: 28px;
+      opacity: 0.5;
+    }
+
+    .ig-tile-label {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 0 0.5rem;
     }
 
     .instagram-cta {
-      margin-top: 2rem;
       text-align: center;
     }
 
@@ -490,18 +542,17 @@
       gap: 0.5rem;
       font-family: 'Arial', sans-serif;
       font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--scarlet);
+      font-size: 0.95rem;
+      color: var(--white);
       text-decoration: none;
-      border: 2px solid var(--scarlet);
-      padding: 0.6rem 1.4rem;
+      background: var(--scarlet);
+      padding: 0.75rem 1.75rem;
       border-radius: 3px;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.2s;
     }
 
     .instagram-cta a:hover {
-      background: var(--scarlet);
-      color: var(--white);
+      background: #7a1015;
     }
 
     /* ── NAV HAMBURGER ── */
@@ -570,7 +621,7 @@
       .events-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
       .program-stats { grid-template-columns: repeat(2, 1fr); }
-      .instagram-grid { grid-template-columns: 1fr; }
+      .ig-preview-grid { grid-template-columns: repeat(2, 1fr); }
       img { max-width: 100%; }
     }
 
@@ -850,74 +901,61 @@
   <!-- INSTAGRAM -->
   <section class="section-white" id="instagram">
     <div class="section-inner">
-      <h2>Follow Us on Instagram @wpmba_osu</h2>
+      <h2>Follow Us on Instagram</h2>
       <div class="section-rule"></div>
-      <p class="instagram-intro">Stay up to date with council events, student life, and Fisher news — follow us at <strong>@wpmba_osu</strong>.</p>
+      <p class="instagram-intro">Stay up to date with council events, student life, and Fisher news.</p>
 
-      <div class="instagram-grid">
+      <div class="ig-handle-row">
+        <!-- Instagram icon SVG -->
+        <svg class="ig-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <radialGradient id="ig-grad" cx="30%" cy="107%" r="150%">
+              <stop offset="0%" stop-color="#fdf497"/>
+              <stop offset="5%" stop-color="#fdf497"/>
+              <stop offset="45%" stop-color="#fd5949"/>
+              <stop offset="60%" stop-color="#d6249f"/>
+              <stop offset="90%" stop-color="#285AEB"/>
+            </radialGradient>
+          </defs>
+          <rect width="48" height="48" rx="12" fill="url(#ig-grad)"/>
+          <circle cx="24" cy="24" r="9" fill="none" stroke="#fff" stroke-width="3"/>
+          <circle cx="34.5" cy="13.5" r="2" fill="#fff"/>
+          <rect x="6" y="6" width="36" height="36" rx="9" fill="none" stroke="#fff" stroke-width="3"/>
+        </svg>
+        <span class="ig-handle-text">@wpmba_osu</span>
+      </div>
 
-        <!-- Post 1 — replace POST_ID_1 with actual post ID from @wpmba_osu -->
-        <blockquote class="instagram-media"
-          data-instgrm-captioned
-          data-instgrm-permalink="https://www.instagram.com/p/DIWB7aEpYnP/?utm_source=ig_embed&amp;utm_campaign=loading"
-          data-instgrm-version="14"
-          style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:100%; padding:0; width:100%;">
-          <div style="padding:16px;">
-            <a href="https://www.instagram.com/p/DIWB7aEpYnP/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener" style="background:#FFFFFF; line-height:0; padding:0; text-align:center; text-decoration:none; width:100%; display:block;">
-              <div style="display:flex; flex-direction:row; align-items:center; padding:8px 0;">
-                <div style="background-color:#F4F4F4; border-radius:50%; height:40px; width:40px; margin-right:14px;"></div>
-                <div style="flex:1;"><div style="background-color:#F4F4F4; border-radius:4px; height:14px; width:100px; margin-bottom:6px;"></div><div style="background-color:#F4F4F4; border-radius:4px; height:14px; width:60px;"></div></div>
-              </div>
-              <div style="padding:19% 0;"></div>
-              <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 192 192"><path fill="#ffffff" d="M96 0C42.99 0 0 42.99 0 96s42.99 96 96 96 96-42.99 96-96S149.01 0 96 0zm45.52 73.62-5.68 26.84c-4.08 18.12-15.2 22.6-30.52 22.6H93.4l-3.12 14.76H78.36l-.32 1.52c-.44 2.04.8 3.96 2.88 3.96h20.2v13.48H80.88c-9.16 0-13.52-5.6-11.44-14.6l2.08-9.8H65.2l2.84-13.48h6.32l4.16-19.72h-6.32l2.84-13.48h46.6c8.12 0 13.52 3.44 14.88 11.92z"/></svg></div>
-              <div style="padding-top:8px; color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div>
-            </a>
-          </div>
-        </blockquote>
-
-        <!-- Post 2 — replace POST_ID_2 with actual post ID from @wpmba_osu -->
-        <blockquote class="instagram-media"
-          data-instgrm-captioned
-          data-instgrm-permalink="https://www.instagram.com/p/DH3xUqOJBWm/?utm_source=ig_embed&amp;utm_campaign=loading"
-          data-instgrm-version="14"
-          style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:100%; padding:0; width:100%;">
-          <div style="padding:16px;">
-            <a href="https://www.instagram.com/p/DH3xUqOJBWm/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener" style="background:#FFFFFF; line-height:0; padding:0; text-align:center; text-decoration:none; width:100%; display:block;">
-              <div style="display:flex; flex-direction:row; align-items:center; padding:8px 0;">
-                <div style="background-color:#F4F4F4; border-radius:50%; height:40px; width:40px; margin-right:14px;"></div>
-                <div style="flex:1;"><div style="background-color:#F4F4F4; border-radius:4px; height:14px; width:100px; margin-bottom:6px;"></div><div style="background-color:#F4F4F4; border-radius:4px; height:14px; width:60px;"></div></div>
-              </div>
-              <div style="padding:19% 0;"></div>
-              <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 192 192"><path fill="#ffffff" d="M96 0C42.99 0 0 42.99 0 96s42.99 96 96 96 96-42.99 96-96S149.01 0 96 0zm45.52 73.62-5.68 26.84c-4.08 18.12-15.2 22.6-30.52 22.6H93.4l-3.12 14.76H78.36l-.32 1.52c-.44 2.04.8 3.96 2.88 3.96h20.2v13.48H80.88c-9.16 0-13.52-5.6-11.44-14.6l2.08-9.8H65.2l2.84-13.48h6.32l4.16-19.72h-6.32l2.84-13.48h46.6c8.12 0 13.52 3.44 14.88 11.92z"/></svg></div>
-              <div style="padding-top:8px; color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div>
-            </a>
-          </div>
-        </blockquote>
-
-        <!-- Post 3 — replace POST_ID_3 with actual post ID from @wpmba_osu -->
-        <blockquote class="instagram-media"
-          data-instgrm-captioned
-          data-instgrm-permalink="https://www.instagram.com/p/DGxq1iVpPVl/?utm_source=ig_embed&amp;utm_campaign=loading"
-          data-instgrm-version="14"
-          style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:0; max-width:100%; padding:0; width:100%;">
-          <div style="padding:16px;">
-            <a href="https://www.instagram.com/p/DGxq1iVpPVl/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank" rel="noopener" style="background:#FFFFFF; line-height:0; padding:0; text-align:center; text-decoration:none; width:100%; display:block;">
-              <div style="display:flex; flex-direction:row; align-items:center; padding:8px 0;">
-                <div style="background-color:#F4F4F4; border-radius:50%; height:40px; width:40px; margin-right:14px;"></div>
-                <div style="flex:1;"><div style="background-color:#F4F4F4; border-radius:4px; height:14px; width:100px; margin-bottom:6px;"></div><div style="background-color:#F4F4F4; border-radius:4px; height:14px; width:60px;"></div></div>
-              </div>
-              <div style="padding:19% 0;"></div>
-              <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 192 192"><path fill="#ffffff" d="M96 0C42.99 0 0 42.99 0 96s42.99 96 96 96 96-42.99 96-96S149.01 0 96 0zm45.52 73.62-5.68 26.84c-4.08 18.12-15.2 22.6-30.52 22.6H93.4l-3.12 14.76H78.36l-.32 1.52c-.44 2.04.8 3.96 2.88 3.96h20.2v13.48H80.88c-9.16 0-13.52-5.6-11.44-14.6l2.08-9.8H65.2l2.84-13.48h6.32l4.16-19.72h-6.32l2.84-13.48h46.6c8.12 0 13.52 3.44 14.88 11.92z"/></svg></div>
-              <div style="padding-top:8px; color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div>
-            </a>
-          </div>
-        </blockquote>
-
+      <!-- 6-tile preview grid — each tile links to the Instagram profile -->
+      <div class="ig-preview-grid">
+        <a class="ig-tile" href="https://www.instagram.com/wpmba_osu/" target="_blank" rel="noopener" aria-label="Follow @wpmba_osu on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="white" stroke="none"/></svg>
+          <span class="ig-tile-label">Events</span>
+        </a>
+        <a class="ig-tile" href="https://www.instagram.com/wpmba_osu/" target="_blank" rel="noopener" aria-label="Follow @wpmba_osu on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="white" stroke="none"/></svg>
+          <span class="ig-tile-label">Student Life</span>
+        </a>
+        <a class="ig-tile" href="https://www.instagram.com/wpmba_osu/" target="_blank" rel="noopener" aria-label="Follow @wpmba_osu on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="white" stroke="none"/></svg>
+          <span class="ig-tile-label">Fisher News</span>
+        </a>
+        <a class="ig-tile" href="https://www.instagram.com/wpmba_osu/" target="_blank" rel="noopener" aria-label="Follow @wpmba_osu on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="white" stroke="none"/></svg>
+          <span class="ig-tile-label">Council</span>
+        </a>
+        <a class="ig-tile" href="https://www.instagram.com/wpmba_osu/" target="_blank" rel="noopener" aria-label="Follow @wpmba_osu on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="white" stroke="none"/></svg>
+          <span class="ig-tile-label">Networking</span>
+        </a>
+        <a class="ig-tile" href="https://www.instagram.com/wpmba_osu/" target="_blank" rel="noopener" aria-label="Follow @wpmba_osu on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="white" stroke="none"/></svg>
+          <span class="ig-tile-label">Community</span>
+        </a>
       </div>
 
       <div class="instagram-cta">
         <a href="https://www.instagram.com/wpmba_osu/" target="_blank" rel="noopener">
-          View all posts on Instagram →
+          Follow @wpmba_osu on Instagram &rarr;
         </a>
       </div>
     </div>
@@ -930,7 +968,6 @@
   </footer>
 
 
-  <script async src="//www.instagram.com/embed.js"></script>
   <script>
     var hamburger = document.getElementById('nav-hamburger');
     var navLinks = document.getElementById('nav-links');
