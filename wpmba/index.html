@@ -71,6 +71,7 @@
       color: var(--gray-dark);
       background: var(--white);
       line-height: 1.75;
+      overflow-x: hidden;
     }
 
     a { color: inherit; }
@@ -503,14 +504,79 @@
       color: var(--white);
     }
 
+    /* ── NAV HAMBURGER ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #ccc;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .nav-hamburger:hover span { background: var(--white); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
     /* ── RESPONSIVE ── */
-    @media (max-width: 680px) {
-      nav { padding: 0 1rem; }
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 1rem;
+        flex-wrap: wrap;
+        height: auto;
+        min-height: 56px;
+      }
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        width: 100%;
+        padding: 0.75rem 0 1rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links .nav-link {
+        padding: 0.55rem 0;
+        width: 100%;
+        font-size: 0.9rem;
+        border-bottom: none;
+      }
       .nav-sub { display: none; }
-      .hero { padding: 3.5rem 1.5rem 3rem; }
-      .hero h1 { font-size: 1.8rem; }
-      .section-inner { padding: 3rem 1.5rem; }
+      .hero { padding: 3rem 1.25rem 2.5rem; }
+      .hero h1 { font-size: 1.7rem; }
+      .hero-sub { font-size: 0.95rem; }
+      .hero-cta, .hero-cta-outline {
+        display: block;
+        text-align: center;
+        margin: 0.4rem auto;
+        max-width: 280px;
+      }
+      .section-inner { padding: 3rem 1.25rem; }
+      .officers-grid { grid-template-columns: 1fr; }
+      .events-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .program-stats { grid-template-columns: repeat(2, 1fr); }
       .instagram-grid { grid-template-columns: 1fr; }
+      img { max-width: 100%; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.5rem; }
+      .program-stats { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -523,7 +589,10 @@
         <span class="nav-sub">The Ohio State University · Fisher College of Business</span>
       </div>
     </a>
-    <div style="display:flex; gap:1.5rem; align-items:center;">
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
       <a class="nav-link" href="#events">Events</a>
       <a class="nav-link" href="#council">Council</a>
       <a class="nav-link" href="#about">About</a>
@@ -862,5 +931,19 @@
 
 
   <script async src="//www.instagram.com/embed.js"></script>
+  <script>
+    var hamburger = document.getElementById('nav-hamburger');
+    var navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', function() {
+      var open = navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.querySelectorAll('.nav-link').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </body>
 </html>
