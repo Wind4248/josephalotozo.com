@@ -429,6 +429,35 @@
       padding-top: 0.85rem;
     }
 
+    .officer-links {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 0.85rem;
+    }
+
+    .officer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--scarlet);
+      text-decoration: none;
+      border: 1px solid var(--scarlet);
+      border-radius: 3px;
+      padding: 0.3rem 0.65rem;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .officer-link:hover {
+      background: var(--scarlet);
+      color: var(--white);
+    }
+
     .officer-card.highlight {
       border-color: var(--scarlet);
       border-left: 4px solid var(--scarlet);
@@ -513,6 +542,105 @@
       font-size: 0.92rem;
       color: var(--gray-dark);
       font-weight: 600;
+    }
+
+    /* ── CAP & GOWN BANK ── */
+    .cap-gown-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .cap-gown-photo img {
+      width: 100%;
+      border-radius: 6px;
+      display: block;
+      object-fit: cover;
+      max-height: 420px;
+    }
+
+    .cap-gown-tagline {
+      font-family: 'Arial', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--scarlet);
+      margin-bottom: 0.75rem;
+    }
+
+    .cap-gown-content p {
+      font-size: 0.97rem;
+      color: var(--gray-mid);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .cap-gown-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cap-gown-card {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 6px;
+      padding: 1rem 1.1rem;
+    }
+
+    .cap-gown-card-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .cap-gown-card strong {
+      display: block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.95rem;
+      color: var(--gray-dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .cap-gown-card p {
+      font-size: 0.9rem;
+      color: var(--gray-mid);
+      line-height: 1.55;
+      margin: 0 !important;
+    }
+
+    .cap-gown-details {
+      border-top: 1px solid var(--gray-border);
+      padding-top: 1.25rem;
+    }
+
+    .cap-gown-details p {
+      font-size: 0.93rem !important;
+      margin-bottom: 0.75rem !important;
+    }
+
+    .cap-gown-location {
+      background: var(--white);
+      border-left: 3px solid var(--scarlet);
+      padding: 0.85rem 1rem;
+      border-radius: 0 4px 4px 0;
+      line-height: 1.8 !important;
+    }
+
+    .cap-gown-location a {
+      color: var(--scarlet);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    @media (max-width: 680px) {
+      .cap-gown-layout { grid-template-columns: 1fr; }
+      .cap-gown-photo img { max-height: 260px; }
     }
 
     /* ── FAQ ── */
@@ -764,6 +892,7 @@
     </button>
     <div class="nav-links" id="nav-links">
       <a class="nav-link" href="#events">Events</a>
+      <a class="nav-link" href="#cap-gown">Cap &amp; Gown Bank</a>
       <a class="nav-link" href="#council">Council</a>
       <a class="nav-link" href="#about">About</a>
       <a class="nav-link" href="#connect">Contact</a>
@@ -826,6 +955,51 @@
     </div>
   </section>
 
+  <!-- CAP & GOWN BANK -->
+  <section class="section-gray" id="cap-gown">
+    <div class="section-inner">
+      <h2>Cap &amp; Gown Bank</h2>
+      <div class="section-rule"></div>
+      <div class="cap-gown-layout">
+        <div class="cap-gown-photo">
+          <img src="../assets/cap-gown-bank.jpeg" alt="Joe Lotozo and team at Edward Jones Tremont Center" loading="lazy" />
+        </div>
+        <div class="cap-gown-content">
+          <p class="cap-gown-tagline">Don't let the cost of a cap &amp; gown stand between you and the stage.</p>
+          <p>Fellow WP MBA student Joe Lotozo is running a <strong>Cap &amp; Gown Bank</strong> out of his Edward Jones office in Upper Arlington. Currently stocked with three sets — and growing as more alumni donate.</p>
+
+          <div class="cap-gown-cards">
+            <div class="cap-gown-card">
+              <div class="cap-gown-card-icon">🎓</div>
+              <div>
+                <strong>Borrow one</strong>
+                <p>Need a cap &amp; gown for graduation? Reach out to reserve one and return it after the ceremony.</p>
+              </div>
+            </div>
+            <div class="cap-gown-card">
+              <div class="cap-gown-card-icon">🤝</div>
+              <div>
+                <strong>Donate yours</strong>
+                <p>Already walked the stage? Pay it forward — drop off your cap &amp; gown so another student can use it.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cap-gown-details">
+            <p><strong>First come, first served.</strong> Contact Joe to check availability or arrange a donation.</p>
+            <p class="cap-gown-location">
+              <strong>Edward Jones — Tremont Center</strong><br />
+              2094 Tremont Center, Suite 4<br />
+              Upper Arlington, Columbus, OH<br />
+              <a href="tel:6148742372">(614) 874-2372</a><br />
+              Ask for Joe or Emma
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- COUNCIL -->
   <section class="section-gray" id="council">
     <div class="section-inner">
@@ -843,6 +1017,9 @@
             </div>
           </div>
           <p class="officer-bio">I previously served as Secretary for the Council, building invaluable connections with fellow Council members, WPMBA students, and peers across all Fisher Graduate programs. As President, I draw on experience from serving as President of the Multicultural Greek Council during my undergraduate years at OSU. I am continuing the social traditions established over the past year — Happy Hour, Tailgates — while expanding academic, professional, and philanthropic programming that works for both in-person and virtual students.</p>
+          <div class="officer-links">
+            <a class="officer-link" href="https://www.linkedin.com/in/micah-morales-89565a114/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
         </div>
 
         <div class="officer-card">
@@ -865,6 +1042,9 @@
             </div>
           </div>
           <p class="officer-bio">As VP of In-Person, I am committed to the strength and growth of the WPMBA program. I focus on providing executive support to the President and ensuring the operational health of our council — particularly overseeing sustained programs like mentoring to ensure they continue delivering lasting value. I enjoy meeting and connecting with others, and I am working to build engagement across other Fisher Graduate programs and our alumni network, collaborating with the FTMBA, MAC, and MHRM councils to create a strong multidisciplinary community for every Fisher graduate student.</p>
+          <div class="officer-links">
+            <a class="officer-link" href="https://www.linkedin.com/in/mikaela-hadaway-052231190" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
         </div>
 
         <div class="officer-card">
@@ -909,6 +1089,9 @@
             </div>
           </div>
           <p class="officer-bio">As a working professional and veteran, I bring a focus on strategic partnerships with local industry leaders to my role as External PR. I am formalizing frameworks for corporate partnerships — creating institutionalized pathways for onsite visits and collaborative initiatives so every student has direct, recurring access to the Columbus business ecosystem. I am also working to transform seasonal career fair interactions into year-round engagements, and coordinating high-caliber speakers that fit our professional schedules.</p>
+          <div class="officer-links">
+            <a class="officer-link" href="https://www.linkedin.com/in/chantelfucci" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
         </div>
 
         <div class="officer-card">
@@ -922,6 +1105,11 @@
             </div>
           </div>
           <p class="officer-bio">As Alumni &amp; Graduate Coordinator, I focus on building meaningful, lasting connections within the Fisher community. As a lifelong Upper Arlington resident and Ohio State alumnus, I am deeply invested in strengthening ties between current WPMBA students and Fisher alumni. My work as a CFP® professional and financial advisor centers on building long-term relationships and creating opportunities for others — skills I bring directly to this role. I am focused on fostering networking, collaboration, and professional development across WPMBA students, graduates, and other Fisher graduate programs.</p>
+          <div class="officer-links">
+            <a class="officer-link" href="https://www.linkedin.com/in/joseph-lotozo-cfp%C2%AE-chfc%C2%AE-12b4b649" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="officer-link" href="https://www.instagram.com/jlotozo/" target="_blank" rel="noopener">Instagram</a>
+            <a class="officer-link" href="https://www.josephalotozo.com/" target="_blank" rel="noopener">Website</a>
+          </div>
         </div>
 
         <div class="officer-card">
