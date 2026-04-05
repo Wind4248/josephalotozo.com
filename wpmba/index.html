@@ -343,6 +343,65 @@
     }
     .event-rsvp:hover { color: var(--scarlet-dark); border-color: var(--scarlet-dark); }
 
+    .event-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      align-items: center;
+    }
+
+    .event-cal, .event-share, .event-flyer-link {
+      display: inline-block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 0.35rem 0.75rem;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .event-cal {
+      background: var(--scarlet);
+      color: #fff;
+    }
+    .event-cal:hover { background: var(--scarlet-dark); }
+
+    .event-share {
+      background: transparent;
+      color: var(--scarlet);
+      border: 1px solid var(--scarlet);
+    }
+    .event-share:hover { background: rgba(186,12,47,0.06); }
+
+    .event-flyer-link {
+      background: transparent;
+      color: var(--gray-mid);
+      border: 1px solid var(--gray-border);
+    }
+    .event-flyer-link:hover { border-color: var(--gray-mid); }
+
+    .event-card-featured {
+      grid-column: 1 / -1;
+      border-top: 4px solid var(--osu-gray);
+      background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+    }
+
+    .event-flyer {
+      width: 100%;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .event-detail-list {
+      margin: 0.75rem 0 0.75rem 1.1rem;
+      font-size: 0.92rem;
+      color: var(--gray-mid);
+      line-height: 1.8;
+    }
+
     .past-tag {
       display: inline-block;
       font-family: 'Arial', sans-serif;
@@ -917,10 +976,14 @@
       <div class="events-grid">
 
         <div class="event-card">
-          <div class="event-date">Thursday, April 2, 2026</div>
-          <h3>Blood Drive</h3>
-          <p>Give back to the community. The council is hosting a blood drive — every donation makes a real difference. Come out and participate with your fellow WP MBA students.</p>
-          <div class="event-location">📍 Ohio Stadium, Columbus, Ohio</div>
+          <div class="event-date">Monday, April 6, 2026 | 9AM–11AM</div>
+          <h3>Donuts with the Deans</h3>
+          <p>Stop by for donuts and a chance to connect with Fisher's deans. A relaxed opportunity to meet leadership, share feedback, and start the week right.</p>
+          <div class="event-location">📍 Second Floor, University Hall</div>
+          <div class="event-actions">
+            <a class="event-cal" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Donuts+with+the+Deans&dates=20260406T090000/20260406T110000&details=Connect+with+Fisher%27s+deans+over+donuts.&location=Second+Floor%2C+University+Hall%2C+Columbus%2C+OH" target="_blank" rel="noopener">+ Add to Calendar</a>
+            <a class="event-share" href="https://www.josephalotozo.com/wpmba/#events" onclick="navigator.share&&navigator.share({title:'Donuts with the Deans — Fisher WPMBA',text:'Mon Apr 6 | 9–11AM | University Hall\nFree donuts with Fisher deans.',url:window.location.href});return navigator.share?false:true;">Share</a>
+          </div>
         </div>
 
         <div class="event-card">
@@ -928,14 +991,10 @@
           <h3>Community Impact Awards</h3>
           <p>Join us for an evening celebrating community service and leadership among Fisher Graduate students. Nominations recognized, connections made, memories created.</p>
           <div class="event-location">📍 Columbus Museum of Art</div>
-          <a class="event-rsvp" href="mailto:FCOB-wpmbacouncil@osu.edu?subject=Community Impact Awards RSVP">RSVP via Email →</a>
-        </div>
-
-        <div class="event-card">
-          <div class="event-date">Monday, April 6, 2026 | 9AM–11AM</div>
-          <h3>Donuts with the Deans</h3>
-          <p>Stop by for donuts and a chance to connect with Fisher's deans. A relaxed opportunity to meet leadership, share feedback, and start the week right.</p>
-          <div class="event-location">📍 Second Floor, University Hall</div>
+          <div class="event-actions">
+            <a class="event-cal" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=WPMBA+Community+Impact+Awards&dates=20260408T170000/20260408T200000&details=An+evening+celebrating+community+service+and+leadership+among+Fisher+Graduate+students.&location=Columbus+Museum+of+Art%2C+Columbus%2C+OH" target="_blank" rel="noopener">+ Add to Calendar</a>
+            <a class="event-rsvp" href="mailto:FCOB-wpmbacouncil@osu.edu?subject=Community Impact Awards RSVP">RSVP →</a>
+          </div>
         </div>
 
         <div class="event-card">
@@ -949,6 +1008,29 @@
             <strong>Tue Apr 21</strong> | 12PM–4PM | Buckeye Commons
           </p>
           <div class="event-location">📍 Multiple Locations — Graduate Student Appreciation Week</div>
+          <div class="event-actions">
+            <a class="event-cal" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Free+Professional+Portrait+Sessions&dates=20260406T090000/20260421T160000&details=Free+professional+headshots+for+Fisher+graduate+students.+Multiple+sessions+Apr+6%E2%80%9321.&location=Various+OSU+Locations%2C+Columbus%2C+OH" target="_blank" rel="noopener">+ Add to Calendar</a>
+          </div>
+        </div>
+
+        <!-- HOCKING HILLS — FEATURED EVENT -->
+        <div class="event-card event-card-featured">
+          <img class="event-flyer" src="../assets/wpmba-hocking-hills-flyer-wide.jpeg" alt="Annual One Day Trip to Hocking Hills — Saturday June 13, 2026" loading="lazy" />
+          <div class="event-date">Saturday, June 13, 2026</div>
+          <h3>Annual One Day Trip to Hocking Hills</h3>
+          <p>Escape the campus grind for a day in the hills. Carpool with fellow WP MBA students from Gerlach Hall to Hocking Hills State Park — one of Ohio's most scenic destinations. A great chance to recharge and build community outside the classroom.</p>
+          <ul class="event-detail-list">
+            <li><strong>Gathering:</strong> 9:00 AM</li>
+            <li><strong>Departure:</strong> 10:10 AM</li>
+            <li><strong>Meeting point:</strong> St. John Arena Parking Lot (Lane Ave) — 108 W. Lane Ave., Columbus, OH 43201</li>
+            <li><strong>Destination:</strong> 19988 OH-664 Scenic, Logan, OH 43138</li>
+          </ul>
+          <div class="event-location">📍 Gerlach Hall → Hocking Hills State Park</div>
+          <div class="event-actions">
+            <a class="event-cal" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=WPMBA+Annual+Day+Trip+to+Hocking+Hills&dates=20260613T090000/20260613T200000&details=OSU+Fisher+WPMBA+Annual+One+Day+Trip+to+Hocking+Hills.+Gathering+9%3A00+AM%2C+Departure+10%3A10+AM.+Carpooling+from+St.+John+Arena+Parking+Lot+(Lane+Ave).&location=108+W.+Lane+Ave.%2C+Columbus%2C+OH+43201" target="_blank" rel="noopener">+ Add to Calendar</a>
+            <a class="event-share" href="https://www.josephalotozo.com/wpmba/#events" onclick="if(navigator.share){navigator.share({title:'WPMBA Day Trip to Hocking Hills — June 13',text:'OSU Fisher WPMBA Annual One Day Trip to Hocking Hills!\nSat June 13 · Gathering 9AM · Departure 10:10AM\nFrom Gerlach Hall (108 W Lane Ave, Columbus)',url:'https://www.josephalotozo.com/wpmba/'});return false;}">Share Event</a>
+            <a class="event-flyer-link" href="../assets/wpmba-hocking-hills-flyer-portrait.jpeg" download="WPMBA-Hocking-Hills-2026.jpeg">Download Flyer</a>
+          </div>
         </div>
 
       </div>
