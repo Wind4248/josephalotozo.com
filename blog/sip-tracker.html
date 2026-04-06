@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Built a Drink Tracker App With AI — Here's What Happened | Joseph A. Lotozo</title>
+  <meta name="description" content="How Joe Lotozo used Claude to build Sip Tracker — a personal drink and calorie logging app — with no coding background and a single afternoon." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="canonical" href="https://www.josephalotozo.com/blog/sip-tracker.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="I Built a Drink Tracker App With AI — Here's What Happened" />
+  <meta property="og:description" content="How I used Claude to go from idea to live web app in a single session — and why I built it in the first place." />
+  <meta property="og:url" content="https://www.josephalotozo.com/blog/sip-tracker.html" />
+  <meta name="twitter:card" content="summary" />
+
+  <style>
+    :root {
+      --ej-yellow:      #FAD141;
+      --ej-yellow-dark: #e0b800;
+      --ej-black:       #1A1A1A;
+      --ej-white:       #FFFFFF;
+      --ej-gray-light:  #F7F7F7;
+      --ej-gray-mid:    #E8E8E8;
+      --ej-gray-text:   #555555;
+      --ej-gray-dark:   #333333;
+      --ej-border:      #DEDEDE;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: var(--ej-black);
+      background: var(--ej-white);
+      line-height: 1.75;
+    }
+
+    a { color: inherit; }
+
+    nav {
+      background: var(--ej-white);
+      border-bottom: 3px solid var(--ej-yellow);
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    }
+
+    .nav-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-name {
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--ej-black);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-sub {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.72rem;
+      color: var(--ej-gray-text);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-anchor {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ej-gray-dark);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .nav-anchor:hover { border-color: var(--ej-yellow); }
+
+    .article {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--ej-black);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .post-meta {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: var(--ej-gray-text);
+      margin-bottom: 2rem;
+    }
+
+    .section-rule {
+      width: 52px;
+      height: 4px;
+      background: var(--ej-yellow);
+      margin-bottom: 2rem;
+      border-radius: 2px;
+    }
+
+    .article p {
+      color: var(--ej-gray-dark);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    .article h2 {
+      font-size: 1.35rem;
+      color: var(--ej-black);
+      margin: 2.5rem 0 0.75rem;
+    }
+
+    .article a {
+      color: var(--ej-black);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .article blockquote {
+      border-left: 4px solid var(--ej-yellow);
+      margin: 1.5rem 0;
+      padding: 1rem 1.25rem;
+      background: var(--ej-gray-light);
+      border-radius: 0 4px 4px 0;
+      font-style: italic;
+      color: var(--ej-gray-dark);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--ej-yellow);
+      color: var(--ej-black);
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 3px;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      transition: background 0.2s;
+    }
+    .cta-button:hover { background: var(--ej-yellow-dark); }
+
+    .back-link {
+      display: inline-block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ej-gray-dark);
+      text-decoration: none;
+      margin-top: 3rem;
+      border-bottom: 2px solid var(--ej-yellow);
+      padding-bottom: 2px;
+    }
+
+    footer {
+      background: var(--ej-gray-dark);
+      color: #aaa;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      line-height: 2;
+    }
+
+    footer a { color: var(--ej-yellow); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1rem; }
+      .nav-sub { display: none; }
+      .article { padding: 3rem 1.5rem 4rem; }
+      h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../" style="text-decoration:none;">
+      <div class="nav-left">
+        <span class="nav-name">Joseph A. Lotozo, CFP®</span>
+        <span class="nav-sub">UPPER ARLINGTON, OHIO</span>
+      </div>
+    </a>
+    <div style="display:flex; gap:1.5rem; align-items:center;">
+      <a class="nav-anchor" href="../">Home</a>
+      <a class="nav-anchor" href="./">Blog</a>
+    </div>
+  </nav>
+
+  <div class="article">
+    <h1>I Built a Drink Tracker App With AI — Here's What Happened</h1>
+    <div class="post-meta">April 5, 2026 &nbsp;·&nbsp; Joseph A. Lotozo</div>
+    <div class="section-rule"></div>
+
+    <p>
+      A while back I started paying more attention to how much I was drinking. Not in a dramatic way — just the normal kind of checking in that happens when you're in your mid-thirties, pursuing an MBA, trying to stay in shape, and generally tired of feeling like you made choices you didn't fully account for. I wanted to track drinks the way I track other things: with actual numbers.
+    </p>
+
+    <p>
+      The problem was that I couldn't find an app that did what I wanted without being annoying about it. Some were too clinical. Some wanted to enroll me in a program. Some didn't track calories. Some couldn't handle a craft beer with an unusual ABV. None of them felt like they were built for a person who just wants the data, without the lecture.
+    </p>
+
+    <p>
+      So I built one.
+    </p>
+
+    <h2>The Build</h2>
+
+    <p>
+      I want to be clear: I am not a developer. I'm a CFP® professional and financial advisor. I can read a balance sheet, I can explain the difference between a traditional and Roth IRA, and I know my way around a spreadsheet. But before I started using AI tools, my coding experience was basically zero.
+    </p>
+
+    <p>
+      I used <a href="https://claude.ai/claude-code" target="_blank" rel="noopener">Claude Code</a> — Anthropic's CLI tool — as my collaborator. I described what I wanted, Claude wrote the code, I gave feedback, and we iterated. The whole thing came together in a single afternoon. By the time I closed my laptop that evening, the app was live.
+    </p>
+
+    <blockquote>
+      "Add a barcode scanner so I can just point my camera at the bottle."<br />
+      Done.<br /><br />
+      "Show a weekly goal tracker — I want to see how many standard drinks I've had vs. my limit."<br />
+      Done.<br /><br />
+      "Make it sync across devices so I can log from my phone or laptop."<br />
+      Done.
+    </blockquote>
+
+    <p>
+      Every time I described something I wanted, it appeared. That's still a strange feeling to describe. You have an idea, you explain it out loud, and then it exists. I know that sounds like hyperbole, but it's genuinely what the experience is like.
+    </p>
+
+    <h2>What It Actually Does</h2>
+
+    <p>
+      The app is called <strong>Sip Tracker</strong>. Here's what it does:
+    </p>
+
+    <p>
+      You can log a drink by typing in the name, or scan the barcode on the bottle and it'll pull in the details automatically — ABV, serving size, calories. It calculates standard drinks based on actual alcohol content, not just "one drink = one drink." A 9% IPA and a 4.2% light beer are not the same thing, and the app knows that.
+    </p>
+
+    <p>
+      You can set a weekly goal — mine is a standard drinks limit — and the app tracks your progress against it. You see a running total for the week, a history of what you've logged, and a calorie count over time. It's account-based, so your data syncs whether you're logging from your phone, laptop, or wherever.
+    </p>
+
+    <p>
+      That's it. No social features. No streaks. No judgmental push notifications. Just data.
+    </p>
+
+    <h2>The Privacy Part</h2>
+
+    <p>
+      I want to be straightforward about this: your data is yours. The app requires an account, which means your logs are tied to you and not shared by default with anyone else. I'm not selling anything, I'm not monetizing this, and there's no ad model. It's a personal project that I made public because it seemed useful and other people asked about it.
+    </p>
+
+    <p>
+      If you're uncomfortable logging something health-adjacent into a web app run by some guy in Ohio, that's completely fair. Use a spreadsheet. Use the notes app on your phone. The data-keeping habit matters more than the tool.
+    </p>
+
+    <h2>The Honest Reaction</h2>
+
+    <p>
+      When I tell people I built this, the reaction is usually some version of "wait, you built an app?" And then I explain that I didn't write the code myself — Claude wrote the code — and then the reaction shifts to "okay, but isn't that cheating?"
+    </p>
+
+    <p>
+      I don't think it is. The idea was mine. The requirements were mine. Every decision about what the app should do, how it should behave, what to include and what to leave out — that was all me. Claude is an extraordinarily capable tool, but it doesn't have opinions about how I want to track my beer intake on a Saturday afternoon. That part is still a human job.
+    </p>
+
+    <p>
+      What changed is that I no longer need to know how to write React and Firebase from scratch to bring something like this to life. That barrier is gone. And I think that's a genuinely big deal — not just for hobbyists, but for anyone who has ever had a real problem and a clear idea of how to solve it, but no way to build the solution.
+    </p>
+
+    <h2>Where to Find It</h2>
+
+    <p>
+      Sip Tracker is live at <a href="https://sip-tracker-web.web.app" target="_blank" rel="noopener">sip-tracker-web.web.app</a>. It's free to use. You'll need to create an account to log anything, which is how it keeps your data private and synced.
+    </p>
+
+    <p>
+      It's also linked from my homepage under <a href="../#ai-experiments">AI Experiments</a>, alongside a few other projects I've built the same way.
+    </p>
+
+    <p>
+      If you try it and run into something that doesn't work, or have a feature you'd want, feel free to reach out. This is a side project, not a product with a roadmap — but I'm genuinely open to making it better if there's interest.
+    </p>
+
+    <a class="cta-button" href="https://sip-tracker-web.web.app" target="_blank" rel="noopener">Open Sip Tracker &rarr;</a>
+
+    <a class="back-link" href="./">&larr; Back to Blog</a>
+  </div>
+
+  <footer>
+    <p><a href="../">josephalotozo.com</a> &nbsp;·&nbsp; &copy; 2026 Joseph A. Lotozo</p>
+    <p style="font-size:0.72rem; color:#777; margin-top:0.5rem;">The postings on this site are my own and do not necessarily reflect the views of Edward Jones.</p>
+  </footer>
+
+</body>
+</html>
