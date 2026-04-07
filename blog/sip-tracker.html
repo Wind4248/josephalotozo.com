@@ -157,6 +157,32 @@
     }
     .cta-button:hover { background: var(--ej-yellow-dark); }
 
+    .app-screenshots {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.75rem 0;
+    }
+
+    .app-screenshot {
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      width: 100%;
+      display: block;
+    }
+
+    .app-screenshot-caption {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      color: var(--ej-gray-text);
+      text-align: center;
+      margin-top: 0.4rem;
+    }
+
+    @media (max-width: 500px) {
+      .app-screenshots { grid-template-columns: 1fr; }
+    }
+
     .back-link {
       display: inline-block;
       font-family: 'Arial', sans-serif;
@@ -222,6 +248,26 @@
       So I built one.
     </p>
 
+    <h2>The Beer That Started It</h2>
+
+    <p>
+      Seventh Son Brewing, a Columbus craft brewery, made a collaboration beer with <a href="https://www.foxinthesnow.com" target="_blank" rel="noopener">Fox in the Snow</a> — the local bakery and café that has a line out the door on weekend mornings. The beer is called <strong>Fox in the Stout</strong>: a salted chocolate imperial stout inspired by their salted brownie. Cocoa nibs, vanilla beans, flaked oats. It's a dessert in a can. It's also <strong>9.7% ABV</strong>.
+    </p>
+
+    <p>
+      I had one on a Friday evening and thought nothing of it. Then I had another. By any casual count that was "two beers." Except it wasn't. At 9.7% ABV in a 12oz can, each one is about <strong>1.9 standard drinks</strong> — nearly two. Two cans of Fox in the Stout is closer to four standard drinks than two. That math adds up fast and is easy to miss when you're just thinking "it's a beer."
+    </p>
+
+    <blockquote>
+      One 12oz can of Fox in the Stout at 9.7% ABV = <strong>1.94 standard drinks</strong>.<br />
+      A regular 5% beer = 1.0 standard drinks.<br />
+      The difference is real, and almost nobody thinks about it.
+    </blockquote>
+
+    <p>
+      That's the moment the app became personally useful to me. Not as an accountability tool or a sobriety tracker — just as an honest accounting of what's actually in the glass. If I'm going to drink, I want to know what I'm drinking.
+    </p>
+
     <h2>The Build</h2>
 
     <p>
@@ -262,6 +308,18 @@
     <p>
       That's it. No social features. No streaks. No judgmental push notifications. Just data.
     </p>
+
+    <!-- SCREENSHOTS — drop app-screenshot images into assets/ and update src paths below -->
+    <div class="app-screenshots">
+      <div>
+        <img class="app-screenshot" src="../assets/sip-tracker-quicklog.jpeg" alt="Sip Tracker Quick Log screen" loading="lazy" onerror="this.style.display='none'" />
+        <p class="app-screenshot-caption">Quick Log — search, presets, recent drinks</p>
+      </div>
+      <div>
+        <img class="app-screenshot" src="../assets/sip-tracker-editor.jpeg" alt="Sip Tracker drink editor showing standard drink calculation" loading="lazy" onerror="this.style.display='none'" />
+        <p class="app-screenshot-caption">Log Drink — dial in ABV and volume, see the math live</p>
+      </div>
+    </div>
 
     <h2>The Privacy Part</h2>
 
