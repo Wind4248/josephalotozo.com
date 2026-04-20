@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Built It in a Night. I Didn't Stop There. | Joseph A. Lotozo</title>
+  <meta name="description" content="StreamNChill started as a one-night experiment. Two weeks later it has Watch Together, a Wrapped Card, Face ID sign-in, and a dozen other features. Here's what happened." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="canonical" href="https://www.josephalotozo.com/blog/streamnchill-update.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="I Built It in a Night. I Didn't Stop There." />
+  <meta property="og:description" content="StreamNChill started as a one-night experiment. Two weeks later it has Watch Together, a Wrapped Card, Face ID, and a lot more. Here's what happened." />
+  <meta property="og:url" content="https://www.josephalotozo.com/blog/streamnchill-update.html" />
+  <meta name="twitter:card" content="summary" />
+
+  <style>
+    :root {
+      --ej-yellow:      #FAD141;
+      --ej-yellow-dark: #e0b800;
+      --ej-black:       #1A1A1A;
+      --ej-white:       #FFFFFF;
+      --ej-gray-light:  #F7F7F7;
+      --ej-gray-mid:    #E8E8E8;
+      --ej-gray-text:   #555555;
+      --ej-gray-dark:   #333333;
+      --ej-border:      #DEDEDE;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: var(--ej-black);
+      background: var(--ej-white);
+      line-height: 1.75;
+    }
+
+    a { color: inherit; }
+
+    nav {
+      background: var(--ej-white);
+      border-bottom: 3px solid var(--ej-yellow);
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    }
+
+    .nav-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-name {
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--ej-black);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-sub {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.72rem;
+      color: var(--ej-gray-text);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-anchor {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ej-gray-dark);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .nav-anchor:hover { border-color: var(--ej-yellow); }
+
+    .article {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--ej-black);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .post-meta {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: var(--ej-gray-text);
+      margin-bottom: 2rem;
+    }
+
+    .section-rule {
+      width: 52px;
+      height: 4px;
+      background: var(--ej-yellow);
+      margin-bottom: 2rem;
+      border-radius: 2px;
+    }
+
+    .article p {
+      color: var(--ej-gray-dark);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    .article h2 {
+      font-size: 1.35rem;
+      color: var(--ej-black);
+      margin: 2.5rem 0 0.75rem;
+    }
+
+    .article a {
+      color: var(--ej-black);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .article blockquote {
+      border-left: 4px solid var(--ej-yellow);
+      margin: 1.5rem 0;
+      padding: 1rem 1.25rem;
+      background: var(--ej-gray-light);
+      border-radius: 0 4px 4px 0;
+      font-style: italic;
+      color: var(--ej-gray-dark);
+    }
+
+    .article ul {
+      margin: 0.5rem 0 1.25rem 1.5rem;
+      color: var(--ej-gray-dark);
+      font-size: 1.05rem;
+    }
+
+    .article ul li {
+      margin-bottom: 0.6rem;
+      line-height: 1.75;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--ej-yellow);
+      color: var(--ej-black);
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 3px;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      margin-right: 0.75rem;
+      transition: background 0.2s;
+    }
+    .cta-button:hover { background: var(--ej-yellow-dark); }
+
+    .cta-button-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--ej-black);
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 3px;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      border: 2px solid var(--ej-black);
+      transition: background 0.2s;
+    }
+    .cta-button-outline:hover { background: var(--ej-gray-light); }
+
+    .app-screenshots {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.75rem 0;
+    }
+
+    .app-screenshot {
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      width: 100%;
+      display: block;
+    }
+
+    .app-screenshot-single {
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      max-width: 300px;
+      display: block;
+      margin: 1.75rem auto;
+    }
+
+    .app-screenshot-caption {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      color: var(--ej-gray-text);
+      text-align: center;
+      margin-top: 0.4rem;
+    }
+
+    .feature-callout {
+      background: var(--ej-gray-light);
+      border: 1px solid var(--ej-border);
+      border-top: 4px solid var(--ej-yellow);
+      border-radius: 4px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+    }
+
+    .feature-callout p {
+      margin-bottom: 0;
+      font-size: 0.97rem;
+    }
+
+    @media (max-width: 500px) {
+      .app-screenshots { grid-template-columns: 1fr; }
+    }
+
+    .back-link {
+      display: inline-block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ej-gray-dark);
+      text-decoration: none;
+      margin-top: 3rem;
+      border-bottom: 2px solid var(--ej-yellow);
+      padding-bottom: 2px;
+    }
+
+    footer {
+      background: var(--ej-gray-dark);
+      color: #aaa;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      line-height: 2;
+    }
+
+    footer a { color: var(--ej-yellow); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1rem; }
+      .nav-sub { display: none; }
+      .article { padding: 3rem 1.5rem 4rem; }
+      h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../" style="text-decoration:none;">
+      <div class="nav-left">
+        <span class="nav-name">Joseph A. Lotozo, CFP®</span>
+        <span class="nav-sub">UPPER ARLINGTON, OHIO</span>
+      </div>
+    </a>
+    <div style="display:flex; gap:1.5rem; align-items:center;">
+      <a class="nav-anchor" href="../">Home</a>
+      <a class="nav-anchor" href="./">Blog</a>
+    </div>
+  </nav>
+
+  <div class="article">
+    <h1>I Built It in a Night. I Didn't Stop There.</h1>
+    <div class="post-meta">April 19, 2026 &nbsp;·&nbsp; Joseph A. Lotozo &nbsp;·&nbsp; 5 min read</div>
+    <div class="section-rule"></div>
+
+    <p>
+      Two weeks ago I wrote about building <a href="streamnchill.html">StreamNChill</a> — a movie and TV watchlist app I put together in a single evening after my mom mentioned she wished one existed. By the time I went to bed, it was live. I was proud of it.
+    </p>
+
+    <p>
+      Then I kept using it. And every time I ran into something I wished it could do, I'd open Claude Code and just... ask. Most of the time, the feature was done by the end of the session.
+    </p>
+
+    <p>
+      Two weeks later, StreamNChill is a different app. Here's what it's become.
+    </p>
+
+    <h2>The Feature That Actually Solves Movie Night</h2>
+
+    <p>
+      The one I keep showing people is called <strong>Watch Together</strong>. You know the problem: you sit down with your spouse, a friend, whoever — and nobody can agree on what to watch. You don't want to be the one who picked the bad movie. Twenty minutes later you're still on the couch doing nothing.
+    </p>
+
+    <p>
+      Watch Together fixes it. Pick a friend who's on StreamNChill, and the app looks at both your watch histories — what you've rated, what you loved, what's sitting on your lists. Then it finds the bridge: something you'd both actually enjoy, with a real explanation for why.
+    </p>
+
+    <blockquote>
+      "Based on what you've both loved, here's something that lands in the middle — and here's why it works for both of you."
+    </blockquote>
+
+    <p>
+      It's the closest thing to having a mutual friend who knows both of your taste and isn't going to just say "I don't care, whatever you want."
+    </p>
+
+    <div class="app-screenshots">
+      <div>
+        <img class="app-screenshot" src="../assets/streamnchill-mylist.png" alt="StreamNChill My List screen" loading="lazy" />
+        <p class="app-screenshot-caption">Your list — everything in one place</p>
+      </div>
+      <div>
+        <img class="app-screenshot" src="../assets/streamnchill-tonight.jpg" alt="StreamNChill Tonight — AI-powered recommendation" loading="lazy" />
+        <p class="app-screenshot-caption">Tonight — now with history and sharing</p>
+      </div>
+    </div>
+
+    <h2>Your Year in Film, in a Card</h2>
+
+    <p>
+      The other one that gets people is the <strong>Wrapped Card</strong>. Think Spotify Wrapped, but for movies and TV. Movies watched. Shows completed. Estimated hours. Your highest-rated title. Your most-rewatched pick. It renders into a shareable card you can screenshot and send.
+    </p>
+
+    <p>
+      I didn't fully anticipate this part: building something shareable accidentally makes it social in a way the leaderboard never quite did. The leaderboard is a number. The Wrapped Card is a story. People see it and immediately want to know what their own looks like.
+    </p>
+
+    <div class="app-screenshots">
+      <div>
+        <img class="app-screenshot" src="../assets/streamnchill-leaderboard.jpg" alt="StreamNChill Leaderboard" loading="lazy" />
+        <p class="app-screenshot-caption">Leaderboard — see where you rank</p>
+      </div>
+      <div>
+        <img class="app-screenshot" src="../assets/streamnchill-search.jpg" alt="StreamNChill search filtered by streaming service" loading="lazy" />
+        <p class="app-screenshot-caption">Search — now filtered by your streaming services</p>
+      </div>
+    </div>
+
+    <h2>Face ID Sign-In. Yes, Really.</h2>
+
+    <p>
+      This one I didn't plan. I was reading about WebAuthn — the technology behind Face ID and Touch ID on websites — and I said out loud to nobody: "I wonder if I could just add that."
+    </p>
+
+    <p>
+      I could. Sign in once with your Google account, set up the passkey, and from then on it's your face or fingerprint. No password. No "sign in with Google" button. Just open the app and you're in.
+    </p>
+
+    <div class="feature-callout">
+      <p>To set it up: sign in normally, go to your profile, and tap <strong>Set Up Face ID / Touch ID</strong>. You're done in about ten seconds.</p>
+    </div>
+
+    <h2>Everything Else That Landed</h2>
+
+    <p>A few more things worth knowing about:</p>
+
+    <ul>
+      <li><strong>Streaming service filters.</strong> Tell the app which services you actually have — Netflix, Hulu, Disney+, Max, Prime, Apple TV+, Peacock, Paramount+, Tubi — and search results only show what you can watch tonight.</li>
+      <li><strong>Letterboxd import.</strong> If you've been tracking movies on Letterboxd, export your CSV and import it here in one shot. Ratings included.</li>
+      <li><strong>IMDB Top 100.</strong> Browse the list and see what you've watched. The gap view — how many you haven't seen — is a little humbling.</li>
+      <li><strong>Quick Tally.</strong> Swipe through trending titles and tag them fast. Good for a lazy Sunday when you want to bulk-add your backlog.</li>
+      <li><strong>Quick Log.</strong> When you mark something watched, it asks for a star rating and who you watched it with. Auto-dismisses if you ignore it.</li>
+      <li><strong>Achievements.</strong> I'm not above a little gamification. Century Club is harder than it sounds.</li>
+      <li><strong>Watch Goal.</strong> Set a number for the year. See if you hit it.</li>
+      <li><strong>Taste Profile.</strong> Go back through your watched list and tag titles as loved, neutral, or didn't land — it makes Tonight recommendations sharper.</li>
+      <li><strong>Tonight History.</strong> Every recommendation gets saved. You'll never get the same pick twice.</li>
+    </ul>
+
+    <img class="app-screenshot-single" src="../assets/streamnchill-homescreen.png" alt="Add StreamNChill to your iPhone home screen" loading="lazy" />
+    <p class="app-screenshot-caption" style="text-align:center; margin-top:-1rem; margin-bottom:1.5rem;">Still a PWA — add it to your home screen and it runs like a real app</p>
+
+    <h2>The Honest Part</h2>
+
+    <p>
+      I want to be clear about what this is. StreamNChill is a personal side project. I'm not running ads, I'm not selling anything, and your data is yours. An account syncs your list across devices — that's the only reason it exists.
+    </p>
+
+    <p>
+      What it's become is something I genuinely didn't expect when I built the first version. The idea-to-feature timeline has collapsed in a way I'm still getting used to. Every time I think "that'd be cool," it's done in an evening. Most of the time faster.
+    </p>
+
+    <p>
+      If you haven't tried it yet, try it. If you have and there's something you'd want, tell me — I'm genuinely open to hearing it. This thing is still growing.
+    </p>
+
+    <div style="margin-top:1.75rem;">
+      <a class="cta-button" href="https://streamnchill-app.web.app" target="_blank" rel="noopener">Try StreamNChill &rarr;</a>
+      <a class="cta-button-outline" href="streamnchill.html">Read the Original Post &rarr;</a>
+    </div>
+
+    <a class="back-link" href="./">&larr; Back to Blog</a>
+  </div>
+
+  <footer>
+    <p><a href="../">josephalotozo.com</a> &nbsp;·&nbsp; &copy; 2026 Joseph A. Lotozo</p>
+    <p style="font-size:0.72rem; color:#777; margin-top:0.5rem;">The postings on this site are my own and do not necessarily reflect the views of Edward Jones.</p>
+  </footer>
+
+</body>
+</html>
