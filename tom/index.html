@@ -14,13 +14,13 @@
   <meta property="og:title" content="Tom Lotozo — Film Portrait Photographer | Columbus, Ohio" />
   <meta property="og:description" content="Outdoor portrait sessions on 35mm film. $500 for one hour and two rolls. Natural light. Columbus and Central Ohio." />
   <meta property="og:url" content="https://www.josephalotozo.com/tom/" />
-  <meta property="og:image" content="https://www.josephalotozo.com/assets/tom-alpine-lake.jpg" />
+  <meta property="og:image" content="https://www.josephalotozo.com/assets/tom-paris-eiffel-night.jpg" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Tom Lotozo — Film Portrait Photographer Columbus, Ohio" />
   <meta name="twitter:description" content="35mm film portrait sessions. Natural light. Columbus, Ohio. $500 / 1 hour / 2 rolls." />
-  <meta name="twitter:image" content="https://www.josephalotozo.com/assets/tom-alpine-lake.jpg" />
+  <meta name="twitter:image" content="https://www.josephalotozo.com/assets/tom-paris-eiffel-night.jpg" />
 
   <!-- Schema: Person + Photography Service -->
   <script type="application/ld+json">
@@ -773,6 +773,112 @@
     footer a { color: var(--tan-light); text-decoration: none; }
     footer a:hover { color: var(--cream); }
 
+    /* ── SCROLL ANIMATION ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── PORTRAIT WORK ── */
+    .portrait-work {
+      padding: 2rem 2rem 5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .portrait-intro {
+      font-family: Georgia, serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    .portrait-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .portrait-slot {
+      background: var(--cream-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portrait-slot::before {
+      content: '';
+      display: block;
+      padding-top: 148%;
+    }
+
+    .portrait-slot img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .portrait-slot:hover img { transform: scale(1.02); }
+
+    /* ── TRAVEL GALLERY ── */
+    .travel {
+      padding: 2rem 2rem 5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .travel-intro {
+      font-family: Georgia, serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    .travel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .travel-slot {
+      background: var(--cream-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .travel-slot::before {
+      content: '';
+      display: block;
+      padding-top: 66%;
+    }
+
+    .travel-slot img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .travel-slot:hover img { transform: scale(1.02); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .sessions-grid { grid-template-columns: 1fr; }
@@ -796,6 +902,10 @@
       .locations { padding: 4rem 1.2rem; }
       .locations-grid { grid-template-columns: 1fr; }
       .about { padding: 4rem 1.2rem; }
+      .portrait-work { padding: 1.5rem 1.2rem 4rem; }
+      .portrait-grid { grid-template-columns: 1fr; }
+      .travel { padding: 1.5rem 1.2rem 4rem; }
+      .travel-grid { grid-template-columns: 1fr; }
       .faq { padding: 4rem 1.2rem; }
       .contact { padding: 4rem 1.2rem; }
     }
@@ -807,7 +917,8 @@
   <nav>
     <a href="#top" class="nav-wordmark">Tom Lotozo</a>
     <ul class="nav-links">
-      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#portraits">Portraits</a></li>
+      <li><a href="#portfolio">Work</a></li>
       <li><a href="#sessions">Sessions</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -822,45 +933,85 @@
     <p class="hero-sub">Portraits shot on 35mm film. Natural light. Outdoor locations across Central Ohio. Golden hour preferred.</p>
   </section>
 
+  <!-- PORTRAIT WORK -->
+  <section class="portrait-work" id="portraits">
+    <p class="section-label fade-up">Portrait Sessions · 35mm Film</p>
+    <p class="portrait-intro fade-up">This is what Tom does. Every portrait session is shot outside, on film, in natural light. These are from a recent film session.</p>
+    <div class="portrait-grid">
+      <div class="portrait-slot fade-up">
+        <img src="../assets/tom-newborn-portrait.jpg" alt="A couple cradling their newborn in the backyard — shot on 35mm film, natural light" loading="lazy">
+        <div class="photo-caption">Newborn Session · 35mm Film</div>
+      </div>
+      <div class="portrait-slot fade-up">
+        <img src="../assets/tom-newborn-tender.jpg" alt="Mother nuzzling her newborn's head, autumn leaves behind — shot on 35mm film" loading="lazy">
+        <div class="photo-caption">Newborn Session · 35mm Film</div>
+      </div>
+    </div>
+  </section>
+
   <!-- PORTFOLIO -->
   <section class="portfolio" id="portfolio">
-    <p class="section-label">Portfolio</p>
+    <p class="section-label fade-up">The Work · 35mm Film</p>
     <div class="photo-grid">
 
-      <!-- ROW 1: landscape hero -->
+      <!-- ROW 1: landscape hero — Paris Eiffel Tower at night -->
       <div class="photo-slot wide">
-        <img src="../assets/tom-alpine-lake.jpg" alt="Glacial alpine lake with emerald water, dense pine forest, and snow-capped mountains — shot on 35mm film" loading="lazy">
-        <div class="photo-caption">Alpine Lake · 35mm Film</div>
+        <img src="../assets/tom-paris-eiffel-night.jpg" alt="The Eiffel Tower at night, its searchlight sweeping above the Seine — shot on Ilford HP5 35mm film" loading="lazy">
+        <div class="photo-caption">Paris · Ilford HP5</div>
       </div>
 
-      <!-- ROW 2: three portrait photos, each in natural portrait orientation -->
+      <!-- ROW 2: portrait trio -->
       <div class="photo-slot">
-        <img src="../assets/tom-dock-morning.jpg" alt="Map and coffee mug on a weathered dock at dusk, fire pit and lake in background — shot on 35mm film" loading="lazy">
-        <div class="photo-caption">Lakeside · 35mm Film</div>
-      </div>
-
-      <div class="photo-slot">
-        <img src="../assets/tom-cabin-bw.jpg" alt="Black and white — a cabin tucked in tall pines at the water's edge — shot on film" loading="lazy">
-        <div class="photo-caption">Cabin · B&W Film</div>
+        <img src="../assets/tom-thinker-paris.jpg" alt="Rodin's The Thinker against a pale winter sky, Paris — shot on Ilford HP5 35mm film" loading="lazy">
+        <div class="photo-caption">Paris · Ilford HP5</div>
       </div>
 
       <div class="photo-slot">
-        <img src="../assets/tom-forest-path.jpg" alt="A winding trail disappearing into dense green forest — shot on 35mm film" loading="lazy">
-        <div class="photo-caption">Forest · 35mm Film</div>
+        <img src="../assets/tom-amalfi-coast.jpg" alt="Two hikers on a clifftop trail above the Amalfi Coast, turquoise sea far below — shot on 35mm film" loading="lazy">
+        <div class="photo-caption">Amalfi Coast · 35mm Film</div>
       </div>
 
-      <!-- ROW 3: landscape -->
+      <div class="photo-slot">
+        <img src="../assets/tom-toms-thumb-sign.jpg" alt="Trail sign reading 'To Tom's Thumb' in the Arizona desert hills — shot on 35mm black and white film" loading="lazy">
+        <div class="photo-caption">Arizona · B&W Film</div>
+      </div>
+
+      <!-- ROW 3: landscape — glacial lake Whistler -->
       <div class="photo-slot wide">
-        <img src="../assets/tom-cactus-desert.jpg" alt="Cholla cactus in the foreground, silhouetted figures on desert rocks — shot on 35mm film" loading="lazy">
-        <div class="photo-caption">Desert · B&W Film</div>
+        <img src="../assets/tom-whistler-lake.jpg" alt="Emerald glacial lake reflecting snow-capped mountains and old-growth forest, Whistler BC — shot on Kodak Portra 800" loading="lazy">
+        <div class="photo-caption">Whistler · Portra 800</div>
       </div>
 
       <!-- ROW 4: landscape -->
       <div class="photo-slot wide">
-        <img src="../assets/tom-desert-hiker.jpg" alt="Hiker beneath massive desert rock formations under open sky — shot on 35mm film" loading="lazy">
-        <div class="photo-caption">Desert · B&W Film</div>
+        <img src="../assets/tom-maine-lake-twilight.jpg" alt="Calm Maine lake at twilight, swimming platform and canoe floating still on glassy water — shot on Cinestill 800T" loading="lazy">
+        <div class="photo-caption">Maine · Cinestill 800T</div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- TRAVEL GALLERY -->
+  <section class="travel">
+    <p class="section-label fade-up">The Eye Behind the Lens</p>
+    <p class="travel-intro fade-up">Portrait sessions are just one part of the work. Tom shoots on film everywhere he goes — Maine, Whistler, Paris, the Pacific Northwest.</p>
+    <div class="travel-grid">
+      <div class="travel-slot">
+        <img src="../assets/tom-toledo-museum.jpg" alt="Woman studying old master paintings in the Toledo Art Museum — shot on Kodak Portra 800" loading="lazy">
+        <div class="photo-caption">Toledo Art Museum · Portra 800</div>
+      </div>
+      <div class="travel-slot">
+        <img src="../assets/tom-lily-of-the-valley.jpg" alt="Lily of the valley in soft morning light with dreamy film bokeh — shot on 35mm black and white film" loading="lazy">
+        <div class="photo-caption">Lily of the Valley · B&W Film</div>
+      </div>
+      <div class="travel-slot">
+        <img src="../assets/tom-whistler-river.jpg" alt="Hiker on rocky shoreline above a rushing glacial river, old-growth forest behind — shot on Portra 800" loading="lazy">
+        <div class="photo-caption">Whistler · Portra 800</div>
+      </div>
+      <div class="travel-slot">
+        <img src="../assets/tom-bend-waterfall.jpg" alt="Misty Pacific Northwest waterfall through a moss-covered canyon, Bend Oregon — shot on Kodak Portra 400" loading="lazy">
+        <div class="photo-caption">Bend, OR · Portra 400</div>
+      </div>
     </div>
   </section>
 
@@ -1042,7 +1193,44 @@
       <summary>How do I book?</summary>
       <p>Email <a href="mailto:lotozot@gmail.com" style="color:var(--tan);">lotozot@gmail.com</a>. Tell Tom your preferred dates, any location ideas, and what you're looking for. He'll get back to you within a few days to confirm details.</p>
     </details>
+
+    <details>
+      <summary>Can I request black and white?</summary>
+      <p>Absolutely. Tom shoots both color and black and white regularly — color with Kodak Portra or Gold, and black and white with Ilford HP5. If you have a preference, just mention it when you book. Some locations and lighting conditions lend themselves better to one or the other, and Tom can advise based on your session.</p>
+    </details>
+
+    <details>
+      <summary>What should I wear?</summary>
+      <p>Wear what feels like you — film responds well to natural tones, textures, and layers. Avoid busy patterns or logos that might distract. Neutrals, earth tones, denim, and natural fabrics all tend to photograph beautifully on film. Coordinate with whoever you're bringing, but you don't need to match perfectly.</p>
+    </details>
+
+    <details>
+      <summary>Do you shoot outside of Columbus?</summary>
+      <p>Yes, for the right shoot. Hocking Hills is about an hour south and worth the drive. Tom has also done sessions at locations meaningful to clients — if you have somewhere in mind, reach out and he'll let you know if it's workable. Travel fees may apply for locations significantly outside Central Ohio.</p>
+    </details>
+
+    <details>
+      <summary>What if the weather is bad?</summary>
+      <p>Overcast days can actually be great for film portraits — diffused light is soft and flattering with no harsh shadows. Rain is usually a reschedule. Tom will keep an eye on the forecast and reach out ahead of your session if it looks like the weather is going to be a problem. Rescheduling is easy.</p>
+    </details>
+
+    <details>
+      <summary>Do you shoot events or weddings?</summary>
+      <p>Tom's focus is portrait sessions — individuals, couples, and small groups. He doesn't currently take on full wedding packages. For a specific moment you want on film — an engagement, an anniversary, a family gathering — email and describe what you have in mind.</p>
+    </details>
   </section>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
 
   <!-- FOOTER -->
   <footer>
