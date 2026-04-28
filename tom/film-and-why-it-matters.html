@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Film and Why It Matters — Tom Lotozo</title>
+  <meta name="description" content="Tom Lotozo on why he shoots on 35mm film — and a look at recent photos from Paris, Whistler, Maine, and Columbus." />
+  <link rel="canonical" href="https://www.josephalotozo.com/tom/film-and-why-it-matters.html" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Film and Why It Matters — Tom Lotozo" />
+  <meta property="og:description" content="Why I shoot on 35mm film — and a look at recent work from Paris, Whistler, Maine, and Columbus." />
+  <meta property="og:url" content="https://www.josephalotozo.com/tom/film-and-why-it-matters.html" />
+  <meta property="og:image" content="https://www.josephalotozo.com/assets/tom-paris-eiffel-night.jpg" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:       #F4EFE6;
+      --cream-dark:  #EAE2D4;
+      --ink:         #1C1814;
+      --ink-soft:    #4A4238;
+      --tan:         #8C7B65;
+      --tan-light:   #C4B49A;
+      --white:       #FDFAF6;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 200px 200px;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--cream-dark);
+      padding: 1.1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-wordmark {
+      font-family: Georgia, serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── HERO IMAGE ── */
+    .post-hero {
+      width: 100%;
+      max-height: 70vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .post-hero img {
+      width: 100%;
+      height: 70vh;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+
+    .post-hero-caption {
+      position: absolute;
+      bottom: 1.2rem;
+      right: 1.5rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(253,250,246,0.75);
+    }
+
+    /* ── ARTICLE ── */
+    .post-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    .post-eyebrow {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-bottom: 1.2rem;
+    }
+
+    .post-title {
+      font-family: Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: normal;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .post-byline {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.72rem;
+      color: var(--tan);
+      letter-spacing: 0.1em;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .post-body p {
+      font-family: Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--ink-soft);
+      margin-bottom: 1.6rem;
+    }
+
+    .post-body p:first-of-type {
+      font-size: 1.15rem;
+      color: var(--ink);
+    }
+
+    .post-body h2 {
+      font-family: Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: normal;
+      color: var(--ink);
+      margin: 3rem 0 1rem;
+    }
+
+    /* ── INLINE PHOTOS ── */
+    .post-photo {
+      margin: 3rem 0;
+    }
+
+    .post-photo img {
+      width: 100%;
+      display: block;
+    }
+
+    .post-photo.wide {
+      margin-left: -2rem;
+      margin-right: -2rem;
+      width: calc(100% + 4rem);
+    }
+
+    .post-photo figcaption {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-top: 0.7rem;
+    }
+
+    .post-photo-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin: 3rem 0;
+    }
+
+    .post-photo-pair img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+    }
+
+    .post-photo-pair figcaption {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-top: 0.6rem;
+      grid-column: 1 / -1;
+    }
+
+    /* ── CTA ── */
+    .post-cta {
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--cream-dark);
+      text-align: center;
+    }
+
+    .post-cta p {
+      font-family: Georgia, serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--cream-dark);
+      text-decoration: none;
+      padding: 0.9rem 2rem;
+      border: 1px solid var(--tan-light);
+      transition: background 0.2s;
+    }
+
+    .btn:hover { background: var(--tan-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid #2A2420;
+      padding: 1.8rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--tan);
+    }
+
+    footer a { color: var(--tan-light); text-decoration: none; }
+    footer a:hover { color: var(--cream); }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.2rem; }
+      .nav-links { gap: 1.2rem; }
+      .post-wrap { padding: 3rem 1.2rem 5rem; }
+      .post-photo.wide { margin-left: -1.2rem; margin-right: -1.2rem; width: calc(100% + 2.4rem); }
+      .post-photo-pair { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/tom/" class="nav-wordmark">Tom Lotozo</a>
+    <ul class="nav-links">
+      <li><a href="/tom/#portraits">Portraits</a></li>
+      <li><a href="/tom/#sessions">Sessions</a></li>
+      <li><a href="/tom/#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="post-hero">
+    <img src="../assets/tom-paris-eiffel-night.jpg" alt="The Eiffel Tower at night, its searchlight sweeping above the Seine — Ilford HP5, 35mm film">
+    <div class="post-hero-caption">Paris · Ilford HP5 Plus · February 2026</div>
+  </div>
+
+  <!-- ARTICLE -->
+  <article class="post-wrap">
+
+    <p class="post-eyebrow">Tom Lotozo · First Post</p>
+    <h1 class="post-title">Film and Why It Matters</h1>
+    <p class="post-byline">April 2026 &nbsp;·&nbsp; Tom Lotozo</p>
+
+    <div class="post-body">
+
+      <p>I've been shooting on film for five years. I'm not going to pretend that makes me special — a lot of people shoot on film. But I keep coming back to it, and I've been thinking about why.</p>
+
+      <p>Part of it is practical. Film forces you to slow down. When you have 36 frames on a roll and each one costs something — the film, the development, the scanning — you stop and actually look before you press the shutter. You think about the light. You think about where you're standing. Digital makes it easy to shoot 300 photos and sort through them later. Film makes you decide before.</p>
+
+      <p>But that's not the whole story. The bigger thing is what film actually looks like. The grain. The way color renders — especially on Portra 400, which has this warmth and tonal range that I've never seen replicated in any digital preset. The way Ilford HP5 handles shadows. There's a quality to the image that feels different from pixels. Not better in every situation. But different in a way that matters for certain kinds of photographs.</p>
+
+      <figure class="post-photo wide">
+        <img src="../assets/tom-whistler-lake.jpg" alt="Emerald glacial lake reflecting snow-capped mountains at Whistler — Kodak Portra 800">
+        <figcaption>Joffre Lakes, Whistler BC · Kodak Portra 800</figcaption>
+      </figure>
+
+      <p>This shot above is from Whistler, British Columbia — Joffre Lakes, on Kodak Portra 800. I've been to a lot of places and seen a lot of water, but this glacial green stopped me. I think Portra 800 is underrated. People go for 400 because it's the standard, but 800 in good light gets this richness — a little faster, a little grainier, and somehow more alive.</p>
+
+      <h2>February in Paris</h2>
+
+      <p>In February I was in Paris for a week, shooting on Ilford HP5 — my black and white go-to. HP5 is forgiving, it handles a wide exposure range, and it has a grain that feels natural rather than coarse. The hero image at the top of this post is from the Pont des Arts bridge at night. The Eiffel Tower sweeps its searchlight across the city every hour. I waited for it.</p>
+
+      <div class="post-photo-pair">
+        <img src="../assets/tom-thinker-paris.jpg" alt="Rodin's The Thinker against a winter sky — Ilford HP5">
+        <img src="../assets/tom-toms-thumb-sign.jpg" alt="Trail sign reading To Tom's Thumb in the Arizona desert — B&W film">
+        <figcaption>Left: Musée Rodin, Paris · HP5 &nbsp;·&nbsp; Right: Tom's Thumb Trail, Arizona · B&W Film</figcaption>
+      </div>
+
+      <p>The Rodin shot is from the Musée Rodin garden. I've seen The Thinker in photographs a thousand times. In person, what struck me was how small the sky makes it feel — and how much it still commands the frame. I had maybe thirty seconds of decent light before a cloud moved in. That's the thing about shooting outdoors: you're always negotiating with what's actually there.</p>
+
+      <h2>What I'm doing with the portrait work</h2>
+
+      <p>I've mostly shot landscapes and travel. But over the last year I've been doing portrait sessions — outdoors, natural light, film — and I've come to love what the medium does to people. Digital portraits are technically flawless. Film portraits look like something you actually want to frame.</p>
+
+      <figure class="post-photo">
+        <img src="../assets/tom-newborn-portrait.jpg" alt="A couple with their newborn in the backyard, October — 35mm film portrait session">
+        <figcaption>Columbus, Ohio · October 2025 · 35mm Film</figcaption>
+      </figure>
+
+      <p>This is from an October session in Columbus — a couple meeting their new daughter. The light was fading fast and I had maybe a roll and a half left. I'm glad I was shooting film. The grain in the shadows, the skin tones, the way the fall foliage goes soft in the background — that's Kodak doing something a phone can't.</p>
+
+      <p>Sessions are $500 for one hour and two rolls of film. Everything shot outside in natural light. Columbus and Central Ohio — Hayden Falls, Griggs Reservoir, Hocking Hills if you want to make the drive. Development goes to Midwest Photo here in Columbus. Scanned images back to you in about two weeks.</p>
+
+      <p>If you want to shoot, reach out at lotozot@gmail.com. Tell me what you're thinking and we'll figure it out.</p>
+
+      <figure class="post-photo wide">
+        <img src="../assets/tom-amalfi-coast.jpg" alt="Two hikers on a clifftop trail above the Amalfi Coast — 35mm film">
+        <figcaption>Path of the Gods, Amalfi Coast · 35mm Film · 2022</figcaption>
+      </figure>
+
+    </div>
+
+    <div class="post-cta">
+      <p>Interested in a portrait session? Reach out — sessions start at $500.</p>
+      <a href="mailto:lotozot@gmail.com?subject=Portrait Session Inquiry" class="btn">Book a Session</a>
+    </div>
+
+  </article>
+
+  <footer>
+    <p>Tom Lotozo &nbsp;·&nbsp; Film Portrait Photographer &nbsp;·&nbsp; Columbus, Ohio &nbsp;·&nbsp; <a href="mailto:lotozot@gmail.com">lotozot@gmail.com</a> &nbsp;·&nbsp; <a href="/tom/">Back to site</a></p>
+  </footer>
+
+</body>
+</html>
