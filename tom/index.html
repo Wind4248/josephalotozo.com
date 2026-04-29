@@ -258,10 +258,10 @@
       margin: 2.5rem 0;
     }
 
-    /* ── PORTFOLIO ── */
-    .portfolio {
+    /* ── CATALOG GALLERY ── */
+    .catalog {
       padding: 2rem 2rem 5rem;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
@@ -275,61 +275,68 @@
       margin-bottom: 2rem;
     }
 
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+    .catalog-intro {
+      font-family: Georgia, serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
     }
 
-    .photo-slot.wide { grid-column: 1 / -1; }
+    .catalog-grid {
+      columns: 3;
+      column-gap: 0.75rem;
+    }
 
-    .photo-slot {
-      background: var(--cream-dark);
+    .catalog-item {
+      break-inside: avoid;
+      margin-bottom: 0.75rem;
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
 
-    .photo-slot.wide::before {
-      content: '';
-      display: block;
-      padding-top: 52%;
-    }
-
-    .photo-slot:not(.wide)::before {
-      content: '';
-      display: block;
-      padding-top: 130%;
-    }
-
-    .photo-slot img {
-      position: absolute;
-      inset: 0;
+    .catalog-item img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
       display: block;
       transition: transform 0.5s ease;
     }
 
-    .photo-slot:hover img { transform: scale(1.02); }
+    .catalog-item:hover img { transform: scale(1.02); }
 
-    .photo-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 1rem 1.2rem 0.9rem;
-      background: linear-gradient(transparent, rgba(28,24,20,0.55));
+    .catalog-item figcaption {
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(253,250,246,0.9);
-      opacity: 0;
-      transition: opacity 0.3s;
+      color: var(--tan);
+      padding: 0.45rem 0 0;
     }
 
-    .photo-slot:hover .photo-caption { opacity: 1; }
+    .catalog-prints-note {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .catalog-prints-note p {
+      font-family: Georgia, serif;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      line-height: 1.75;
+    }
+
+    .catalog-prints-note a {
+      color: var(--tan);
+      text-decoration: none;
+      border-bottom: 1px solid var(--tan-light);
+    }
+
+    .catalog-prints-note a:hover { color: var(--ink); }
 
     /* ── SESSIONS / PRICING ── */
     .sessions {
@@ -832,52 +839,6 @@
 
     .portrait-slot:hover img { transform: scale(1.02); }
 
-    /* ── TRAVEL GALLERY ── */
-    .travel {
-      padding: 2rem 2rem 5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .travel-intro {
-      font-family: Georgia, serif;
-      font-size: 1rem;
-      font-style: italic;
-      color: var(--ink-soft);
-      margin-bottom: 2rem;
-      line-height: 1.7;
-      max-width: 560px;
-    }
-
-    .travel-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .travel-slot {
-      background: var(--cream-dark);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .travel-slot::before {
-      content: '';
-      display: block;
-      padding-top: 66%;
-    }
-
-    .travel-slot img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-
-    .travel-slot:hover img { transform: scale(1.02); }
 
     /* ── WRITING / JOURNAL ── */
     .writing {
@@ -997,6 +958,7 @@
       .about-photo { position: static; max-width: 320px; }
       .writing-card { grid-template-columns: 1fr; }
       .writing-card-image::before { padding-top: 60%; }
+      .catalog-grid { columns: 2; }
     }
 
     @media (max-width: 640px) {
@@ -1015,8 +977,8 @@
       .about { padding: 4rem 1.2rem; }
       .portrait-work { padding: 1.5rem 1.2rem 4rem; }
       .portrait-grid { grid-template-columns: 1fr; }
-      .travel { padding: 1.5rem 1.2rem 4rem; }
-      .travel-grid { grid-template-columns: 1fr; }
+      .catalog { padding: 1.5rem 1.2rem 4rem; }
+      .catalog-grid { columns: 1; }
       .faq { padding: 4rem 1.2rem; }
       .contact { padding: 4rem 1.2rem; }
       .writing { padding: 4rem 1.2rem; }
@@ -1031,7 +993,7 @@
     <a href="#top" class="nav-wordmark">Tom Lotozo</a>
     <ul class="nav-links">
       <li><a href="#portraits">Portraits</a></li>
-      <li><a href="#portfolio">Work</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#sessions">Sessions</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#writing">Writing</a></li>
@@ -1063,69 +1025,216 @@
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
-  <section class="portfolio" id="portfolio">
-    <p class="section-label fade-up">The Work · 35mm Film</p>
-    <div class="photo-grid">
+  <!-- CATALOG GALLERY -->
+  <section class="catalog" id="gallery">
+    <p class="section-label fade-up">The Catalog · 35mm Film</p>
+    <p class="catalog-intro fade-up">Landscape, travel, and still life — shot on film across five years. Prints available from all originals on paper, canvas, or metal.</p>
+    <div class="catalog-grid">
 
-      <!-- ROW 1: landscape hero — Paris Eiffel Tower at night -->
-      <div class="photo-slot wide">
-        <img src="../assets/tom-paris-eiffel-night.jpg" alt="The Eiffel Tower at night, its searchlight sweeping above the Seine — shot on Ilford HP5 35mm film" loading="lazy">
-        <div class="photo-caption">Paris · Ilford HP5</div>
-      </div>
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-paris-eiffel-night.jpg" alt="The Eiffel Tower at night, its searchlight sweeping above the Seine — Ilford HP5" loading="lazy">
+        <figcaption>Paris · Ilford HP5</figcaption>
+      </figure>
 
-      <!-- ROW 2: portrait trio -->
-      <div class="photo-slot">
-        <img src="../assets/tom-thinker-paris.jpg" alt="Rodin's The Thinker against a pale winter sky, Paris — shot on Ilford HP5 35mm film" loading="lazy">
-        <div class="photo-caption">Paris · Ilford HP5</div>
-      </div>
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-maine-blue-hour-lake.jpg" alt="Maine lake at blue hour — island silhouetted against pink and blue sky, mist on the water — Kodak Ektar 100" loading="lazy">
+        <figcaption>Maine · Kodak Ektar 100</figcaption>
+      </figure>
 
-      <div class="photo-slot">
-        <img src="../assets/tom-amalfi-coast.jpg" alt="Two hikers on a clifftop trail above the Amalfi Coast, turquoise sea far below — shot on 35mm film" loading="lazy">
-        <div class="photo-caption">Amalfi Coast · 35mm Film</div>
-      </div>
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-whistler-train-graffiti.jpg" alt="Abandoned train car covered in graffiti in old-growth forest, Whistler BC — Kodak Portra 800" loading="lazy">
+        <figcaption>Whistler · Portra 800</figcaption>
+      </figure>
 
-      <div class="photo-slot">
-        <img src="../assets/tom-toms-thumb-sign.jpg" alt="Trail sign reading 'To Tom's Thumb' in the Arizona desert hills — shot on 35mm black and white film" loading="lazy">
-        <div class="photo-caption">Arizona · B&W Film</div>
-      </div>
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-joffre-lake-panorama.jpg" alt="Emerald glacial lake, Joffre Lakes BC — snow-capped peaks and old-growth forest reflecting in still water — Kodak Portra 800" loading="lazy">
+        <figcaption>Joffre Lakes, Whistler · Portra 800</figcaption>
+      </figure>
 
-      <!-- ROW 3: landscape — glacial lake Whistler -->
-      <div class="photo-slot wide">
-        <img src="../assets/tom-whistler-lake.jpg" alt="Emerald glacial lake reflecting snow-capped mountains and old-growth forest, Whistler BC — shot on Kodak Portra 800" loading="lazy">
-        <div class="photo-caption">Whistler · Portra 800</div>
-      </div>
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-tuscany-hillside.jpg" alt="Tuscan hilltop church with rolling countryside and cypress trees — 35mm film, Italy 2022" loading="lazy">
+        <figcaption>Tuscany · 35mm Film</figcaption>
+      </figure>
 
-      <!-- ROW 4: landscape -->
-      <div class="photo-slot wide">
-        <img src="../assets/tom-maine-lake-twilight.jpg" alt="Calm Maine lake at twilight, swimming platform and canoe floating still on glassy water — shot on Cinestill 800T" loading="lazy">
-        <div class="photo-caption">Maine · Cinestill 800T</div>
-      </div>
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-arizona-saguaro-panorama.jpg" alt="Saguaro cactus silhouetted against a mountainous Arizona desert panorama — B&W 35mm film" loading="lazy">
+        <figcaption>Arizona · B&W 35mm</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-maine-camp-coffee.jpg" alt="Camp coffee percolator on a camp stove at lakeside, Maine — Kodak Ektar 100" loading="lazy">
+        <figcaption>Maine · Kodak Ektar 100</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-paris-rodin-interior.jpg" alt="Interior of the Musée Rodin, Paris — chandelier and stone archway, figures in gallery — Ilford HP5" loading="lazy">
+        <figcaption>Musée Rodin, Paris · Ilford HP5</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-whistler-raven-sculpture.jpg" alt="Indigenous raven sculpture silhouetted against dusk sky, Whistler Village — Fuji 400" loading="lazy">
+        <figcaption>Whistler · Fuji 400</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-italy-balcony-coffee.jpg" alt="Coffee and notebook on an Italian balcony at golden hour — Kodak film, Italy 2022" loading="lazy">
+        <figcaption>Italy · 35mm Film</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-whistler-lake.jpg" alt="Emerald glacial lake at Joffre Lakes, Whistler BC — Kodak Portra 800" loading="lazy">
+        <figcaption>Joffre Lakes · Portra 800</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-sunset-arch-silhouette.jpg" alt="Tree and stone arch silhouetted against a deep sunset at the waterfront — Kodak GC400" loading="lazy">
+        <figcaption>Lake Erie · Kodak GC400</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-florence-book-window.jpg" alt="Open book beside a café window in Florence, morning light — 35mm film" loading="lazy">
+        <figcaption>Florence · 35mm Film</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-joffre-lake-hikers.jpg" alt="Two hikers on the shoreline of Joffre Lakes, glacial water and mountains behind — Kodak Portra 800" loading="lazy">
+        <figcaption>Joffre Lakes · Portra 800</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-maine-lake-twilight.jpg" alt="Maine lake at twilight — swimming platform floating on still glassy water — Cinestill 800T" loading="lazy">
+        <figcaption>Maine · Cinestill 800T</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-thinker-paris.jpg" alt="Rodin's The Thinker against a pale winter sky, Musée Rodin Paris — Ilford HP5" loading="lazy">
+        <figcaption>Paris · Ilford HP5</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-whistler-tree-root.jpg" alt="Twisted fallen tree root in old-growth forest, Whistler BC — Kodak Portra 800" loading="lazy">
+        <figcaption>Whistler · Portra 800</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-paris-seine-night.jpg" alt="The Seine at night from Pont des Arts, Paris — Ilford HP5" loading="lazy">
+        <figcaption>Paris · Ilford HP5</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-maine-neptune-pool.jpg" alt="Neptune statue at a Maine hotel pool in summer sun — Kodak Gold 200" loading="lazy">
+        <figcaption>Kennebunkport, Maine · Kodak Gold 200</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-whistler-curved-tree.jpg" alt="A sharply curved and bent tree in BC old-growth forest — Kodak Portra 400" loading="lazy">
+        <figcaption>Whistler · Portra 400</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-arizona-holga-cactus.jpg" alt="Desert trail from above with saguaro cactus — shot on Holga, Kodak Ektar 100, Arizona" loading="lazy">
+        <figcaption>Arizona · Holga · Ektar 100</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-toledo-piano-painting.jpg" alt="Grand piano in front of an old master angel painting on a red wall, Toledo Art Museum — Kodak Portra 800" loading="lazy">
+        <figcaption>Toledo Art Museum · Portra 800</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-whistler-hiker-oldgrowth.jpg" alt="Hiker climbing rocky trail through old-growth forest, light streaming through canopy — Kodak Portra 800" loading="lazy">
+        <figcaption>Whistler · Portra 800</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-maine-lakeside-table.jpg" alt="Coffee mug, cigar, and sunglasses on a lakeside table at dusk, Maine — Fuji RDP3" loading="lazy">
+        <figcaption>Maine · Fuji RDP3</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-paris-wine-cellar.jpg" alt="Wine bottles in diagonal rows in a Paris cellar — Ilford HP5" loading="lazy">
+        <figcaption>Paris · Ilford HP5</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-whistler-oysters.jpg" alt="Hand reaching for an oyster on ice at a Whistler restaurant — Kodak Portra 800" loading="lazy">
+        <figcaption>Whistler · Portra 800</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-amalfi-coast.jpg" alt="Two hikers on a clifftop trail above the Amalfi Coast — 35mm film" loading="lazy">
+        <figcaption>Amalfi Coast · 35mm Film</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-whistler-mossy-trail.jpg" alt="Hiker on a mossy old-growth trail, ferns and nurse logs, Whistler — Kodak Portra 800" loading="lazy">
+        <figcaption>Whistler · Portra 800</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-maine-pool-blue-hour.jpg" alt="Maine hotel pool at blue hour — string lights reflecting on still water — Kodak Gold 200" loading="lazy">
+        <figcaption>Kennebunkport, Maine · Kodak Gold 200</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-paris-rodin-busts.jpg" alt="Row of marble busts in the Musée Rodin, Paris — Ilford HP5" loading="lazy">
+        <figcaption>Musée Rodin, Paris · Ilford HP5</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-toms-thumb-sign.jpg" alt="Trail sign reading To Tom's Thumb, Arizona desert — B&W 35mm film" loading="lazy">
+        <figcaption>Arizona · B&W 35mm</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-whistler-fern-road.jpg" alt="Fern-lined road through old-growth forest, light at the end — Kodak Portra 800" loading="lazy">
+        <figcaption>Whistler · Portra 800</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-arizona-strenuous-sign.jpg" alt="Strenuous Beyond This Point trail sign against a desert boulder — Holga, Ektar 100, Arizona" loading="lazy">
+        <figcaption>Arizona · Holga · Ektar 100</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-toledo-museum.jpg" alt="Woman studying old master paintings in the Toledo Art Museum — Kodak Portra 800" loading="lazy">
+        <figcaption>Toledo Art Museum · Portra 800</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-whistler-snow-path.jpg" alt="Snow-covered forest path with a lone figure in the distance, Whistler — Fuji 400" loading="lazy">
+        <figcaption>Whistler · Fuji 400</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-whistler-river.jpg" alt="Hiker on rocky shoreline above a rushing glacial river, Whistler — Kodak Portra 800" loading="lazy">
+        <figcaption>Whistler · Portra 800</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-maine-camera-dock.jpg" alt="Nikon FE camera and wine glass on a dock table, Maine lake behind — Holga, Ilford HP5 Plus" loading="lazy">
+        <figcaption>Maine · Holga · HP5 Plus</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-lily-of-the-valley.jpg" alt="Lily of the valley in morning light with film bokeh — B&W 35mm film" loading="lazy">
+        <figcaption>Columbus, Ohio · B&W 35mm</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-whistler-whiskey-espresso.jpg" alt="Whiskey on the rocks beside an espresso at a Whistler bar — Kodak Portra 400" loading="lazy">
+        <figcaption>Whistler · Portra 400</figcaption>
+      </figure>
+
+      <figure class="catalog-item fade-up">
+        <img src="../assets/tom-bend-waterfall.jpg" alt="Misty Pacific Northwest waterfall through a moss-covered canyon, Bend Oregon — Kodak Portra 400" loading="lazy">
+        <figcaption>Bend, OR · Portra 400</figcaption>
+      </figure>
 
     </div>
-  </section>
 
-  <!-- TRAVEL GALLERY -->
-  <section class="travel">
-    <p class="section-label fade-up">The Eye Behind the Lens</p>
-    <p class="travel-intro fade-up">Portrait sessions are just one part of the work. Tom shoots on film everywhere he goes — Maine, Whistler, Paris, the Pacific Northwest.</p>
-    <div class="travel-grid">
-      <div class="travel-slot">
-        <img src="../assets/tom-toledo-museum.jpg" alt="Woman studying old master paintings in the Toledo Art Museum — shot on Kodak Portra 800" loading="lazy">
-        <div class="photo-caption">Toledo Art Museum · Portra 800</div>
-      </div>
-      <div class="travel-slot">
-        <img src="../assets/tom-lily-of-the-valley.jpg" alt="Lily of the valley in soft morning light with dreamy film bokeh — shot on 35mm black and white film" loading="lazy">
-        <div class="photo-caption">Lily of the Valley · B&W Film</div>
-      </div>
-      <div class="travel-slot">
-        <img src="../assets/tom-whistler-river.jpg" alt="Hiker on rocky shoreline above a rushing glacial river, old-growth forest behind — shot on Portra 800" loading="lazy">
-        <div class="photo-caption">Whistler · Portra 800</div>
-      </div>
-      <div class="travel-slot">
-        <img src="../assets/tom-bend-waterfall.jpg" alt="Misty Pacific Northwest waterfall through a moss-covered canyon, Bend Oregon — shot on Kodak Portra 400" loading="lazy">
-        <div class="photo-caption">Bend, OR · Portra 400</div>
-      </div>
+    <div class="catalog-prints-note fade-up">
+      <p>Prints available from all images — paper, canvas, and metal — made to order from film originals. Email <a href="mailto:lotozot@gmail.com?subject=Print Inquiry">lotozot@gmail.com</a> to inquire about a specific photograph.</p>
     </div>
   </section>
 
