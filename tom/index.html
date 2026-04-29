@@ -879,6 +879,115 @@
 
     .travel-slot:hover img { transform: scale(1.02); }
 
+    /* ── WRITING / JOURNAL ── */
+    .writing {
+      background: var(--cream-dark);
+      padding: 6rem 2rem;
+    }
+
+    .writing-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .writing .section-label {
+      margin-bottom: 2.5rem;
+    }
+
+    .writing-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--cream);
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .writing-card:hover {
+      box-shadow: 0 8px 32px rgba(28,24,20,0.12);
+    }
+
+    .writing-card-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .writing-card-image::before {
+      content: '';
+      display: block;
+      padding-top: 72%;
+    }
+
+    .writing-card-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .writing-card:hover .writing-card-image img {
+      transform: scale(1.03);
+    }
+
+    .writing-card-body {
+      padding: 3.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .writing-card-eyebrow {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-bottom: 1rem;
+    }
+
+    .writing-card-title {
+      font-family: Georgia, serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: normal;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.01em;
+    }
+
+    .writing-card-excerpt {
+      font-family: Georgia, serif;
+      font-size: 0.97rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .writing-card-read {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      border-bottom: 1px solid var(--tan);
+      padding-bottom: 2px;
+      display: inline-block;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .writing-card:hover .writing-card-read {
+      color: var(--tan);
+      border-color: var(--tan-light);
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .sessions-grid { grid-template-columns: 1fr; }
@@ -886,6 +995,8 @@
       .locations-grid { grid-template-columns: repeat(2, 1fr); }
       .about { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-photo { position: static; max-width: 320px; }
+      .writing-card { grid-template-columns: 1fr; }
+      .writing-card-image::before { padding-top: 60%; }
     }
 
     @media (max-width: 640px) {
@@ -908,6 +1019,8 @@
       .travel-grid { grid-template-columns: 1fr; }
       .faq { padding: 4rem 1.2rem; }
       .contact { padding: 4rem 1.2rem; }
+      .writing { padding: 4rem 1.2rem; }
+      .writing-card-body { padding: 2.5rem 1.8rem; }
     }
   </style>
 </head>
@@ -921,6 +1034,7 @@
       <li><a href="#portfolio">Work</a></li>
       <li><a href="#sessions">Sessions</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#writing">Writing</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -1139,6 +1253,24 @@
       <p>If you want portraits that feel like something you actually want to frame — reach out.</p>
       <a href="https://www.instagram.com/tibetanplatoz/" target="_blank" rel="noopener" class="about-instagram">
         &#8599; @tibetanplatoz on Instagram
+      </a>
+    </div>
+  </section>
+
+  <!-- WRITING -->
+  <section class="writing" id="writing">
+    <div class="writing-inner">
+      <p class="section-label fade-up">Writing · From the Field</p>
+      <a href="film-and-why-it-matters.html" class="writing-card fade-up">
+        <div class="writing-card-image">
+          <img src="../assets/tom-paris-eiffel-night.jpg" alt="The Eiffel Tower at night with searchlight sweeping over Paris — Ilford HP5, 35mm film" loading="lazy">
+        </div>
+        <div class="writing-card-body">
+          <div class="writing-card-eyebrow">First Post &nbsp;·&nbsp; April 2026</div>
+          <div class="writing-card-title">Film and Why It Matters</div>
+          <p class="writing-card-excerpt">I've been shooting on film for five years. Part of it is practical — film forces you to slow down. But the bigger thing is what film actually looks like. The grain. The way Portra 400 renders color. The way Ilford HP5 handles shadows.</p>
+          <span class="writing-card-read">Read &rarr;</span>
+        </div>
       </a>
     </div>
   </section>
