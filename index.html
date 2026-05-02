@@ -6,7 +6,7 @@
 
   <!-- Primary SEO -->
   <title>Joseph A. Lotozo, CFP® | Upper Arlington, Ohio</title>
-  <meta name="description" content="Joseph A. Lotozo is a CFP® professional and Financial Advisor and Partner at Edward Jones, a lifelong Upper Arlington, Ohio resident, community leader, and published author. Proud Ohio State Buckeye." />
+  <meta name="description" content="Personal website of Joseph A. Lotozo — CFP® professional, Financial Advisor and Partner at Edward Jones, lifelong Upper Arlington, Ohio resident, Ohio State Buckeye, community volunteer, writer, and AI hobbyist." />
   <meta name="author" content="Joseph A. Lotozo" />
   <link rel="canonical" href="https://www.josephalotozo.com/" />
   <meta name="google-site-verification" content="c8Ko1zUGzHiPIggknspaCiO1aEAQMv7bQGWK5QovuDw" />
@@ -15,7 +15,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="profile" />
   <meta property="og:title" content="Joseph A. Lotozo | Upper Arlington, Ohio" />
-  <meta property="og:description" content="Joseph A. Lotozo — CFP® professional, Financial Advisor and Partner at Edward Jones, Upper Arlington native, community leader, and published author." />
+  <meta property="og:description" content="Personal website of Joseph A. Lotozo — CFP® professional, Financial Advisor and Partner at Edward Jones, Upper Arlington native, Ohio State Buckeye, writer, and AI hobbyist." />
   <meta property="og:url" content="https://www.josephalotozo.com/" />
   <meta property="og:image" content="https://www.josephalotozo.com/assets/headshot.jpg" />
   <meta property="profile:first_name" content="Joseph" />
@@ -24,7 +24,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Joseph A. Lotozo | Upper Arlington, Ohio" />
-  <meta name="twitter:description" content="Upper Arlington native, CFP® professional, Financial Advisor and Partner at Edward Jones, community leader, and published author." />
+  <meta name="twitter:description" content="Personal website of Joseph A. Lotozo — Upper Arlington native, CFP® professional, Edward Jones Financial Advisor, writer, community volunteer, and AI hobbyist." />
   <meta name="twitter:image" content="https://www.josephalotozo.com/assets/headshot.jpg" />
 
   <!-- Schema.org Person -->
@@ -35,7 +35,7 @@
     "name": "Joseph A. Lotozo",
     "alternateName": ["Joe Lotozo", "Joseph Lotozo"],
     "jobTitle": "Financial Advisor and Partner",
-    "description": "Joseph A. Lotozo is a CFP® professional and Financial Advisor and Partner at Edward Jones in Upper Arlington, Ohio. A lifelong Upper Arlington resident, Ohio State University alumnus, active community leader, and published author.",
+    "description": "Joseph A. Lotozo is a CFP® professional and Financial Advisor and Partner at Edward Jones in Upper Arlington, Ohio. This personal website also covers his community involvement, AI projects, writing, family interests, and life in Upper Arlington.",
     "url": "https://www.josephalotozo.com",
     "image": "https://www.josephalotozo.com/assets/headshot.jpg",
     "telephone": "(614) 874-2372",
@@ -272,6 +272,15 @@
       margin-top: 0.5rem;
     }
 
+    .hero-personal {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.84rem;
+      color: var(--ej-gray-text);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-top: 0.85rem;
+    }
+
     /* ===== YELLOW DIVIDER BAR ===== */
     .yellow-bar {
       height: 6px;
@@ -294,6 +303,40 @@
     .section-inner {
       max-width: 860px;
       margin: 0 auto;
+    }
+
+    .start-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+    .start-card {
+      background: var(--ej-white);
+      border: 1px solid var(--ej-border);
+      border-top: 4px solid var(--ej-yellow);
+      border-radius: 4px;
+      padding: 1rem;
+      text-decoration: none;
+      color: var(--ej-black);
+      min-height: 118px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .start-card:hover {
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .start-card strong {
+      display: block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+    }
+    .start-card span {
+      display: block;
+      color: var(--ej-gray-text);
+      font-size: 0.78rem;
+      line-height: 1.45;
     }
 
     h2 {
@@ -647,6 +690,7 @@
       .hero { flex-direction: column; text-align: center; padding: 3rem 1.5rem; gap: 2rem; }
       .hero-photo { width: 160px; height: 160px; }
       .hero-text h1 { font-size: 1.8rem; }
+      .start-grid { grid-template-columns: 1fr; }
       nav { padding: 0 1rem; }
       .nav-sub { display: none; }
       .disclaimer-banner { padding: 0.6rem 1rem; }
@@ -680,30 +724,58 @@
       <div class="hero-text">
         <h1>Joseph A. Lotozo</h1>
         <p class="hero-credentials">CFP® &nbsp;|&nbsp; ChFC® &nbsp;|&nbsp; AAMS® &nbsp;|&nbsp; CRPC® &nbsp;|&nbsp; CRPS®</p>
-        <p class="hero-tagline">Upper Arlington native. Community leader. Husband and father.</p>
+        <p class="hero-tagline">Upper Arlington native. Ohio State Buckeye. Husband, father, community volunteer, writer, and AI hobbyist.</p>
         <p class="hero-employer">Financial Advisor and Partner at Edward Jones &nbsp;·&nbsp; Upper Arlington, Ohio</p>
+        <p class="hero-personal">This is my personal website: a place for writing, community notes, family interests, books, and experiments with AI-assisted building.</p>
       </div>
     </div>
   </section>
 
   <div class="yellow-bar"></div>
 
+  <!-- START HERE -->
+  <section class="section-gray">
+    <div class="section-inner">
+      <h2>Start Here</h2>
+      <div class="section-rule"></div>
+      <p>This site is intentionally personal. It includes factual professional background, but most of what I write about here is community, technology, family, books, and projects I'm building to understand where AI is headed.</p>
+      <div class="start-grid">
+        <a class="start-card" href="blog/">
+          <strong>Read the Blog</strong>
+          <span>AI, community, family trips, and projects built with Claude Code.</span>
+        </a>
+        <a class="start-card" href="#ai-experiments">
+          <strong>AI Projects</strong>
+          <span>Personal experiments with apps, websites, and what non-developers can build now.</span>
+        </a>
+        <a class="start-card" href="#connect">
+          <strong>Professional Info</strong>
+          <span>Find factual public information about my credentials and Edward Jones role.</span>
+        </a>
+        <a class="start-card" href="#about">
+          <strong>About Joe</strong>
+          <span>Upper Arlington, Ohio State, family, community, reading, rugby, bees, and more.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT -->
-  <section class="section-white">
+  <section class="section-white" id="about">
     <div class="section-inner">
       <h2>About Joe</h2>
       <div class="section-rule"></div>
       <p>
-        I'm Joe Lotozo, a CFP® professional, lifelong resident of Upper Arlington, Ohio, a proud Ohio State Buckeye, and a Financial Advisor and Partner at Edward Jones. I grew up here, went to Upper Arlington High School, and I've chosen to build my career and raise my family in the same community I've always called home.
+        I'm Joe Lotozo, a CFP® professional, lifelong resident of Upper Arlington, Ohio, a proud Ohio State Buckeye, and a Financial Advisor and Partner at Edward Jones. I grew up here, went to Upper Arlington High School, and have chosen to build my career and raise my family in the same community I've always called home.
       </p>
       <p>
-        Before joining Edward Jones in December 2012, I worked in an environment that served ultra-high-net-worth clients. That experience shaped a simple belief that drives everything I do: every person deserves that same quality of attention, guidance, and care, regardless of where they are in life.
+        My professional life is one part of who I am, but this site is broader than that. It is where I collect writing about artificial intelligence, community projects, books, family life, and the tools I'm experimenting with as technology changes.
       </p>
       <p>
-        I earned my Bachelor of Arts from The Ohio State University and my Master of Science in Personal Financial Planning from the College for Financial Planning. I am currently pursuing my MBA at The Ohio State University Fisher College of Business through their Working Professionals program. Over the years I've added five professional designations, not because I had to, but because the people I serve deserve someone who never stops learning.
+        I earned my Bachelor of Arts from The Ohio State University and my Master of Science in Personal Financial Planning from the College for Financial Planning. I am currently pursuing my MBA at The Ohio State University Fisher College of Business through their Working Professionals program. Over the years I've added five professional designations because I believe learning should stay active, not stop once a career is underway.
       </p>
       <p>
-        Outside the office, I'm a husband and a dad to our three daughters. You'll find me keeping bees, tending the garden, staying active with rugby, or exploring somewhere new with my family. My mother, <a href="https://www.loreleimlanierlaw.com" target="_blank" rel="noopener" style="color:#1A1A1A; font-weight:700;">Lorelei M. Lanier</a>, is an estate planning attorney in Columbus with over 44 years of experience — so you could say helping families plan for the future runs in the family. I believe that knowing your advisor as a person matters, and I'd love the chance to get to know you too.
+        Outside the office, I'm a husband and a dad to our three daughters. You'll find me keeping bees, tending the garden, staying active with rugby, experimenting with AI tools, or exploring somewhere new with my family. My mother, <a href="https://www.loreleimlanierlaw.com" target="_blank" rel="noopener" style="color:#1A1A1A; font-weight:700;">Lorelei M. Lanier</a>, is an estate planning attorney in Columbus with over 44 years of experience.
       </p>
       <div class="photo-card" style="max-width:420px; margin:2rem auto 0;">
         <img src="assets/joe-personality.jpg" alt="Joe Lotozo — confident, approachable, and ready to meet you" style="width:100%; height:auto; display:block;" loading="lazy" />
@@ -714,9 +786,9 @@
   <!-- CREDENTIALS -->
   <section class="section-gray">
     <div class="section-inner">
-      <h2>Professional Credentials</h2>
+      <h2>Professional Background &amp; Credentials</h2>
       <div class="section-rule"></div>
-      <p>These designations represent years of rigorous advanced study, ongoing education, and a commitment to professional excellence.</p>
+      <p>These are factual professional credentials and education milestones. They are included here because they are part of my public background and because I worked hard to earn them.</p>
       <div class="cred-grid">
         <div class="cred-card">
           <div class="cred-abbr">CFP®</div>
@@ -988,9 +1060,9 @@
   <!-- AI EXPERIMENTS -->
   <section class="section-gray" id="ai-experiments">
     <div class="section-inner">
-      <h2>AI Experiments</h2>
+      <h2>Projects I'm Building With AI</h2>
       <div class="section-rule"></div>
-      <p>Outside of work, Joe uses AI tools to build things — not as a gimmick, but as a way to understand what the technology can actually do. These are personal side projects with no connection to his professional practice.</p>
+      <p>Outside of work, Joe uses AI tools to build things — not as a gimmick, but as a way to understand what the technology can actually do. These are personal side projects and learning experiments with no connection to his professional practice.</p>
 
       <div style="display:flex; gap:2rem; align-items:flex-start; margin-top:1.5rem; flex-wrap:wrap;">
         <a href="https://mlb-predictor-production.up.railway.app" target="_blank" rel="noopener" style="flex-shrink:0; text-decoration:none;">
@@ -1007,7 +1079,7 @@
             Personal project &nbsp;·&nbsp; Built with Claude Code &nbsp;·&nbsp; 2026
           </p>
           <p>
-            A daily MLB prop bet picker built as an experiment to see how far AI-assisted coding could take a non-developer through a full-stack project. It pulls live player stats from the official MLB API, analyzes pitcher and batter tendencies across multiple statistical models, and surfaces the day's highest-confidence prop bets — complete with real-time sportsbook odds from multiple books.
+            A sports data experiment built to see how far AI-assisted coding could take a non-developer through a full-stack project. It pulls live player stats from the official MLB API, analyzes pitcher and batter tendencies across multiple statistical models, and turns the output into a working app.
           </p>
           <p style="font-size:0.85rem; color:#888; font-style:italic; margin-top:0.5rem;">
             This is a personal hobby project and AI experiment. It has no affiliation with Joe's professional practice, Edward Jones, or any financial advisory services.
@@ -1075,7 +1147,7 @@
     <div class="section-inner">
       <h2>Find Me Online</h2>
       <div class="section-rule"></div>
-      <p>Connect with Joe personally or search for more information about his professional work below.</p>
+      <p>Connect with Joe personally or use the search links below to find official, public professional information.</p>
 
       <p class="connect-section-label">Personal &amp; Social</p>
       <div class="connect-grid">
@@ -1113,7 +1185,7 @@
       </div>
 
       <p class="connect-section-label" style="margin-top:2.5rem;">Find My Professional Info</p>
-      <p style="font-size:0.88rem; color:var(--ej-gray-text); margin-bottom:1rem; font-family:Arial,sans-serif;">Search Google to find Joe's professional profile, credentials, and work history.</p>
+      <p style="font-size:0.88rem; color:var(--ej-gray-text); margin-bottom:1rem; font-family:Arial,sans-serif;">These links are intentionally search-based so you can find current public information from official sources and search results.</p>
       <div class="connect-grid">
 
         <a class="connect-card" href="https://www.google.com/search?q=who+is+Joseph+Lotozo" target="_blank" rel="noopener">
