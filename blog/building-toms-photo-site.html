@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Brother Has Been Shooting Film for Years. I Finally Built Him a Website. | Joseph A. Lotozo</title>
+  <meta name="description" content="My brother Tom has been shooting 35mm film photography for years — landscapes, travel, portraits. He had an Instagram and a stack of negatives. What he didn't have was a website. So I built him one." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="canonical" href="https://www.josephalotozo.com/blog/building-toms-photo-site.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="My Brother Has Been Shooting Film for Years. I Finally Built Him a Website." />
+  <meta property="og:description" content="My brother Tom shoots 35mm film — landscapes, travel, portraits. He had an Instagram and a stack of negatives. What he didn't have was a website. So I built him one." />
+  <meta property="og:url" content="https://www.josephalotozo.com/blog/building-toms-photo-site.html" />
+  <meta property="og:image" content="https://www.josephalotozo.com/assets/tom-paris-eiffel-night.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.josephalotozo.com/assets/tom-paris-eiffel-night.jpg" />
+
+  <style>
+    :root {
+      --ej-yellow:      #FAD141;
+      --ej-yellow-dark: #e0b800;
+      --ej-black:       #1A1A1A;
+      --ej-white:       #FFFFFF;
+      --ej-gray-light:  #F7F7F7;
+      --ej-gray-mid:    #E8E8E8;
+      --ej-gray-text:   #555555;
+      --ej-gray-dark:   #333333;
+      --ej-border:      #DEDEDE;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: var(--ej-black);
+      background: var(--ej-white);
+      line-height: 1.75;
+    }
+
+    a { color: inherit; }
+
+    nav {
+      background: var(--ej-white);
+      border-bottom: 3px solid var(--ej-yellow);
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    }
+
+    .nav-left { display: flex; flex-direction: column; }
+    .nav-name {
+      font-family: 'Arial', sans-serif;
+      font-weight: 700; font-size: 1rem;
+      color: var(--ej-black); letter-spacing: 0.01em;
+    }
+    .nav-sub {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.72rem; color: var(--ej-gray-text); letter-spacing: 0.04em;
+    }
+    .nav-anchor {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--ej-gray-dark); text-decoration: none;
+      border-bottom: 2px solid transparent; padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .nav-anchor:hover { border-color: var(--ej-yellow); }
+
+    .article {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 5rem;
+    }
+
+    h1 {
+      font-size: 2rem; color: var(--ej-black);
+      margin-bottom: 0.4rem; line-height: 1.3;
+    }
+
+    .post-meta {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem; color: var(--ej-gray-text); margin-bottom: 2rem;
+    }
+
+    .section-rule {
+      width: 52px; height: 4px;
+      background: var(--ej-yellow);
+      margin-bottom: 2rem; border-radius: 2px;
+    }
+
+    .article p {
+      color: var(--ej-gray-dark);
+      margin-bottom: 1.25rem; font-size: 1.05rem;
+    }
+
+    .article h2 {
+      font-size: 1.35rem; color: var(--ej-black);
+      margin: 2.5rem 0 0.75rem;
+    }
+
+    .article a {
+      color: var(--ej-black); font-weight: 700; text-decoration: underline;
+    }
+
+    .article blockquote {
+      border-left: 4px solid var(--ej-yellow);
+      margin: 1.5rem 0; padding: 1rem 1.25rem;
+      background: var(--ej-gray-light);
+      border-radius: 0 4px 4px 0;
+      font-style: italic; color: var(--ej-gray-dark);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--ej-yellow); color: var(--ej-black);
+      font-family: 'Arial', sans-serif; font-weight: 700;
+      font-size: 0.88rem; padding: 0.6rem 1.4rem;
+      border-radius: 3px; text-decoration: none;
+      margin-top: 0.5rem; transition: background 0.2s;
+    }
+    .cta-button:hover { background: var(--ej-yellow-dark); }
+
+    .article .photo-card {
+      border-radius: 6px; overflow: hidden;
+      border: 1px solid var(--ej-border); margin: 2rem 0;
+    }
+    .article .photo-card img {
+      width: 100%; height: auto; display: block;
+    }
+    .article .photo-caption {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem; color: var(--ej-gray-text);
+      padding: 0.6rem 0.85rem;
+      background: var(--ej-gray-light);
+      border-top: 1px solid var(--ej-border);
+    }
+
+    .photo-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .photo-pair .photo-card { margin: 0; }
+
+    .back-link {
+      display: inline-block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem; font-weight: 600;
+      color: var(--ej-gray-dark); text-decoration: none;
+      margin-top: 3rem;
+      border-bottom: 2px solid var(--ej-yellow); padding-bottom: 2px;
+    }
+
+    footer {
+      background: var(--ej-gray-dark); color: #aaa;
+      text-align: center; padding: 2.5rem 2rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem; line-height: 2;
+    }
+    footer a { color: var(--ej-yellow); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1rem; }
+      .nav-sub { display: none; }
+      .article { padding: 3rem 1.5rem 4rem; }
+      h1 { font-size: 1.6rem; }
+      .photo-pair { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../" style="text-decoration:none;">
+      <div class="nav-left">
+        <span class="nav-name">Joseph A. Lotozo, CFP®</span>
+        <span class="nav-sub">UPPER ARLINGTON, OHIO</span>
+      </div>
+    </a>
+    <div style="display:flex; gap:1.5rem; align-items:center;">
+      <a class="nav-anchor" href="../">Home</a>
+      <a class="nav-anchor" href="./">Blog</a>
+    </div>
+  </nav>
+
+  <div class="article">
+
+    <h1>My Brother Has Been Shooting Film for Years. I Finally Built Him a Website.</h1>
+    <div class="post-meta">May 5, 2026 &nbsp;·&nbsp; Joseph A. Lotozo &nbsp;·&nbsp; 5 min read</div>
+    <div class="section-rule"></div>
+
+    <p>
+      My brother Tom has been shooting film photography for as long as I can remember. Not digital — actual 35mm film, through an actual camera, developed at an actual lab. He's dragged that Nikon FE through Paris, the Amalfi Coast, Tuscany, Whistler, Maine, Arizona, and all over central Ohio. He shoots landscapes, travel, portraits, street scenes, flowers, and the occasional whiskey-and-cigar still life that somehow looks like it belongs in a gallery.
+    </p>
+
+    <p>
+      His Instagram handle is <a href="https://www.instagram.com/tibetanplatoz/" target="_blank" rel="noopener">@tibetanplatoz</a>. His photos have hundreds of likes. People ask him regularly if he does portrait sessions, what film he uses, how to book him.
+    </p>
+
+    <p>
+      What he didn't have was a website.
+    </p>
+
+    <div class="photo-card">
+      <img src="../assets/tom-paris-eiffel-night.jpg" alt="Eiffel Tower at night shot on 35mm film by Tom Lotozo" loading="lazy" />
+      <div class="photo-caption">Eiffel Tower at night &nbsp;·&nbsp; Paris, France &nbsp;·&nbsp; 35mm film &nbsp;·&nbsp; Tom Lotozo</div>
+    </div>
+
+    <h2>The Ask</h2>
+
+    <p>
+      Tom is a photographer, not a web developer. He'd been meaning to set something up for years — somewhere he could direct people when they asked about portrait sessions, somewhere that showed his work in a way Instagram doesn't quite allow. But it never happened, because building a website from scratch is a project, and projects take time, and Tom stays busy.
+    </p>
+
+    <p>
+      At some point he mentioned it to me. I'd already built a few sites using <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> — my own personal site, a site for my mom's law firm, a student council page for my MBA program. I knew what it could do. So I told him I'd handle it.
+    </p>
+
+    <p>
+      The whole thing took one evening.
+    </p>
+
+    <h2>The Design Problem</h2>
+
+    <p>
+      The interesting challenge with a film photographer's website isn't the layout — it's the feeling. Film photography has a specific aesthetic. It's warm and slightly imperfect. It breathes. It doesn't look like an app. If you build a film photographer's website and it feels sleek and modern and polished, you've missed the point entirely.
+    </p>
+
+    <p>
+      So the first thing I told Claude was: this needs to feel like film. Not like a tech product. Not like a portfolio on a template. Like the inside of a darkroom that someone has made very comfortable.
+    </p>
+
+    <blockquote>
+      "Cream background, not white. Warm tones throughout. Georgia serif font for the body text. And I want a subtle film grain overlay on the whole page — just a hint of texture, like you're looking at something analog."
+    </blockquote>
+
+    <p>
+      Claude built it exactly that way. The background is a warm cream. The grain is a CSS SVG filter sitting a few percent opaque over the entire page — you don't consciously notice it, but without it the site would feel wrong. The nav is minimal. The photos do the talking.
+    </p>
+
+    <div class="photo-pair">
+      <div class="photo-card">
+        <img src="../assets/tom-maine-camera-dock.jpg" alt="35mm film camera on a dock in Maine, shot by Tom Lotozo" loading="lazy" />
+        <div class="photo-caption">Maine &nbsp;·&nbsp; 35mm film</div>
+      </div>
+      <div class="photo-card">
+        <img src="../assets/tom-tuscany-hillside.jpg" alt="Tuscany hillside shot on 35mm film by Tom Lotozo" loading="lazy" />
+        <div class="photo-caption">Tuscany, Italy &nbsp;·&nbsp; 35mm film</div>
+      </div>
+    </div>
+
+    <h2>What the Site Actually Covers</h2>
+
+    <p>
+      Tom does portrait sessions — one hour outdoors, two rolls of 35mm film, developed at <a href="https://www.midwestphoto.com/" target="_blank" rel="noopener">Midwest Photo</a> in Columbus, scanned images delivered in about two weeks. He shoots at golden hour, the last hour or so before sunset, because that's when natural light looks the way film was made to capture it. Hayden Falls, Griggs Reservoir, Schiller Park, Hocking Hills if you want to make a day of it.
+    </p>
+
+    <p>
+      He also sells fine art prints made directly from his negatives. And he writes — there's an essay on the site called <a href="../tom/film-and-why-it-matters.html" target="_blank" rel="noopener">"Film and Why It Matters"</a> that explains, in his own words, why he still shoots on a medium that requires patience, uncertainty, and occasionally winding back a roll you accidentally opened in daylight.
+    </p>
+
+    <p>
+      If I'm being honest, that essay is one of my favorite things he's written. He talks about how shooting film slows you down in a way that forces you to actually look at what you're pointing the camera at. With digital, you take 200 shots and figure out which one worked later. With film, you have 36 frames and they cost money. You think before you shoot. The photos are better because of the constraint.
+    </p>
+
+    <div class="photo-card">
+      <img src="../assets/tom-whistler-hiker-oldgrowth.jpg" alt="Hiker in old growth forest in Whistler, BC, shot on 35mm film by Tom Lotozo" loading="lazy" />
+      <div class="photo-caption">Old growth forest, Whistler, BC &nbsp;·&nbsp; 35mm film &nbsp;·&nbsp; Tom Lotozo</div>
+    </div>
+
+    <h2>The Pattern I Keep Noticing</h2>
+
+    <p>
+      This is the third website I've built for someone in my family. My mom's estate planning law practice. My brother's photography. My own personal site. Each one took one evening. Each one would have taken months — or just never happened — if I'd had to learn to code or hire someone.
+    </p>
+
+    <p>
+      What I keep noticing is that the bottleneck was never the technical part. Tom had the photos. My mom had 44 years of client work. I had a Chamber speech and a year of events. The content existed. The work existed. What was missing was just a way to put it somewhere that looked right and worked correctly and showed up when someone searched for it.
+    </p>
+
+    <p>
+      That gap used to require a developer and a budget and weeks of back-and-forth. Now it requires one evening and the ability to describe what you want in plain English. I genuinely don't know what to make of that, except that I'm glad it's available, and that my brother finally has somewhere to send people when they ask him about his photos.
+    </p>
+
+    <div class="photo-pair">
+      <div class="photo-card">
+        <img src="../assets/tom-arizona-saguaro-panorama.jpg" alt="Saguaro cactus panorama shot on 35mm film by Tom Lotozo in Arizona" loading="lazy" />
+        <div class="photo-caption">Sonoran Desert, Arizona &nbsp;·&nbsp; 35mm film</div>
+      </div>
+      <div class="photo-card">
+        <img src="../assets/tom-maine-blue-hour-lake.jpg" alt="Blue hour lake in Maine shot on 35mm film by Tom Lotozo" loading="lazy" />
+        <div class="photo-caption">Blue hour, Maine &nbsp;·&nbsp; 35mm film</div>
+      </div>
+    </div>
+
+    <p>
+      <a class="cta-button" href="../tom/" target="_blank" rel="noopener">See Tom's Photography Website &rarr;</a>
+    </p>
+
+    <p style="margin-top:2rem;">
+      Tom is based in Columbus, Ohio and available for portrait sessions throughout central Ohio. You can also find him on Instagram at <a href="https://www.instagram.com/tibetanplatoz/" target="_blank" rel="noopener">@tibetanplatoz</a>, or reach him directly at <a href="mailto:lotozot@gmail.com">lotozot@gmail.com</a>.
+    </p>
+
+    <a class="back-link" href="./">← Back to Blog</a>
+
+  </div>
+
+  <footer>
+    <p><a href="../">josephalotozo.com</a> &nbsp;·&nbsp; &copy; 2026 Joseph A. Lotozo</p>
+    <p style="font-size:0.72rem; color:#777; margin-top:0.5rem;">The postings on this site are my own and do not necessarily reflect the views of Edward Jones.</p>
+  </footer>
+
+</body>
+</html>
