@@ -191,6 +191,28 @@
     footer a { color: var(--ej-yellow); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
+    .photo-card {
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--ej-border);
+      margin: 2rem 0;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .photo-caption {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      color: var(--ej-gray-text);
+      padding: 0.6rem 0.85rem;
+      background: var(--ej-gray-light);
+      border-top: 1px solid var(--ej-border);
+    }
+
     @media (max-width: 680px) {
       nav { padding: 0 1rem; }
       .nav-sub { display: none; }
@@ -226,6 +248,11 @@
     <p>
       Pat is a doula.
     </p>
+
+    <div class="photo-card">
+      <img src="../assets/pat-dodge-headshot.jpg" alt="Pat Dodge — doula and end-of-life midwife in central Ohio" loading="lazy" />
+      <div class="photo-caption">Pat Dodge &nbsp;·&nbsp; End-of-life midwife, central Ohio</div>
+    </div>
 
     <p>
       She was our doula for all three of our daughters. For Margot and Eliza, she was right there — in the room, present for the whole thing, exactly the kind of calm, grounding presence you want when things get real. For our third daughter Lorelei, Pat couldn't be in the hospital. It was COVID. The hospitals had shut down visitors, and that was that. Pat did everything she could remotely, but she wasn't able to be in the room.
@@ -281,6 +308,11 @@
     <p>
       Pat's headshot shows up with the right orientation. The birth photo is quiet and real. The whole thing took about three hours.
     </p>
+
+    <div class="photo-card">
+      <img src="../assets/pat-dodge-birth.jpg" alt="Pat Dodge at work as a birth doula" loading="lazy" />
+      <div class="photo-caption">Pat in her element &nbsp;·&nbsp; The work she's done for decades</div>
+    </div>
 
     <p>
       The site is live at <a href="https://ohioendoflifemidwife.com" target="_blank" rel="noopener">ohioendoflifemidwife.com</a>.
