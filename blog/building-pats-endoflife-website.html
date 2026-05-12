@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>She Was There When My Daughters Were Born. I Built Her Website. | Joseph A. Lotozo</title>
+  <meta name="description" content="Pat Dodge was our doula for three births. Now she's an end-of-life midwife — and I used Claude Code to build her a website in about three hours." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="canonical" href="https://www.josephalotozo.com/blog/building-pats-endoflife-website.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="She Was There When My Daughters Were Born. I Built Her Website." />
+  <meta property="og:description" content="Pat Dodge was our doula for three births. Now she's an end-of-life midwife — and I used Claude Code to build her a website in about three hours." />
+  <meta property="og:url" content="https://www.josephalotozo.com/blog/building-pats-endoflife-website.html" />
+
+  <style>
+    :root {
+      --ej-yellow:      #FAD141;
+      --ej-yellow-dark: #e0b800;
+      --ej-black:       #1A1A1A;
+      --ej-white:       #FFFFFF;
+      --ej-gray-light:  #F7F7F7;
+      --ej-gray-mid:    #E8E8E8;
+      --ej-gray-text:   #555555;
+      --ej-gray-dark:   #333333;
+      --ej-border:      #DEDEDE;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: var(--ej-black);
+      background: var(--ej-white);
+      line-height: 1.75;
+    }
+
+    a { color: inherit; }
+
+    nav {
+      background: var(--ej-white);
+      border-bottom: 3px solid var(--ej-yellow);
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    }
+
+    .nav-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-name {
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--ej-black);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-sub {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.72rem;
+      color: var(--ej-gray-text);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-anchor {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ej-gray-dark);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .nav-anchor:hover { border-color: var(--ej-yellow); }
+
+    .article {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--ej-black);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .post-meta {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: var(--ej-gray-text);
+      margin-bottom: 2rem;
+    }
+
+    .section-rule {
+      width: 52px;
+      height: 4px;
+      background: var(--ej-yellow);
+      margin-bottom: 2rem;
+      border-radius: 2px;
+    }
+
+    .article p {
+      color: var(--ej-gray-dark);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    .article h2 {
+      font-size: 1.35rem;
+      color: var(--ej-black);
+      margin: 2.5rem 0 0.75rem;
+    }
+
+    .article a {
+      color: var(--ej-black);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .article blockquote {
+      border-left: 4px solid var(--ej-yellow);
+      margin: 1.5rem 0;
+      padding: 1rem 1.25rem;
+      background: var(--ej-gray-light);
+      border-radius: 0 4px 4px 0;
+      font-style: italic;
+      color: var(--ej-gray-dark);
+    }
+
+    .article ul {
+      margin: 1rem 0 1.5rem 1.5rem;
+      color: var(--ej-gray-dark);
+      font-size: 1.05rem;
+    }
+
+    .article li {
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--ej-yellow);
+      color: var(--ej-black);
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 3px;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      transition: background 0.2s;
+    }
+    .cta-button:hover { background: var(--ej-yellow-dark); }
+
+    .back-link {
+      display: inline-block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ej-gray-dark);
+      text-decoration: none;
+      margin-top: 3rem;
+      border-bottom: 2px solid var(--ej-yellow);
+      padding-bottom: 2px;
+    }
+
+    footer {
+      background: var(--ej-gray-dark);
+      color: #aaa;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      line-height: 2;
+    }
+
+    footer a { color: var(--ej-yellow); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1rem; }
+      .nav-sub { display: none; }
+      .article { padding: 3rem 1.5rem 4rem; }
+      h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../" style="text-decoration:none;">
+      <div class="nav-left">
+        <span class="nav-name">Joseph A. Lotozo, CFP®</span>
+        <span class="nav-sub">UPPER ARLINGTON, OHIO</span>
+      </div>
+    </a>
+    <div style="display:flex; gap:1.5rem; align-items:center;">
+      <a class="nav-anchor" href="../">Home</a>
+      <a class="nav-anchor" href="./">Blog</a>
+    </div>
+  </nav>
+
+  <div class="article">
+    <h1>She Was There When My Daughters Were Born. I Built Her Website.</h1>
+    <div class="post-meta">May 12, 2026 &nbsp;·&nbsp; Joseph A. Lotozo</div>
+    <div class="section-rule"></div>
+
+    <p>
+      My dad's best friend is a guy named Steve. Steve has been in my life as long as I can remember — the kind of person who shows up for everything, the kind of friend my dad built his life around. Steve's partner is Pat Dodge.
+    </p>
+
+    <p>
+      Pat is a doula.
+    </p>
+
+    <p>
+      She was our doula for all three of our daughters. For Margot and Eliza, she was right there — in the room, present for the whole thing, exactly the kind of calm, grounding presence you want when things get real. For our third daughter Lorelei, Pat couldn't be in the hospital. It was COVID. The hospitals had shut down visitors, and that was that. Pat did everything she could remotely, but she wasn't able to be in the room.
+    </p>
+
+    <p>
+      That one still stings a little.
+    </p>
+
+    <p>
+      I'm telling you all of this because when Pat reached out recently about getting a website, the answer was never really a question. This was personal.
+    </p>
+
+    <h2>What Pat Does Now</h2>
+
+    <p>
+      Pat has expanded her practice in a direction that most people don't expect: end-of-life midwifery.
+    </p>
+
+    <p>
+      A doula helps people through the beginning of life. An end-of-life midwife helps people through the end of it. The work is different, but the spirit is the same — presence, comfort, guidance, and being with someone at a moment that can otherwise feel isolating and frightening. Pat works with individuals and families in central Ohio who want support through a terminal diagnosis, through active dying, or through the grief that follows.
+    </p>
+
+    <p>
+      It's meaningful work. It's hard work. And almost nobody in central Ohio knows it exists.
+    </p>
+
+    <p>
+      That last part is the problem.
+    </p>
+
+    <h2>Three Hours, Start to Finish</h2>
+
+    <p>
+      I sat down with Claude Code on a Saturday and we built her site from scratch. Pat had a headshot and a photo from a birth she attended — real images that tell her story without a single word of copy. We used those.
+    </p>
+
+    <p>
+      The site needed to do a few specific things well:
+    </p>
+
+    <ul>
+      <li>Explain what an end-of-life midwife actually does, because most people searching won't know the term</li>
+      <li>Show up when people in central Ohio search for comfort care, death doula, or end-of-life support</li>
+      <li>Answer the questions families actually have — the hard, honest ones</li>
+      <li>Feel warm. Not clinical. Not cold. Not like a funeral home website.</li>
+    </ul>
+
+    <p>
+      We built 15 FAQ questions targeting the exact phrases people type into Google when they're trying to figure out what end-of-life support even means. We listed every city Pat serves — Franklin County, Licking County, the whole metro area. We added schema markup so Google can parse the page as a structured local service. We set up a sitemap, a robots.txt, and an llms.txt for AI crawlers. Then we connected the site to Google Search Console and submitted the sitemap.
+    </p>
+
+    <p>
+      Pat's headshot shows up with the right orientation. The birth photo is quiet and real. The whole thing took about three hours.
+    </p>
+
+    <p>
+      The site is live at <a href="https://ohioendoflifemidwife.com" target="_blank" rel="noopener">ohioendoflifemidwife.com</a>.
+    </p>
+
+    <p>
+      <a class="cta-button" href="https://ohioendoflifemidwife.com" target="_blank" rel="noopener">Visit ohioendoflifemidwife.com &rarr;</a>
+    </p>
+
+    <h2>The Pattern I Keep Noticing</h2>
+
+    <p>
+      This is the fourth or fifth time I've done this — built a real, professional website for someone I know who does meaningful work but doesn't have a web presence. My mom's law firm. My brother's photography. A cancer clinical trial tool for a family going through it. Now Pat.
+    </p>
+
+    <p>
+      The pattern is always the same: the person doing the work is excellent at what they do. They've been doing it for years, sometimes decades. They help real people in real moments. But they don't show up anywhere online, which means the people who need them the most can't find them.
+    </p>
+
+    <blockquote>
+      The best person to build a website for someone isn't always a web developer. Sometimes it's someone who knows the person, knows the work, and has access to the right tools.
+    </blockquote>
+
+    <p>
+      That's what I keep being. The person who knows the person.
+    </p>
+
+    <p>
+      I know Pat isn't just "an end-of-life midwife in Columbus." She's the woman who held space for our family through three births. She didn't make it to Lorelei's — but she showed up every other way she could. And now she's doing that same kind of showing up for families at the hardest moment of their lives.
+    </p>
+
+    <p>
+      She deserves to be found.
+    </p>
+
+    <p>
+      If you know someone in central Ohio who is facing a terminal diagnosis, or who is caring for someone who is — Pat's contact information is on the site. She's real, she's local, and she knows how to be present for the moments that matter most.
+    </p>
+
+
+    <div style="margin-top:3rem; background:var(--ej-gray-light); border:1px solid var(--ej-border); border-top:4px solid var(--ej-yellow); border-radius:4px; padding:1.75rem 1.5rem;">
+      <p style="font-family:'Arial',sans-serif; font-weight:700; font-size:1rem; color:var(--ej-black); margin-bottom:0.25rem;">Get new posts by email</p>
+      <p style="font-family:'Arial',sans-serif; font-size:0.85rem; color:var(--ej-gray-text); margin-bottom:1rem;">No spam. Just a note when something new goes up.</p>
+      <form action="https://buttondown.com/api/emails/embed-subscribe/jolotozo" method="post" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <input type="email" name="email" placeholder="you@example.com" required style="flex:1; min-width:200px; padding:0.55rem 0.9rem; border:1px solid var(--ej-border); border-radius:3px; font-family:'Arial',sans-serif; font-size:0.88rem; color:var(--ej-black);" />
+        <button type="submit" style="background:var(--ej-yellow); color:var(--ej-black); font-family:'Arial',sans-serif; font-weight:700; font-size:0.88rem; padding:0.55rem 1.2rem; border:none; border-radius:3px; cursor:pointer;">Subscribe</button>
+      </form>
+    </div>
+
+    <a class="back-link" href="./">&larr; Back to Blog</a>
+  </div>
+
+  <footer>
+    <p><a href="../">josephalotozo.com</a> &nbsp;·&nbsp; &copy; 2026 Joseph A. Lotozo</p>
+    <p style="font-size:0.72rem; color:#777; margin-top:0.5rem;">The postings on this site are my own and do not necessarily reflect the views of Edward Jones.</p>
+  </footer>
+
+</body>
+</html>
