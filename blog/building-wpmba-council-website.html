@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Joined My MBA Student Council. Then I Built Us a Website. | Joseph A. Lotozo</title>
+  <meta name="description" content="How Joe Lotozo used Claude Code to build a website for the Ohio State Fisher Working Professional MBA Student Council — in an afternoon, with zero coding experience." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="canonical" href="https://www.josephalotozo.com/blog/building-wpmba-council-website.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="I Joined My MBA Student Council. Then I Built Us a Website." />
+  <meta property="og:description" content="How I used Claude Code to build a website for the Ohio State Fisher Working Professional MBA Student Council — in an afternoon, with zero coding experience." />
+  <meta property="og:url" content="https://www.josephalotozo.com/blog/building-wpmba-council-website.html" />
+
+  <style>
+    :root {
+      --ej-yellow:      #FAD141;
+      --ej-yellow-dark: #e0b800;
+      --ej-black:       #1A1A1A;
+      --ej-white:       #FFFFFF;
+      --ej-gray-light:  #F7F7F7;
+      --ej-gray-mid:    #E8E8E8;
+      --ej-gray-text:   #555555;
+      --ej-gray-dark:   #333333;
+      --ej-border:      #DEDEDE;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: var(--ej-black);
+      background: var(--ej-white);
+      line-height: 1.75;
+    }
+
+    a { color: inherit; }
+
+    nav {
+      background: var(--ej-white);
+      border-bottom: 3px solid var(--ej-yellow);
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    }
+
+    .nav-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-name {
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--ej-black);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-sub {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.72rem;
+      color: var(--ej-gray-text);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-anchor {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ej-gray-dark);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .nav-anchor:hover { border-color: var(--ej-yellow); }
+
+    .article {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--ej-black);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .post-meta {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: var(--ej-gray-text);
+      margin-bottom: 2rem;
+    }
+
+    .section-rule {
+      width: 52px;
+      height: 4px;
+      background: var(--ej-yellow);
+      margin-bottom: 2rem;
+      border-radius: 2px;
+    }
+
+    .article p {
+      color: var(--ej-gray-dark);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    .article h2 {
+      font-size: 1.35rem;
+      color: var(--ej-black);
+      margin: 2.5rem 0 0.75rem;
+    }
+
+    .article a {
+      color: var(--ej-black);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .article blockquote {
+      border-left: 4px solid var(--ej-yellow);
+      margin: 1.5rem 0;
+      padding: 1rem 1.25rem;
+      background: var(--ej-gray-light);
+      border-radius: 0 4px 4px 0;
+      font-style: italic;
+      color: var(--ej-gray-dark);
+    }
+
+    .article ul {
+      margin: 1rem 0 1.5rem 1.5rem;
+      color: var(--ej-gray-dark);
+      font-size: 1.05rem;
+    }
+
+    .article li {
+      margin-bottom: 0.5rem;
+    }
+
+    .article .photo-card {
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--ej-border);
+      margin: 2rem 0;
+    }
+
+    .article .photo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .article .photo-caption {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      color: var(--ej-gray-text);
+      padding: 0.6rem 0.85rem;
+      background: var(--ej-gray-light);
+      border-top: 1px solid var(--ej-border);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--ej-yellow);
+      color: var(--ej-black);
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 3px;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      transition: background 0.2s;
+    }
+    .cta-button:hover { background: var(--ej-yellow-dark); }
+
+    .back-link {
+      display: inline-block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ej-gray-dark);
+      text-decoration: none;
+      margin-top: 3rem;
+      border-bottom: 2px solid var(--ej-yellow);
+      padding-bottom: 2px;
+    }
+
+    footer {
+      background: var(--ej-gray-dark);
+      color: #aaa;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      line-height: 2;
+    }
+
+    footer a { color: var(--ej-yellow); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1rem; }
+      .nav-sub { display: none; }
+      .article { padding: 3rem 1.5rem 4rem; }
+      h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../" style="text-decoration:none;">
+      <div class="nav-left">
+        <span class="nav-name">Joseph A. Lotozo, CFP®</span>
+        <span class="nav-sub">UPPER ARLINGTON, OHIO</span>
+      </div>
+    </a>
+    <div style="display:flex; gap:1.5rem; align-items:center;">
+      <a class="nav-anchor" href="../">Home</a>
+      <a class="nav-anchor" href="./">Blog</a>
+    </div>
+  </nav>
+
+  <div class="article">
+    <h1>I Joined My MBA Student Council. Then I Built Us a Website.</h1>
+    <div class="post-meta">June 22, 2026 &nbsp;·&nbsp; 5 min read &nbsp;·&nbsp; Joseph A. Lotozo</div>
+    <div class="section-rule"></div>
+
+    <p>
+      A little while ago I started the Working Professional MBA program at The Ohio State University's Fisher College of Business. If you're not familiar with it, the WP MBA is the part-time program built for people who keep their full-time jobs while they earn the degree — so my classmates are nurses, engineers, founders, marketers, and operators, all squeezing graduate school in around real careers and, in a lot of cases, families.
+    </p>
+
+    <p>
+      Not long after I joined, I was elected to our Student Council — and I took on the role of leading <strong>alumni outreach</strong>. The job, in plain terms: help current students stay connected to the people who've already been through the program. Mentorship. Advice. Introductions. Community.
+    </p>
+
+    <p>
+      One of the first things I noticed? We didn't really have a home online. A council, hundreds of students, a great program — and no simple place that said who we are and what we do.
+    </p>
+
+    <p>
+      So I did the thing I keep doing lately. I built one.
+    </p>
+
+    <h2>The Same Genie, A New Wish</h2>
+
+    <p>
+      If you've read any of my <a href="building-moms-law-website.html">other posts</a>, you know the pattern by now. I'm not a developer. I've never taken a coding class. But over the last few months I've used Claude Code to build a website for my mom's <a href="building-moms-law-website.html">law practice</a>, one for my brother's <a href="building-toms-photo-site.html">film photography</a>, an app or two, and this very site. Every time, the formula is the same: I know what I want, I describe it clearly, and the AI does the heavy lifting.
+    </p>
+
+    <p>
+      This time I sat down and described what our council needed: a clean, fast, professional page for the Ohio State Fisher Working Professional MBA Student Council. Somewhere to introduce the council, list our officers, share events, and give both students and alumni a reason to lean in. I wanted it to look official — because it represents real people doing real work.
+    </p>
+
+    <p>
+      The result lives right here on my site, in its own corner: <a href="https://www.josephalotozo.com/wpmba/" target="_blank" rel="noopener">josephalotozo.com/wpmba/</a>.
+    </p>
+
+    <p>
+      <a class="cta-button" href="https://www.josephalotozo.com/wpmba/" target="_blank" rel="noopener">Visit the WPMBA Council page &rarr;</a>
+    </p>
+
+    <h2>It Didn't Stop at "Make a Page"</h2>
+
+    <p>
+      Same as every other project, building the page was only half of it. A site nobody can find isn't doing anyone any good. So I went further:
+    </p>
+
+    <ul>
+      <li><strong>Structured data</strong> — I added schema markup that tells Google (and AI search tools) exactly what this is: a student organization within Fisher College of Business, who it serves, and how to reach it.</li>
+      <li><strong>Search optimization</strong> — titles, descriptions, and keywords aimed at the things people actually type, like "Ohio State Working Professional MBA" and "Fisher part-time MBA council."</li>
+      <li><strong>An <code>llms.txt</code> file</strong> — a plain-language summary written specifically for AI crawlers, so that when someone asks ChatGPT or Perplexity about the WP MBA program, there's accurate, current information for it to draw from.</li>
+      <li><strong>An officer roster and program info</strong> — so the page is genuinely useful, not just a placeholder.</li>
+    </ul>
+
+    <p>
+      All of it built by me and Claude Code in an afternoon. No agency. No budget. No waiting on a committee.
+    </p>
+
+    <h2>Why a Website Helps With "Outreach"</h2>
+
+    <p>
+      Here's the part I didn't fully appreciate until I started the role. Alumni outreach isn't really about a list of email addresses. It's about giving people a reason — and a place — to connect.
+    </p>
+
+    <p>
+      A real web presence does a few quiet but important things. It makes the council look organized and legitimate when I reach out to the university's alumni team. It gives me somewhere to host events and sign-ups down the road. And it creates a stage to spotlight the people in our program who are building genuinely cool things — because plenty of my classmates are launching ventures, and a little visibility can go a long way.
+    </p>
+
+    <blockquote>
+      The best person to build something for a community isn't always the one with the most technical skill. Sometimes it's just the person willing to start.
+    </blockquote>
+
+    <p>
+      I'm still early in this role, and I've got a lot to learn about doing alumni outreach the right way. But it felt good to start with something concrete — to show up to the work with a thing already built instead of just a list of ideas.
+    </p>
+
+    <p>
+      If you're part of a group that doesn't have a home online — a club, a council, a small nonprofit, a team — you might be surprised how far you can get in an afternoon. You don't need to know how to code. You just need to know what to ask for.
+    </p>
+
+    <p>
+      The genie is still listening.
+    </p>
+
+
+    <div style="margin-top:3rem; background:var(--ej-gray-light); border:1px solid var(--ej-border); border-top:4px solid var(--ej-yellow); border-radius:4px; padding:1.75rem 1.5rem;">
+      <p style="font-family:'Arial',sans-serif; font-weight:700; font-size:1rem; color:var(--ej-black); margin-bottom:0.25rem;">Get new posts by email</p>
+      <p style="font-family:'Arial',sans-serif; font-size:0.85rem; color:var(--ej-gray-text); margin-bottom:1rem;">No spam. Just a note when something new goes up.</p>
+      <form action="https://buttondown.com/api/emails/embed-subscribe/jolotozo" method="post" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <input type="email" name="email" placeholder="you@example.com" required style="flex:1; min-width:200px; padding:0.55rem 0.9rem; border:1px solid var(--ej-border); border-radius:3px; font-family:'Arial',sans-serif; font-size:0.88rem; color:var(--ej-black);" />
+        <button type="submit" style="background:var(--ej-yellow); color:var(--ej-black); font-family:'Arial',sans-serif; font-weight:700; font-size:0.88rem; padding:0.55rem 1.2rem; border:none; border-radius:3px; cursor:pointer;">Subscribe</button>
+      </form>
+    </div>
+    <a class="back-link" href="./">&larr; Back to Blog</a>
+  </div>
+
+  <footer>
+    <p><a href="../">josephalotozo.com</a> &nbsp;·&nbsp; &copy; 2026 Joseph A. Lotozo</p>
+    <p style="font-size:0.72rem; color:#777; margin-top:0.5rem;">The postings on this site are my own and do not necessarily reflect the views of Edward Jones.</p>
+  </footer>
+
+</body>
+</html>
