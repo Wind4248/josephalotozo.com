@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How I Helped a Classmate Get His Food Truck Dream Rolling | Joseph A. Lotozo</title>
+  <meta name="description" content="A classmate in my MBA program is building a dosa food truck. Here's how I used a little tech and a lot of community to help him get noticed — a spotlight, social reach, and an introduction to my Columbus networking group." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="canonical" href="https://www.josephalotozo.com/blog/helping-classmate-dosa-rush.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How I Helped a Classmate Get His Food Truck Dream Rolling" />
+  <meta property="og:description" content="A little tech and a lot of community: how I helped a classmate's dosa food truck venture get noticed." />
+  <meta property="og:url" content="https://www.josephalotozo.com/blog/helping-classmate-dosa-rush.html" />
+  <meta property="og:image" content="https://www.josephalotozo.com/assets/dosa-rush-food-1.jpg" />
+
+  <style>
+    :root {
+      --ej-yellow:      #FAD141;
+      --ej-yellow-dark: #e0b800;
+      --ej-black:       #1A1A1A;
+      --ej-white:       #FFFFFF;
+      --ej-gray-light:  #F7F7F7;
+      --ej-gray-mid:    #E8E8E8;
+      --ej-gray-text:   #555555;
+      --ej-gray-dark:   #333333;
+      --ej-border:      #DEDEDE;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: var(--ej-black);
+      background: var(--ej-white);
+      line-height: 1.75;
+    }
+
+    a { color: inherit; }
+
+    nav {
+      background: var(--ej-white);
+      border-bottom: 3px solid var(--ej-yellow);
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    }
+
+    .nav-left { display: flex; flex-direction: column; }
+
+    .nav-name {
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--ej-black);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-sub {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.72rem;
+      color: var(--ej-gray-text);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-anchor {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ej-gray-dark);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .nav-anchor:hover { border-color: var(--ej-yellow); }
+
+    .article {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--ej-black);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .post-meta {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: var(--ej-gray-text);
+      margin-bottom: 2rem;
+    }
+
+    .section-rule {
+      width: 52px;
+      height: 4px;
+      background: var(--ej-yellow);
+      margin-bottom: 2rem;
+      border-radius: 2px;
+    }
+
+    .article p {
+      color: var(--ej-gray-dark);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    .article h2 {
+      font-size: 1.35rem;
+      color: var(--ej-black);
+      margin: 2.5rem 0 0.75rem;
+    }
+
+    .article a {
+      color: var(--ej-black);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .article blockquote {
+      border-left: 4px solid var(--ej-yellow);
+      margin: 1.5rem 0;
+      padding: 1rem 1.25rem;
+      background: var(--ej-gray-light);
+      border-radius: 0 4px 4px 0;
+      font-style: italic;
+      color: var(--ej-gray-dark);
+    }
+
+    .article ul {
+      margin: 1rem 0 1.5rem 1.5rem;
+      color: var(--ej-gray-dark);
+      font-size: 1.05rem;
+    }
+
+    .article li { margin-bottom: 0.5rem; }
+
+    .article .photo-card {
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--ej-border);
+      margin: 2rem 0;
+    }
+
+    .article .photo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .article .photo-caption {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      color: var(--ej-gray-text);
+      padding: 0.6rem 0.85rem;
+      background: var(--ej-gray-light);
+      border-top: 1px solid var(--ej-border);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--ej-yellow);
+      color: var(--ej-black);
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 3px;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      transition: background 0.2s;
+    }
+    .cta-button:hover { background: var(--ej-yellow-dark); }
+
+    .back-link {
+      display: inline-block;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ej-gray-dark);
+      text-decoration: none;
+      margin-top: 3rem;
+      border-bottom: 2px solid var(--ej-yellow);
+      padding-bottom: 2px;
+    }
+
+    footer {
+      background: var(--ej-gray-dark);
+      color: #aaa;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      line-height: 2;
+    }
+
+    footer a { color: var(--ej-yellow); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 1rem; }
+      .nav-sub { display: none; }
+      .article { padding: 3rem 1.5rem 4rem; }
+      h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../" style="text-decoration:none;">
+      <div class="nav-left">
+        <span class="nav-name">Joseph A. Lotozo, CFP®</span>
+        <span class="nav-sub">UPPER ARLINGTON, OHIO</span>
+      </div>
+    </a>
+    <div style="display:flex; gap:1.5rem; align-items:center;">
+      <a class="nav-anchor" href="../">Home</a>
+      <a class="nav-anchor" href="./">Blog</a>
+    </div>
+  </nav>
+
+  <div class="article">
+    <h1>How I Helped a Classmate Get His Food Truck Dream Rolling</h1>
+    <div class="post-meta">June 26, 2026 &nbsp;·&nbsp; 4 min read &nbsp;·&nbsp; Joseph A. Lotozo</div>
+    <div class="section-rule"></div>
+
+    <p>
+      One of the best surprises of going back to school for my MBA at Ohio State's Fisher College of Business has been who I get to sit next to. My classmates in the Working Professional MBA program aren't just students — they're nurses, engineers, marketers, and, in at least one case, a future food-truck founder.
+    </p>
+
+    <p>
+      That founder is my classmate <strong>Naren</strong>, and he's building something called <strong>Dosa Rush</strong> — a venture to bring bold, crispy South Indian dosas to the streets of Columbus. If you've never had a dosa, think of it as the crêpe's savorier, spicier cousin: a thin, golden, fermented rice-and-lentil crêpe, often wrapped around spiced fillings. Naren sees real demand for it here and very little competition, and he's going for it.
+    </p>
+
+    <div class="photo-card">
+      <img src="../assets/dosa-rush-food-1.jpg" alt="A golden, crispy folded dosa from Dosa Rush" loading="lazy" />
+      <div class="photo-caption">Dosa Rush &nbsp;·&nbsp; golden, crispy, and built for a food truck</div>
+    </div>
+
+    <p>
+      When I took on the role of alumni &amp; graduate coordinator for our student council, I realized something simple: I'm surrounded by people doing cool things, and I have a few tools and relationships that can help them get noticed. So I decided to put them to work for Naren.
+    </p>
+
+    <h2>Step one: tell his story</h2>
+
+    <p>
+      Just like I've done for my <a href="building-moms-law-website.html">mom's law practice</a> and my <a href="building-toms-photo-site.html">brother's photography</a>, I sat down with Claude Code and built Naren a dedicated <a href="https://www.josephalotozo.com/wpmba/dosa-rush.html" target="_blank" rel="noopener">Alumni Spotlight page</a> — his story, his brand, and his photos, in one clean place I could point people to. Then I shared it where it counts: our MBA students-and-alumni Facebook group and my LinkedIn network.
+    </p>
+
+    <p>
+      <a class="cta-button" href="https://www.josephalotozo.com/wpmba/dosa-rush.html" target="_blank" rel="noopener">Read Naren's spotlight &rarr;</a>
+    </p>
+
+    <h2>Step two: open the right doors</h2>
+
+    <p>
+      A website gets you seen. But a new business really runs on relationships — and that's something I believe in deeply, both in my work and in my volunteering. So this morning, I brought Naren as my guest to my weekly networking group, the <a href="https://www.networkingprofessionalsofcolumbus.com/" target="_blank" rel="noopener">Networking Professionals of Columbus</a>.
+    </p>
+
+    <p>
+      It's a room full of exactly the kind of people a new food venture needs to know: realtors, attorneys, CPAs, contractors, bankers, and small-business owners who all live and work in central Ohio. Naren got to introduce himself, share what he's building, and start making the local connections that can turn an idea into a going concern. From the look of it, he walked away with a handful of genuinely helpful conversations.
+    </p>
+
+    <blockquote>
+      A website gets you noticed. A network gets you started. Most people who are building something need a little of both — and a friend willing to make the introductions.
+    </blockquote>
+
+    <h2>Why bother?</h2>
+
+    <p>
+      Honestly, because it's fun, and because it's the kind of community I want to be part of. I get to combine two things I love — using technology to make something quickly, and connecting good people to one another. Neither one costs much. Both can change someone's trajectory.
+    </p>
+
+    <p>
+      If you want to follow along with Naren, you can find Dosa Rush on Instagram at <a href="https://instagram.com/dosa.rush" target="_blank" rel="noopener">@dosa.rush</a> and connect with him on <a href="https://www.linkedin.com/in/bsnaren" target="_blank" rel="noopener">LinkedIn</a>. And if you're building something of your own — or you know someone who is — don't underestimate what a spotlight and a warm introduction can do.
+    </p>
+
+    <p>
+      Rooting for you, Naren. Go get 'em.
+    </p>
+
+
+    <div style="margin-top:3rem; background:var(--ej-gray-light); border:1px solid var(--ej-border); border-top:4px solid var(--ej-yellow); border-radius:4px; padding:1.75rem 1.5rem;">
+      <p style="font-family:'Arial',sans-serif; font-weight:700; font-size:1rem; color:var(--ej-black); margin-bottom:0.25rem;">Get new posts by email</p>
+      <p style="font-family:'Arial',sans-serif; font-size:0.85rem; color:var(--ej-gray-text); margin-bottom:1rem;">No spam. Just a note when something new goes up.</p>
+      <form action="https://buttondown.com/api/emails/embed-subscribe/jolotozo" method="post" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <input type="email" name="email" placeholder="you@example.com" required style="flex:1; min-width:200px; padding:0.55rem 0.9rem; border:1px solid var(--ej-border); border-radius:3px; font-family:'Arial',sans-serif; font-size:0.88rem; color:var(--ej-black);" />
+        <button type="submit" style="background:var(--ej-yellow); color:var(--ej-black); font-family:'Arial',sans-serif; font-weight:700; font-size:0.88rem; padding:0.55rem 1.2rem; border:none; border-radius:3px; cursor:pointer;">Subscribe</button>
+      </form>
+    </div>
+    <a class="back-link" href="./">&larr; Back to Blog</a>
+  </div>
+
+  <footer>
+    <p><a href="../">josephalotozo.com</a> &nbsp;·&nbsp; &copy; 2026 Joseph A. Lotozo</p>
+    <p style="font-size:0.72rem; color:#777; margin-top:0.5rem;">The postings on this site are my own and do not necessarily reflect the views of Edward Jones.</p>
+  </footer>
+
+</body>
+</html>
