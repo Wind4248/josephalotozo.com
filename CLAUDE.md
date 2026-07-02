@@ -12,9 +12,11 @@ Personal website for Joseph A. Lotozo — CFP® professional, Financial Advisor 
   CNAME               ← josephalotozo.com
   assets/             ← all images (headshot, team photos, community photos, etc.)
   blog/
-    index.html        ← blog listing page
-    ai-chamber-wrapped.html  ← first post: "I Have a Genie and His Name is Claude"
+    index.html        ← blog listing page (keep in sync with posts + sitemap.xml)
+    *.html            ← 12+ posts (first: ai-chamber-wrapped.html "I Have a Genie and His Name is Claude")
   tvcp-2025/          ← Chamber Wrapped presentation (separate project, hosted here)
+  wpmba/              ← WP MBA Student Council pages (incl. Dosa Rush spotlight)
+  tom/                ← Tom's photo site pages
 ```
 
 ## Hosting
@@ -62,7 +64,7 @@ Personal website for Joseph A. Lotozo — CFP® professional, Financial Advisor 
 
 ## About Joe
 
-- CFP® professional, Financial Advisor and Partner at Edward Jones, Tremont Center, Grandview Heights
+- CFP® professional, Financial Advisor and Partner at Edward Jones, Tremont Center, Upper Arlington (the office is in Upper Arlington — NOT Grandview Heights)
 - **CFP Board rule:** Always reference as "CERTIFIED FINANCIAL PLANNER™ professional" or "CFP® professional" when describing Joe
 - Lifelong Upper Arlington resident, Ohio State alum
 - Past Chair of Tri-Village Chamber Partnership (2025)
