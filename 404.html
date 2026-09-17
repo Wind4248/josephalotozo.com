@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Joseph A. Lotozo</title>
+  <meta name="description" content="That page isn't here — but the blog, the community notes, and the rest of Joseph A. Lotozo's personal site are." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <style>
+    :root {
+      --ej-yellow:      #FAD141;
+      --ej-yellow-dark: #e0b800;
+      --ej-black:       #1A1A1A;
+      --ej-white:       #FFFFFF;
+      --ej-gray-light:  #F7F7F7;
+      --ej-gray-mid:    #E8E8E8;
+      --ej-gray-text:   #555555;
+      --ej-border:      #DEDEDE;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: var(--ej-black);
+      background: var(--ej-white);
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 3px solid var(--ej-yellow);
+      background: var(--ej-white);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .nav-name {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      display: block;
+    }
+    .nav-sub {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: var(--ej-gray-text);
+    }
+    .nav-anchor {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ej-black);
+      text-decoration: none;
+      margin-left: 1.5rem;
+    }
+    .nav-anchor:hover { color: var(--ej-yellow-dark); }
+
+    .disclaimer-banner {
+      background: var(--ej-gray-light);
+      border-bottom: 1px solid var(--ej-border);
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.72rem;
+      color: var(--ej-gray-text);
+      padding: 0.6rem 2rem;
+    }
+
+    main {
+      flex: 1;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+    }
+
+    .code {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ej-yellow);
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.7rem;
+      margin-top: 0.75rem;
+    }
+
+    .rule {
+      width: 60px;
+      height: 4px;
+      background: var(--ej-yellow);
+      margin: 1.25rem auto 1.5rem;
+    }
+
+    main p { color: var(--ej-gray-text); margin-bottom: 1rem; }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-top: 2.5rem;
+      text-align: left;
+    }
+    .link-card {
+      display: block;
+      border: 1px solid var(--ej-border);
+      border-left: 4px solid var(--ej-yellow);
+      background: var(--ej-gray-light);
+      padding: 1rem 1.1rem;
+      text-decoration: none;
+      color: var(--ej-black);
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .link-card:hover { background: var(--ej-gray-mid); transform: translateY(-2px); }
+    .link-card strong {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .link-card span { font-size: 0.82rem; color: var(--ej-gray-text); }
+
+    footer {
+      background: var(--ej-black);
+      color: #CCCCCC;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+    }
+    footer a { color: var(--ej-yellow); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 700px) {
+      nav { padding: 0.9rem 1rem; }
+      .nav-anchor { margin-left: 1rem; }
+      main { padding: 3rem 1rem; }
+      .code { font-size: 3.5rem; }
+      h1 { font-size: 1.35rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div>
+      <span class="nav-name">Joseph A. Lotozo, CFP&reg;</span>
+      <span class="nav-sub">UPPER ARLINGTON, OHIO</span>
+    </div>
+    <div>
+      <a class="nav-anchor" href="/">Home</a>
+      <a class="nav-anchor" href="/blog/">Blog</a>
+      <a class="nav-anchor" href="/#connect">Find Me Online</a>
+    </div>
+  </nav>
+
+  <div class="disclaimer-banner">
+    The postings on this site are my own and do not necessarily reflect the views of Edward Jones.
+  </div>
+
+  <main>
+    <div class="code">404</div>
+    <h1>That page isn't here.</h1>
+    <div class="rule"></div>
+    <p>The link may be out of date, or I may have moved something. Either way, here's where most people are headed.</p>
+
+    <div class="link-grid">
+      <a class="link-card" href="/">
+        <strong>Home &rarr;</strong>
+        <span>Background, community work, family, and what I'm reading.</span>
+      </a>
+      <a class="link-card" href="/blog/">
+        <strong>The Blog &rarr;</strong>
+        <span>Building things with AI, trips, and community notes.</span>
+      </a>
+      <a class="link-card" href="/#instagram">
+        <strong>Instagram &rarr;</strong>
+        <span>Bees, the girls, and Upper Arlington — @jlotozo.</span>
+      </a>
+      <a class="link-card" href="/#connect">
+        <strong>Find Me Online &rarr;</strong>
+        <span>Every way to reach me in one place.</span>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p><a href="/">josephalotozo.com</a> &nbsp;&middot;&nbsp; &copy; 2026 Joseph A. Lotozo</p>
+    <p style="font-size:0.72rem; color:#777; margin-top:0.5rem;">The postings on this site are my own and do not necessarily reflect the views of Edward Jones.</p>
+  </footer>
+
+</body>
+</html>

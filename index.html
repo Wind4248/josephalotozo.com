@@ -11,6 +11,7 @@
   <link rel="canonical" href="https://josephalotozo.com/" />
   <meta name="google-site-verification" content="c8Ko1zUGzHiPIggknspaCiO1aEAQMv7bQGWK5QovuDw" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate" type="application/rss+xml" title="Joseph A. Lotozo — Blog" href="https://josephalotozo.com/blog/feed.xml" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="profile" />
@@ -57,7 +58,8 @@
       "ChFC® - Chartered Financial Consultant",
       "AAMS® - Accredited Asset Management Specialist",
       "CRPC® - Chartered Retirement Planning Counselor",
-      "CRPS® - Chartered Retirement Plans Specialist"
+      "CRPS® - Chartered Retirement Plans Specialist",
+      "MS - Master of Science in Personal Financial Planning, College for Financial Planning"
     ],
     "worksFor": {
       "@type": "Organization",
@@ -65,7 +67,11 @@
     },
     "sameAs": [
       "https://www.linkedin.com/in/joseph-lotozo-cfp%C2%AE-chfc%C2%AE-12b4b649",
-      "https://www.instagram.com/jlotozo/"
+      "https://www.instagram.com/jlotozo/",
+      "https://www.facebook.com/jolotozo",
+      "https://www.facebook.com/EJAdvisorJosephLotozo",
+      "https://x.com/lotozo",
+      "https://www.amazon.com/AI-Unmasked-Demystifying-Sentient-Machines/dp/B0C47R26N4"
     ],
     "memberOf": [
       { "@type": "Organization", "name": "Tri-Village Chamber Partnership" },
@@ -682,6 +688,31 @@
       margin-bottom: 0.25rem;
     }
 
+    /* ---- Reading log ---- */
+    .reading-label {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ej-gray-text);
+      margin: 2rem 0 0.85rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--ej-yellow);
+      display: inline-block;
+    }
+    .reading-updated {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.76rem;
+      color: #8A8A8A;
+      font-style: italic;
+      margin-top: 1.75rem;
+    }
+
+    /* The global `p` rule sets #333, which is also the footer background —
+       without this, footer paragraphs render invisible. */
+    footer p { color: #aaa; }
+
     footer a { color: var(--ej-yellow); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
@@ -695,6 +726,102 @@
       .nav-sub { display: none; }
       .disclaimer-banner { padding: 0.6rem 1rem; }
     }
+    /* ---- Instagram feature ---- */
+    .section-dark {
+      background: var(--ej-black);
+      padding: 4rem 2.5rem;
+      border-top: 4px solid var(--ej-yellow);
+      border-bottom: 4px solid var(--ej-yellow);
+    }
+    .section-dark h2 { color: var(--ej-white); }
+    .section-dark p { color: #C9C9C9; }
+    .ig-head {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      margin-bottom: 1.75rem;
+      flex-wrap: wrap;
+    }
+    .ig-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 18%;
+      border: 3px solid var(--ej-yellow);
+      flex-shrink: 0;
+    }
+    .ig-handle {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ej-white);
+      text-decoration: none;
+      display: block;
+    }
+    .ig-handle:hover { color: var(--ej-yellow); }
+    .ig-handle-sub {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.8rem;
+      color: #9A9A9A;
+      letter-spacing: 0.04em;
+    }
+    .ig-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+    }
+    .ig-tile {
+      position: relative;
+      display: block;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #2A2A2A;
+    }
+    .ig-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease, opacity 0.2s ease;
+    }
+    .ig-tile:hover img { transform: scale(1.06); opacity: 0.82; }
+    .ig-cta {
+      display: inline-block;
+      margin-top: 1.9rem;
+      background: var(--ej-yellow);
+      color: var(--ej-black);
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.8rem 1.7rem;
+      border-radius: 3px;
+      text-decoration: none;
+    }
+    .ig-cta:hover { background: var(--ej-yellow-dark); }
+    .ig-note {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      color: #8E8E8E;
+      margin-top: 1rem;
+    }
+    .footer-social { margin-top: 1rem; }
+    .footer-social a {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--ej-yellow);
+      text-decoration: none;
+      margin: 0 0.6rem;
+    }
+    .footer-social a:hover { text-decoration: underline; }
+
+    @media (max-width: 700px) {
+      .section-dark { padding: 3rem 1.25rem; }
+      .ig-grid { gap: 0.35rem; }
+      .ig-avatar { width: 58px; height: 58px; }
+    }
+
   </style>
 </head>
 
@@ -708,6 +835,7 @@
     </div>
     <div style="display:flex; gap:1.5rem; align-items:center;">
       <a class="nav-anchor" href="blog/">Blog</a>
+      <a class="nav-anchor" href="#instagram">Instagram</a>
       <a class="nav-anchor" href="#connect">Find Me Online</a>
     </div>
   </nav>
@@ -811,6 +939,10 @@
           <div class="cred-full">Chartered Retirement Plans Specialist<sup>SM</sup></div>
         </div>
         <div class="cred-card">
+          <div class="cred-abbr">MS</div>
+          <div class="cred-full">Personal Financial Planning — College for Financial Planning</div>
+        </div>
+        <div class="cred-card">
           <div class="cred-abbr">MBA</div>
           <div class="cred-full">The Ohio State University — Fisher College of Business</div>
           <div class="cred-badge">In Progress</div>
@@ -898,20 +1030,83 @@
     </div>
   </section>
 
+  <!-- INSTAGRAM -->
+  <section class="section-dark" id="instagram">
+    <div class="section-inner">
+      <h2>On Instagram</h2>
+      <div class="section-rule"></div>
+      <p>Instagram is where most of the personal stuff actually lives &mdash; the hives, the girls, Upper Arlington, and whatever I&rsquo;ve talked myself into building this month. If you only follow me one place, make it this one.</p>
+
+      <div class="ig-head">
+        <img class="ig-avatar" src="assets/headshot.jpg" alt="Joseph A. Lotozo" loading="lazy" />
+        <div>
+          <a class="ig-handle" href="https://www.instagram.com/jlotozo/" target="_blank" rel="noopener">&#64;jlotozo</a>
+          <span class="ig-handle-sub">BEEKEEPING &middot; THREE GIRLS &middot; UPPER ARLINGTON &middot; BUILDING THINGS</span>
+        </div>
+      </div>
+
+      <div class="ig-grid">
+        <a class="ig-tile" href="https://www.instagram.com/jlotozo/" target="_blank" rel="noopener" aria-label="Family silhouettes against the ocean at sunset — see more on Instagram">
+          <img src="assets/folly-family-silhouettes-ocean.jpg" alt="Family silhouettes against the ocean at sunset" loading="lazy" />
+        </a>
+        <a class="ig-tile" href="https://www.instagram.com/jlotozo/" target="_blank" rel="noopener" aria-label="Joe speaking at the Tri-Village Chamber annual meeting — see more on Instagram">
+          <img src="assets/chamber-speech-podium.jpg" alt="Joe speaking at the Tri-Village Chamber annual meeting" loading="lazy" />
+        </a>
+        <a class="ig-tile" href="https://www.instagram.com/jlotozo/" target="_blank" rel="noopener" aria-label="Dosa from a classmate’s Columbus food truck — see more on Instagram">
+          <img src="assets/dosa-rush-food-1.jpg" alt="Dosa from a classmate’s Columbus food truck" loading="lazy" />
+        </a>
+        <a class="ig-tile" href="https://www.instagram.com/jlotozo/" target="_blank" rel="noopener" aria-label="Neighbors gathered at a community open house — see more on Instagram">
+          <img src="assets/open-house-gathering.jpg" alt="Neighbors gathered at a community open house" loading="lazy" />
+        </a>
+        <a class="ig-tile" href="https://www.instagram.com/jlotozo/" target="_blank" rel="noopener" aria-label="The pier gazebo at dusk, Folly Beach — see more on Instagram">
+          <img src="assets/folly-pier-gazebo-dusk.jpg" alt="The pier gazebo at dusk, Folly Beach" loading="lazy" />
+        </a>
+        <a class="ig-tile" href="https://www.instagram.com/jlotozo/" target="_blank" rel="noopener" aria-label="Blue Ridge mountain landscape on a road trip — see more on Instagram">
+          <img src="assets/galax-mountain-landscape.jpg" alt="Blue Ridge mountain landscape on a road trip" loading="lazy" />
+        </a>
+      </div>
+
+      <a class="ig-cta" href="https://www.instagram.com/jlotozo/" target="_blank" rel="noopener">Follow &#64;jlotozo on Instagram &rarr;</a>
+      <p class="ig-note">A few frames from around here. The current feed lives on Instagram.</p>
+    </div>
+  </section>
+
   <!-- WHAT I'M READING -->
   <section class="section-white">
     <div class="section-inner">
       <h2>What I'm Reading</h2>
       <div class="section-rule"></div>
-      <p>A few books on my nightstand right now.</p>
+      <p>A running log of what's on the nightstand and what I've put down lately. I'll keep adding to it.</p>
+
+      <p class="reading-label">Reading Now</p>
+      <div class="list-cards">
+        <div class="list-card">
+          <strong><em>The Odyssey</em></strong>
+          <span>Homer — Picked it up after seeing the film. Turns out the source material holds up.</span>
+        </div>
+        <div class="list-card">
+          <strong><em>Picky</em></strong>
+          <span>Helen Zoe Veit — How American Children Became the Fussiest Eaters in History. Relevant to my house at the moment.</span>
+        </div>
+        <div class="list-card">
+          <strong><em>Between Two Fires</em></strong>
+          <span>Christopher Buehlman — A knight and a girl crossing plague-era France. A departure from my usual nonfiction.</span>
+        </div>
+      </div>
+
+      <p class="reading-label">Recently Finished</p>
+      <div class="list-cards">
+        <div class="list-card">
+          <strong><em>The Philosopher in the Valley</em></strong>
+          <span>Michael Steinberger — Alex Karp, Palantir, and the Rise of the Surveillance State.</span>
+        </div>
+      </div>
+
+      <p class="reading-label">Also On the Shelf</p>
       <div class="list-cards">
         <div class="list-card">
           <strong><em>The Seven Rules of Trust</em></strong>
           <span>Jimmy Wales with Dan Gardner — A framework for building and maintaining trust, from the co-founder of Wikipedia.</span>
-        </div>
-        <div class="list-card">
-          <strong><em>The Philosopher in the Valley</em></strong>
-          <span>Michael Steinberger — Alex Karp, Palantir, and the Rise of the Surveillance State.</span>
         </div>
         <div class="list-card">
           <strong><em>Hannah's Children</em></strong>
@@ -922,6 +1117,8 @@
           <span>Beth Macy — From the author of Dopesick, a story rooted in Urbana.</span>
         </div>
       </div>
+
+      <p class="reading-updated">Last updated September 2026</p>
     </div>
   </section>
 
@@ -1187,14 +1384,19 @@
           <span class="connect-label">Instagram<span class="connect-sublabel">@jlotozo</span></span>
         </a>
 
-        <a class="connect-card" href="https://twitter.com/lotozo" target="_blank" rel="noopener">
+        <a class="connect-card" href="https://x.com/lotozo" target="_blank" rel="noopener">
           <span class="connect-icon" style="background:#000000; color:#fff; font-weight:700; font-size:0.9rem;">𝕏</span>
           <span class="connect-label">Twitter / X<span class="connect-sublabel">@lotozo</span></span>
         </a>
 
-        <a class="connect-card" href="https://www.facebook.com/1417410775137582" target="_blank" rel="noopener">
+        <a class="connect-card" href="https://www.facebook.com/jolotozo" target="_blank" rel="noopener">
           <span class="connect-icon" style="background:#1877F2; color:#fff; font-weight:700;">f</span>
-          <span class="connect-label">Facebook<span class="connect-sublabel">Joe Lotozo</span></span>
+          <span class="connect-label">Facebook<span class="connect-sublabel">Joe Lotozo &mdash; personal profile</span></span>
+        </a>
+
+        <a class="connect-card" href="https://www.facebook.com/EJAdvisorJosephLotozo" target="_blank" rel="noopener">
+          <span class="connect-icon" style="background:#1877F2; color:#fff; font-weight:700;">f</span>
+          <span class="connect-label">Facebook Page<span class="connect-sublabel">Edward Jones &mdash; Joseph Lotozo</span></span>
         </a>
 
         <a class="connect-card" href="tel:6148742372">
@@ -1300,7 +1502,7 @@
 
         <details>
           <summary>Is Joseph Lotozo on social media?</summary>
-          <div class="faq-answer">Yes. Joe is active on LinkedIn, Instagram (<a href="https://www.instagram.com/jlotozo/" target="_blank" rel="noopener">@jlotozo</a>), Twitter/X (<a href="https://twitter.com/lotozo" target="_blank" rel="noopener">@lotozo</a>), and Facebook. You can find links to all his profiles in the Find Me Online section above.</div>
+          <div class="faq-answer">Yes. Joe is active on LinkedIn, Instagram (<a href="https://www.instagram.com/jlotozo/" target="_blank" rel="noopener">@jlotozo</a>), Twitter/X (<a href="https://x.com/lotozo" target="_blank" rel="noopener">@lotozo</a>), and Facebook. You can find links to all his profiles in the Find Me Online section above.</div>
         </details>
 
         <details>
@@ -1363,8 +1565,14 @@
   <footer>
     <p class="footer-name">Joseph A. Lotozo, CFP®, ChFC®, AAMS®, CRPC®, CRPS®</p>
     <p>Financial Advisor and Partner at Edward Jones &nbsp;·&nbsp; 2094 Tremont Center, Suite 4, Upper Arlington, OH 43221 &nbsp;·&nbsp; <a href="tel:6148742372">(614) 874-2372</a></p>
+    <p class="footer-social">
+      <a href="https://www.instagram.com/jlotozo/" target="_blank" rel="noopener">Instagram</a>&middot;
+      <a href="https://www.linkedin.com/in/joseph-lotozo-cfp%C2%AE-chfc%C2%AE-12b4b649" target="_blank" rel="noopener">LinkedIn</a>&middot;
+      <a href="/blog/">Blog</a>&middot;
+      <a href="/blog/feed.xml">RSS</a>
+    </p>
     <br />
-    <p style="font-size:0.72rem; color:#777;">The postings on this site are my own and do not necessarily reflect the views of Edward Jones. This is a personal profile website for Joseph A. Lotozo. &copy; 2025 Joseph A. Lotozo. All rights reserved. &nbsp;·&nbsp; <a href="/tom/">Tom Lotozo Photography</a></p>
+    <p style="font-size:0.72rem; color:#777;">The postings on this site are my own and do not necessarily reflect the views of Edward Jones. This is a personal profile website for Joseph A. Lotozo. &copy; 2026 Joseph A. Lotozo. All rights reserved. &nbsp;·&nbsp; <a href="/tom/">Tom Lotozo Photography</a></p>
     <br />
     <p style="font-size:0.70rem; color:#666; max-width:780px; margin:0 auto; line-height:1.7;">Certified Financial Planner Board of Standards Center for Financial Planning, Inc. owns and licenses the certification marks CFP®, CERTIFIED FINANCIAL PLANNER®, and CFP® (with plaque design) in the United States to Certified Financial Planner Board of Standards, Inc., which authorizes individuals who successfully complete the organization's initial and ongoing certification requirements to use the certification marks. The AAMS®, CRPC®, and CRPS® marks are registered trademarks of The College for Financial Planning Institutes Corporation. The ChFC® mark is a registered trademark of The American College of Financial Services.</p>
   </footer>

@@ -7,13 +7,18 @@ Personal website for Joseph A. Lotozo — CFP® professional, Financial Advisor 
 ```
 /website/
   index.html          ← main site (single HTML file with inline CSS)
+  404.html            ← branded not-found page (GitHub Pages serves this automatically)
   favicon.svg         ← JL monogram, yellow (#FAD141) circle
   sitemap.xml
   CNAME               ← josephalotozo.com
   assets/             ← all images (headshot, team photos, community photos, etc.)
+    og/               ← 1200×630 social share cards (generated, see "Social Sharing")
   blog/
-    index.html        ← blog listing page (keep in sync with posts + sitemap.xml)
+    index.html        ← blog listing page (keep in sync with posts + sitemap.xml + feed.xml)
+    feed.xml          ← RSS feed (GENERATED — never hand-edit, see "Social Sharing")
     *.html            ← 12+ posts (first: ai-chamber-wrapped.html "I Have a Genie and His Name is Claude")
+  tools/
+    generate_feed.py  ← regenerates blog/feed.xml from blog/index.html
   tvcp-2025/          ← Chamber Wrapped presentation (separate project, hosted here)
   wpmba/              ← WP MBA Student Council pages (incl. Dosa Rush spotlight)
   tom/                ← Tom's photo site pages
@@ -32,10 +37,35 @@ Personal website for Joseph A. Lotozo — CFP® professional, Financial Advisor 
 - **Patterns:** `.section-white` / `.section-gray` alternating sections, `.section-inner` (860px max), `.section-rule` yellow bar under h2
 - **Components:** `.cred-card` (credentials), `.list-card` (interests/community), `.photo-card` + `.photo-grid` (galleries), `.team-card` (bios), `.connect-card` (social links), `details/summary` (FAQ)
 - All CSS is inline in `<style>` within the `<head>` of each HTML file (no external stylesheets)
+- `.section-dark` (black bg, yellow top/bottom border) is the **feature** treatment, used only
+  for the Instagram block. It deliberately breaks the white/gray rhythm — don't reuse it
+  casually or it stops reading as a feature.
+- Instagram is Joe's primary social channel (`@jlotozo`). It gets a nav link, the
+  `#instagram` feature section, and a footer link. The `.ig-grid` tiles are **site photos,
+  not live Instagram posts** — the copy says "a few frames from around here" for that reason.
+  If the tiles are ever swapped for real Instagram exports, keep the alt text accurate.
+
+## Social Sharing & Structured Data
+
+Every published blog post carries, in this order after `<link rel="canonical">`:
+`og:type`, `og:title`, `og:description`, `og:url`, `og:image`, `og:site_name`,
+`article:published_time`, `twitter:card` (always `summary_large_image`), `twitter:image`,
+then a `BlogPosting` JSON-LD block immediately before `<style>`.
+
+- **`og:image` is required on every post.** Use a real post photo when a landscape one
+  exists; otherwise generate a 1200×630 card into `assets/og/` (blurred, darkened cover of
+  the source image with the photo centered on top and an 8px yellow bar at the bottom).
+  Portrait photos and phone screenshots must never be used as `og:image` directly — they
+  crop badly in LinkedIn and Facebook previews.
+- **After adding or removing a post:** update `blog/index.html`, then `sitemap.xml`, then run
+  `python3 tools/generate_feed.py` from the repo root. The generator reads `blog/index.html`,
+  so a post that isn't listed there won't reach the feed.
+- Drafts stay out of `blog/index.html`, `sitemap.xml`, and the feed until published.
 
 ## Content Rules
 
 - **Edward Jones compliance:** No financial advice, no EJ product mentions, no client testimonials. Personal content only.
+- **Never link to the EJ-hosted advisor site** (`edwardjones.com/joseph-lotozo`). Joe's instruction, Sept 17 2026: this site stays personal and deliberately separate from the firm-hosted one. Do not add it to a link card, the footer, or schema `sameAs`.
 - The disclaimer banner ("The postings on this site are my own...") must appear on every page.
 - Chamber/community involvement is personal/volunteer, not EJ business.
 
@@ -46,21 +76,24 @@ Personal website for Joseph A. Lotozo — CFP® professional, Financial Advisor 
 
 ## Key Sections (index.html order)
 
-1. Nav (sticky, yellow bottom border)
+1. Nav (sticky, yellow bottom border — Blog, Instagram, Find Me Online)
 2. Disclaimer banner
 3. Hero (headshot + name + credentials)
-4. About Joe
-5. Professional Credentials (6 cards: CFP, ChFC, AAMS, CRPC, CRPS, MBA in-progress)
-6. Community Involvement
-7. A Little About Me (interests)
-8. What I'm Reading (3 book cards)
-9. Family Time (zoo photos)
-10. In the Community (open house photos)
-11. My Team (team photos + bios for Emma Reed & Bella Cloyd)
-12. Published Author (AI Unmasked book)
-13. Find Me Online (social links + Google searches)
-14. FAQ (expandable details)
-15. Footer
+4. Start Here (4 orientation cards)
+5. About Joe
+6. Professional Background & Credentials (7 cards: CFP, ChFC, AAMS, CRPC, CRPS, MS, MBA in-progress)
+7. Community Involvement
+8. A Little About Me (interests)
+9. **On Instagram** (featured `.section-dark` block)
+10. What I'm Reading — running log: Reading Now / Recently Finished / Also On the Shelf, with a "Last updated" stamp. Move titles between groups rather than deleting them.
+11. Family Time (zoo photos)
+12. In the Community (open house photos)
+13. My Team (team photos + bios for Emma Reed & Bella Cloyd)
+14. Published Author (AI Unmasked book)
+15. Projects I'm Building With AI
+16. Find Me Online (social links + Google searches)
+17. FAQ (expandable details)
+18. Footer (contact, social row, CFP Board trademark notice)
 
 ## About Joe
 

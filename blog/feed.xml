@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Joseph A. Lotozo — Blog</title>
+    <link>https://josephalotozo.com/blog/</link>
+    <atom:link href="https://josephalotozo.com/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Building things with AI, community notes, family trips, and life in Upper Arlington, Ohio.</description>
+    <language>en-us</language>
+    <copyright>Copyright 2026 Joseph A. Lotozo</copyright>
+    <lastBuildDate>Thu, 17 Sep 2026 16:48:54 +0000</lastBuildDate>
+    <item>
+      <title>How I Helped a Classmate Get His Food Truck Dream Rolling</title>
+      <link>https://josephalotozo.com/blog/helping-classmate-dosa-rush.html</link>
+      <guid isPermaLink="true">https://josephalotozo.com/blog/helping-classmate-dosa-rush.html</guid>
+      <pubDate>Fri, 26 Jun 2026 12:00:00 +0000</pubDate>
+      <description>A classmate in my MBA program is building a dosa food truck. Here&#x27;s how I used a little tech and a lot of community to help him get noticed — a spotlight, social reach, and an introduction to my Columbus networking group.</description>
+      <enclosure url="https://josephalotozo.com/assets/dosa-rush-food-1.jpg" type="image/jpeg" length="899644" />
+    </item>
+    <item>
+      <title>I Joined My MBA Student Council. Then I Built Us a Website.</title>
+      <link>https://josephalotozo.com/blog/building-wpmba-council-website.html</link>
+      <guid isPermaLink="true">https://josephalotozo.com/blog/building-wpmba-council-website.html</guid>
+      <pubDate>Mon, 22 Jun 2026 12:00:00 +0000</pubDate>
+      <description>How Joe Lotozo used Claude Code to build a website for the Ohio State Fisher Working Professional MBA Student Council — in an afternoon, with zero coding experience.</description>
+      <enclosure url="https://josephalotozo.com/assets/og/og-wpmba-council.jpg" type="image/jpeg" length="60011" />
+    </item>
+    <item>
+      <title>She Was There When My Daughters Were Born. I Built Her Website.</title>
+      <link>https://josephalotozo.com/blog/building-pats-endoflife-website.html</link>
+      <guid isPermaLink="true">https://josephalotozo.com/blog/building-pats-endoflife-website.html</guid>
+      <pubDate>Tue, 12 May 2026 12:00:00 +0000</pubDate>
+      <description>Pat Dodge was our doula for three births. Now she&#x27;s an end-of-life midwife — and I used Claude Code to build her a website in about three hours.</description>
+      <enclosure url="https://josephalotozo.com/assets/og/og-pats-website.jpg" type="image/jpeg" length="54310" />
+    </item>
+    <item>
+      <title>Building a Cancer Clinical Trial Finder With ChatGPT Codex</title>
+      <link>https://josephalotozo.com/blog/aunt-jane-cancer-trial-compass.html</link>
+      <guid isPermaLink="true">https://josephalotozo.com/blog/aunt-jane-cancer-trial-compass.html</guid>
+      <pubDate>Tue, 05 May 2026 12:00:00 +0000</pubDate>
+      <description>How my aunt Jane&#x27;s idea for a cancer clinical trial finder became Cancer Trial Compass, an AI-assisted app built with ChatGPT Codex, React, Firebase, and ClinicalTrials.gov data.</description>
+      <enclosure url="https://josephalotozo.com/assets/cancer-trial-compass-overview.png" type="image/png" length="864913" />
+    </item>
+    <item>
+      <title>My Brother Has Been Shooting Film for Years. I Finally Built Him a Website.</title>
+      <link>https://josephalotozo.com/blog/building-toms-photo-site.html</link>
+      <guid isPermaLink="true">https://josephalotozo.com/blog/building-toms-photo-site.html</guid>
+      <pubDate>Tue, 05 May 2026 12:00:00 +0000</pubDate>
+      <description>My brother Tom has been shooting 35mm film photography for years — landscapes, travel, portraits. He had an Instagram and a stack of negatives. What he didn&#x27;t have was a website. So I built him one.</description>
+      <enclosure url="https://josephalotozo.com/assets/tom-paris-eiffel-night.jpg" type="image/jpeg" length="343090" />
+    </item>
+    <item>
+      <title>I Built It in a Night. I Didn&#x27;t Stop There.</title>
+      <link>https://josephalotozo.com/blog/streamnchill-update.html</link>
+      <guid isPermaLink="true">https://josephalotozo.com/blog/streamnchill-update.html</guid>
+      <pubDate>Sun, 19 Apr 2026 12:00:00 +0000</pubDate>
+      <description>StreamNChill started as a one-night experiment. Two weeks later it has Watch Together, a Wrapped Card, Face ID sign-in, and a dozen other features. Here&#x27;s what happened.</description>
+      <enclosure url="https://josephalotozo.com/assets/og/og-streamnchill-update.jpg" type="image/jpeg" length="31233" />
+    </item>
+    <item>
+      <title>My Mom Gave Me an App Idea. I Built It That Night.</title>
+      <link>https://josephalotozo.com/blog/streamnchill.html</link>
+      <guid isPermaLink="true">https://josephalotozo.com/blog/streamnchill.html</guid>
+      <pubDate>Wed, 08 Apr 2026 12:00:00 +0000</pubDate>
+      <description>How a casual suggestion from my mom turned into a full AI-powered streaming tracker — built overnight with Claude Code, no developer required.</description>
+      <enclosure url="https://josephalotozo.com/assets/og/og-streamnchill.jpg" type="image/jpeg" length="34660" />
+    </item>
+    <item>
+      <title>I Built a Drink Tracker App With AI — Here&#x27;s What Happened</title>
+      <link>https://josephalotozo.com/blog/sip-tracker.html</link>
+      <guid isPermaLink="true">https://josephalotozo.com/blog/sip-tracker.html</guid>
+      <pubDate>Sun, 05 Apr 2026 12:00:00 +0000</pubDate>
+      <description>How Joe Lotozo used Claude to build Sip Tracker — a personal drink and calorie logging app — with no coding background and a single afternoon.</description>
+      <enclosure url="https://josephalotozo.com/assets/og/og-sip-tracker.jpg" type="image/jpeg" length="25791" />
+    </item>
+    <item>
+      <title>Tornadoes, Soul Food, and the Edge of America</title>
+      <link>https://josephalotozo.com/blog/folly-beach-spring-break-2026.html</link>
+      <guid isPermaLink="true">https://josephalotozo.com/blog/folly-beach-spring-break-2026.html</guid>
+      <pubDate>Tue, 31 Mar 2026 12:00:00 +0000</pubDate>
+      <description>Our spring break road trip to Folly Beach, SC — with a tornado warning in a 300-year-old Moravian building, soul food where George Washington ate, jellyfish at the pier, and a country deli that surprised us on the way home.</description>
+      <enclosure url="https://josephalotozo.com/assets/folly-family-silhouettes-ocean.jpg" type="image/jpeg" length="293990" />
+    </item>
+    <item>
+      <title>Uncle Robbie&#x27;s Picks: Building a Sports App in 24 Hours</title>
+      <link>https://josephalotozo.com/blog/uncle-robbies-picks.html</link>
+      <guid isPermaLink="true">https://josephalotozo.com/blog/uncle-robbies-picks.html</guid>
+      <pubDate>Sat, 28 Mar 2026 12:00:00 +0000</pubDate>
+      <description>What happens when a non-developer, his brother-in-law, and an AI spend 24 hours trying to build a live MLB prop bet app from scratch. A story about curiosity, debugging, and deploying something real.</description>
+      <enclosure url="https://josephalotozo.com/assets/uncle-robbie-karaoke.jpg" type="image/jpeg" length="255319" />
+    </item>
+    <item>
+      <title>Building My Mom&#x27;s Law Firm Website with AI</title>
+      <link>https://josephalotozo.com/blog/building-moms-law-website.html</link>
+      <guid isPermaLink="true">https://josephalotozo.com/blog/building-moms-law-website.html</guid>
+      <pubDate>Wed, 04 Mar 2026 12:00:00 +0000</pubDate>
+      <description>How Joe Lotozo used Claude Code to build a professional website for his mother&#x27;s estate planning law practice — with zero coding experience and zero budget.</description>
+      <enclosure url="https://josephalotozo.com/assets/og/og-moms-law.jpg" type="image/jpeg" length="51251" />
+    </item>
+    <item>
+      <title>I Have a Genie and His Name is Claude</title>
+      <link>https://josephalotozo.com/blog/ai-chamber-wrapped.html</link>
+      <guid isPermaLink="true">https://josephalotozo.com/blog/ai-chamber-wrapped.html</guid>
+      <pubDate>Sat, 28 Feb 2026 12:00:00 +0000</pubDate>
+      <description>How Joe Lotozo used Claude Code and AI to build an interactive Chamber Wrapped presentation with zero coding experience — and why the speech itself had to be his own.</description>
+      <enclosure url="https://josephalotozo.com/assets/chamber-speech-podium.jpg" type="image/jpeg" length="162787" />
+    </item>
+  </channel>
+</rss>
