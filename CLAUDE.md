@@ -2,6 +2,43 @@
 
 Personal website for Joseph A. Lotozo — CFP® professional, Financial Advisor and Partner at Edward Jones, Upper Arlington, Ohio.
 
+## Current State — September 17, 2026
+
+Live and deployed (commits `54330a7`, `e0ce6fd`). Everything below is on `main` and public.
+
+**Shipped today**
+- Instagram featured as the primary social channel: `#instagram` section (`.section-dark`),
+  nav link, footer row. Facebook now points at the personal profile
+  (`facebook.com/jolotozo`) with the Edward Jones page listed separately; X moved to `x.com`;
+  `sameAs` went from 2 profiles to 6.
+- `BlogPosting` JSON-LD on all 12 posts; `og:image` added to the 6 that had none (new cards in
+  `assets/og/`); OG/Twitter/`Blog` schema on the blog index.
+- RSS at `blog/feed.xml` + `tools/generate_feed.py`; branded `404.html`.
+- MS in Personal Financial Planning added as a credential card; What I'm Reading reworked
+  into a running log.
+- Two defects fixed: footer paragraphs were invisible (global `p` rule set `#333`, same as the
+  footer background), and `assets/streamnchill-homescreen.png` was publishing named contacts
+  with their photos in an iOS share sheet — the contact row was cut out.
+
+**Uncommitted drafts (intentionally not published, not in index/sitemap/feed)**
+- `blog/streamnchill-play-store.html` — "I Said You Wouldn't Need an App Store. Now I Need 12
+  Testers." Written Sept 17. Framed around Play Store *search discoverability*, which is Joe's
+  actual reason — not a reversal of the April "no App Store required" post. Held pending a
+  decision; its images (`assets/streamnchill-store-icon.png`, `assets/og/og-streamnchill-play.jpg`)
+  are also uncommitted.
+- `blog/chamber-chair-lessons.html` — finished draft dated **July 2026**, still unpublished.
+  Not written by this session. Needs a publish/redate/kill decision.
+
+**Open**
+- The six `.ig-grid` tiles are site photos standing in for real Instagram posts. Instagram
+  blocks programmatic extraction, so swapping them needs Joe to export images by hand. No bee
+  photo exists in `assets/` despite beekeeping being his most-posted subject.
+- Joe's Instagram bio still links the EJ-hosted advisor site rather than josephalotozo.com.
+- Several StreamNChill screenshots show the retired `watchlist-joelotozo.web.app` URL.
+- `index.html` is ~1,400 lines and each social lives in three places (card, `sameAs`, FAQ),
+  which is why the Facebook label drifted out of sync. A refactor was deferred, not rejected.
+- `sitemap.xml` does not list `tvcp-2025/`.
+
 ## Site Structure
 
 ```
